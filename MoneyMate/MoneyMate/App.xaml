@@ -3,6 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MoneyMate.App">
     <Application.Resources>
-
+        <Label Text="Bradley" />
     </Application.Resources>
 </Application>
