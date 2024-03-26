@@ -10,7 +10,7 @@ namespace MoneyMate
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new OnboardingPage();
         }
 
         protected override void OnStart ()

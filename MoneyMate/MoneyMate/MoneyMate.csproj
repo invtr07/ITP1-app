@@ -15,4 +15,16 @@
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="SharedResources\" />
+    <None Remove="SharedResources\lloyds_logo.jpg" />
+    <None Remove="SharedResources\onboarding.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SharedResources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SharedResources\lloyds_logo.jpg" />
+    <EmbeddedResource Include="SharedResources\onboarding.jpg" />
+  </ItemGroup>
 </Project>

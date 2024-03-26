@@ -113,6 +113,8 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Image.imageset\Contents.json" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -132,5 +134,12 @@
       <Project>{885FEE42-A87E-4426-B1A1-1B6347019457}</Project>
       <Name>MoneyMate</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Images\lloyds_logo.jpg" />
+    <EmbeddedResource Include="Resources\Images\onboarding.jpg" />
   </ItemGroup>
 </Project>

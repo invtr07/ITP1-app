@@ -3,6 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MoneyMate.App">
     <Application.Resources>
-        <Label Text="Bradley" />
+        <ResourceDictionary>
+            <Color x:Key="MyColor">#006E2A</Color>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

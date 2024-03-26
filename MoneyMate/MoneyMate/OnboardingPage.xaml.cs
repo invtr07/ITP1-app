@@ -8,9 +8,9 @@ using Xamarin.Forms;
 
 namespace MoneyMate
 {
-    public partial class MainPage : ContentPage
+    public partial class OnboardingPage : ContentPage
     {
-        public MainPage()
+        public OnboardingPage()
         {
             InitializeComponent();
         }
