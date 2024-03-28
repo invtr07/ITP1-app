@@ -1,16 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MoneyMate.OnboardingPage" BackgroundColor="White">
+             x:Class="MoneyMate.OnboardingPage" BackgroundColor="White"
+             NavigationPage.HasNavigationBar="False">
 
     <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-            <Label FontSize="42" FontFamily="Inter" FontAttributes="Bold" TextColor="{StaticResource Green}" HorizontalOptions="Center"> Money Mate </Label>
+            <Label FontSize="42" FontFamily="Inter" FontAttributes="Bold" TextColor="#006E2A" HorizontalOptions="Center"> Money Mate </Label>
             <Label FontSize="20" FontFamily="Inter" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center">LLOYDS BANK</Label>
      
             <Image Source="drawable/lloyds_logo.jpg" WidthRequest="50" HeightRequest="40"/>
             <Image Source="drawable/onboarding.jpg" WidthRequest="300" HeightRequest="300"/>
 
-            <Button Clicked="Button_Clicked" Text="Get started" TextColor="White" BackgroundColor="{StaticResource Green}"
+            <Button Clicked="Button_Clicked" Text="Get started" TextColor="White" BackgroundColor="#006E2A"
                     Margin="50" WidthRequest="300" CornerRadius="15"/>
 
     </StackLayout>

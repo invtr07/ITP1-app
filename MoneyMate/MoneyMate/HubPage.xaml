@@ -4,7 +4,37 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="MoneyMate.HubPage">
     <ContentPage.Content>
-        <Label>Hub</Label>
+        <RelativeLayout>
+            
+            <StackLayout BackgroundColor="LightBlue">
+                <Label FontSize="42" FontFamily="Inter" FontAttributes="Bold" TextColor="#006E2A" Margin="20">Hub</Label>
+            </StackLayout>
+            
+            <StackLayout BackgroundColor="LightGreen"
+                         RelativeLayout.XConstraint="50"
+                         RelativeLayout.YConstraint="150"
+                         RelativeLayout.WidthConstraint="300">
+
+                <StackLayout WidthRequest="60">
+                    <BoxView BackgroundColor="Gray" CornerRadius="60" WidthRequest="60"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="Start">
+                    <Label  FontSize="24" FontFamily="Inter" FontAttributes="Bold" Margin="10"
+                    HorizontalOptions="Center">Username</Label>
+                    <ListView >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                            
+
+                            </DataTemplate>
+                         </ListView.ItemTemplate>
+                    </ListView>
+
+                </StackLayout>
+                
+            </StackLayout>
+
+        </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>
 

@@ -5,9 +5,9 @@
              xmlns:local="clr-namespace:MoneyMate;assembly=MoneyMate"
              NavigationPage.HasNavigationBar="False"
              xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
-             BarBackgroundColor="{StaticResource WhiteGray}"
-             SelectedTabColor="{StaticResource Green}"
-             UnselectedTabColor="{StaticResource DarkGray}"
+             BarBackgroundColor="#D9D9D9"
+             SelectedTabColor="#006E2A"
+             UnselectedTabColor="#959697"
              android:TabbedPage.ToolbarPlacement="Bottom"
              >
     
@@ -15,5 +15,5 @@
     <local:HelpPage Title="Help" IconImageSource="drawable/help_icon.png"/>
     <local:InsightsPage Title="Insights" IconImageSource="drawable/insights_icon.png"/>
     <local:HubPage Title="Hub" IconImageSource="drawable/hub_icon.png"/>
-    <!--When added icons, they had white background and also I need to find a way to color the selected icon which is extra feature I don't want to spend time on right now-->
+    
 </TabbedPage>

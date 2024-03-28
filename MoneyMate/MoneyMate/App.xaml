@@ -4,9 +4,7 @@
              x:Class="MoneyMate.App">
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="Green">#006E2A</Color>
-            <Color x:Key="WhiteGray">#D9D9D9</Color>
-            <Color x:Key="DarkGray">#959697</Color>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>
