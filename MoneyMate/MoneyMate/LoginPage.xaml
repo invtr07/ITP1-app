@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MoneyMate.LoginPage" BackgroundColor="White"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout Spacing="60" VerticalOptions="CenterAndExpand">
+                <FlexLayout AlignItems="Center" Direction="Column">
+                     <Label FontSize="42" FontFamily="Inter" FontAttributes="Bold" TextColor="{StaticResource Green}" HorizontalOptions="Center"> Money Mate </Label>
+                    <Image Source="drawable/lloyds_logo.jpg" WidthRequest="50" HeightRequest="40"/>
+                    <Label Margin="0,10" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" FontSize="32" TextColor="Black" FontAttributes="Bold">Sign in</Label>
+                    <Label Margin="0,5" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" FontSize="12" TextColor="Gray" FontAttributes="Bold">Enter your Lloyds login details</Label> 
+                </FlexLayout>
+                            
+               <FlexLayout Direction="Column" AlignItems="Center">
+                     <Entry Margin="10" Placeholder="Full name" WidthRequest="300"></Entry>
+                     <Entry Margin="10" Placeholder="Password" WidthRequest="300"></Entry>
+                    <Button Clicked="Button_Clicked" Margin="12" Text="Sign in" BackgroundColor="{StaticResource Green}" TextColor="White" WidthRequest="300" CornerRadius="15"/>
+                </FlexLayout>
+ 
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+

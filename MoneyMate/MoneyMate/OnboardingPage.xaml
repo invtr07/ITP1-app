@@ -10,9 +10,9 @@
             <Image Source="drawable/lloyds_logo.jpg" WidthRequest="50" HeightRequest="40"/>
             <Image Source="drawable/onboarding.jpg" WidthRequest="300" HeightRequest="300"/>
 
-            <Button Text="Get started" TextColor="White" BackgroundColor="{StaticResource Green}"
+            <Button Clicked="Button_Clicked" Text="Get started" TextColor="White" BackgroundColor="{StaticResource Green}"
                     Margin="50" WidthRequest="300" CornerRadius="15"/>
-    </StackLayout>
 
+    </StackLayout>
 </ContentPage>
 
