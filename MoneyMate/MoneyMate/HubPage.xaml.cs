@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using Xamarin.Forms;
 
 namespace MoneyMate
@@ -11,6 +10,28 @@ namespace MoneyMate
 		{
 			InitializeComponent ();
 		}
-	}
+
+        void Button_Clicked(System.Object sender, System.EventArgs e)
+        {
+            
+            Navigation.PushAsync(new MoneyMate.ParentPages.CashflowTabs());
+        }
+
+        void Button_Clicked_1(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new MoneyMate.SavingsPage());
+
+        }
+
+        void Button_Clicked_2(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new MoneyMate.DebtsControlPage());
+        }
+
+        void ImageButton_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new MoneyMate.ParentPages.ProfilePage());
+        }
+    }
 }
 

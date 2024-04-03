@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MoneyMate.ParentPages.ProfilePage"
+    Title="Profile settings">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand">
+            <StackLayout HorizontalOptions="CenterAndExpand" Margin="0,40,0,50" >
+                <Image Source="drawable/avatar.png" HeightRequest="80"/>
+                <Label Text="User name" FontAttributes="Bold" FontSize="24" TextColor="Black"></Label>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="20">
+                <Label FontSize="24" VerticalOptions="Center">Text size</Label>
+                <Picker Title="choose size" WidthRequest="200" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" Margin="20">
+                <Label FontSize="24" VerticalOptions="Center">Inverse colour</Label>
+                <Switch IsToggled="false" />
+            </StackLayout>
+
+            <StackLayout VerticalOptions="EndAndExpand">
+                <Button TextColor="red" Text="Log out" Margin="20"/>
+            </StackLayout>
+
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>
+

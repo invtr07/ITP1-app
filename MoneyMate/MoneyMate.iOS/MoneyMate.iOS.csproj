@@ -125,8 +125,20 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2662" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.8.1" />
+    <PackageReference Include="Syncfusion.Licensing">
+      <Version>25.1.38</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.Core">
+      <Version>25.1.38</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfChart">
+      <Version>25.1.38</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfChart.IOS">
+      <Version>25.1.38</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
