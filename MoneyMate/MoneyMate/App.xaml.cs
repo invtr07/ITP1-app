@@ -10,6 +10,7 @@ namespace MoneyMate
         public App ()
         {
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NBaF5cXmZCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdnWXtec3RdRGhcVkFxXEE=");
+
             InitializeComponent();
 
             MainPage = new NavigationPage(new OnboardingPage());

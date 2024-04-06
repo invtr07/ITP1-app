@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace MoneyMate
 {	
-	public partial class SavingsPage : ContentPage
+	public partial class AIChatPage : ContentPage
 	{	
-		public SavingsPage ()
+		public AIChatPage ()
 		{
 			InitializeComponent ();
 		}

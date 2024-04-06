@@ -3,7 +3,8 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="MoneyMate.ParentPages.ProfilePage"
-    Title="Profile settings">
+    Title="Profile settings"
+    >
     <ContentPage.Content>
         <StackLayout VerticalOptions="FillAndExpand">
             <StackLayout HorizontalOptions="CenterAndExpand" Margin="0,40,0,50" >
@@ -22,7 +23,7 @@
             </StackLayout>
 
             <StackLayout VerticalOptions="EndAndExpand">
-                <Button TextColor="red" Text="Log out" Margin="20"/>
+                <Button Clicked="Button_Clicked" TextColor="red" Text="Log out" Margin="20"/>
             </StackLayout>
 
         </StackLayout>

@@ -10,11 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace MoneyMate.ParentPages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CashflowTabs : TabbedPage
+    public partial class SavingMoneyPotTabs : TabbedPage
     {
-        public CashflowTabs ()
+        public SavingMoneyPotTabs ()
         {
             InitializeComponent();
         }
     }
-}   
+}

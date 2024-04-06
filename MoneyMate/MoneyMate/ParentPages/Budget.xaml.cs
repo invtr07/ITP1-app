@@ -11,6 +11,11 @@ namespace MoneyMate.ParentPages
 		{
 			InitializeComponent ();
 		}
-	}
+
+        void Button_Clicked(System.Object sender, System.EventArgs e)
+        {
+			Navigation.PushModalAsync(new ModalPages.BudgetModal());
+        }
+    }
 }
 

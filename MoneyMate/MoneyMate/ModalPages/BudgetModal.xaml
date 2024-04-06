@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MoneyMate.ModalPages.BudgetModal"
+    BackgroundColor="Gray">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center" BackgroundColor="White" Margin="50" Padding="10">
+            <StackLayout Orientation="Horizontal" Spacing="15" >
+                <Label Text="Enter your budget:"  TextColor="Black" FontSize="Body" VerticalOptions="Center"/>
+                <Entry x:Name="budgetAmount" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+
+            <Picker Title="Time period"/>
+
+            <Button Text="Submit" Clicked="Button_Clicked_1" FontSize="16" TextColor="White" BackgroundColor="#006E2A" CornerRadius="15"/>
+            <Button Text="Close" Clicked="SubmitButton_Clicked" FontSize="12" TextColor="White" BackgroundColor="Gray" CornerRadius="15" WidthRequest="100"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+

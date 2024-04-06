@@ -2,9 +2,21 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="MoneyMate.HelpPage">
+    x:Class="MoneyMate.HelpPage"
+    BackgroundColor="#F2F2F7"
+    >
     <ContentPage.Content>
-        <Label>Help page</Label>
+        <StackLayout HorizontalOptions="FillAndExpand">
+            <Label FontAttributes="Bold" FontSize="30" TextColor="#006E2A" Margin="20" HorizontalOptions="FillAndExpand">How can we help you?</Label>
+
+            <StackLayout VerticalOptions="CenterAndExpand" Margin="10">
+                <Button Clicked="Button_Clicked" Text="AI chat" ImageSource="drawable/aichat.png" BackgroundColor="White" CornerRadius="15" Margin="0,0,0,50" />
+                <Button Clicked="Button_Clicked_1" Text="Financial consultant" ImageSource="drawable/person.png" BackgroundColor="White" CornerRadius="15"/>
+            </StackLayout>
+            
+
+        </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>
 

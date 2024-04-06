@@ -3,25 +3,22 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 
-namespace MoneyMate
+namespace MoneyMate.ModalPages
 {	
-	public partial class HelpPage : ContentPage
+	public partial class BookingModal : ContentPage
 	{	
-		public HelpPage ()
+		public BookingModal ()
 		{
 			InitializeComponent ();
 		}
 
         void Button_Clicked(System.Object sender, System.EventArgs e)
         {
-			Navigation.PushAsync(new AIChatPage(), true);
-
         }
 
         void Button_Clicked_1(System.Object sender, System.EventArgs e)
         {
-            Navigation.PushModalAsync(new ModalPages.BookingModal());
-
+            Navigation.PopModalAsync();
         }
     }
 }

@@ -19,7 +19,7 @@ namespace MoneyMate
 
         void Button_Clicked_1(System.Object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new MoneyMate.SavingsPage());
+            Navigation.PushAsync(new MoneyMate.ParentPages.SavingMoneyPotTabs());
 
         }
 

@@ -18,20 +18,21 @@
     <PackageReference Include="Syncfusion.Licensing" Version="25.1.38" />
     <PackageReference Include="Syncfusion.Xamarin.Core" Version="25.1.38" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.0" />
-    <PackageReference Include="Syncfusion.Xamarin.SfChart" Version="25.1.38" />
+    <PackageReference Include="Syncfusion.Xamarin.SfChart" Version="24.2.9" />
+    <PackageReference Include="Syncfusion.Xamarin.SfChat" Version="25.1.38" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="SharedResources\" />
-    <None Remove="SharedResources\lloyds_logo.jpg" />
-    <None Remove="SharedResources\onboarding.jpg" />
     <None Remove="ParentPages\" />
+    <None Remove="Data models\" />
+    <None Remove="ModalPages\" />
+    <None Remove="InsightComponents\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="SharedResources\" />
     <Folder Include="ParentPages\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="SharedResources\lloyds_logo.jpg" />
-    <EmbeddedResource Include="SharedResources\onboarding.jpg" />
+    <Folder Include="Data models\" />
+    <Folder Include="ModalPages\" />
+    <Folder Include="InsightComponents\" />
   </ItemGroup>
 </Project>

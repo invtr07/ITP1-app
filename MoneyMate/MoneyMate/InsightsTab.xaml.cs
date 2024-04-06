@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace MoneyMate.ParentPages
+namespace MoneyMate
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CashflowTabs : TabbedPage
+    public partial class InsightsTab : TabbedPage
     {
-        public CashflowTabs ()
+        public InsightsTab ()
         {
             InitializeComponent();
         }
     }
-}   
+}

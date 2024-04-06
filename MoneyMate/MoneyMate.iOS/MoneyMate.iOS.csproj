@@ -134,9 +134,9 @@
       <Version>25.1.38</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfChart">
-      <Version>25.1.38</Version>
+      <Version>24.2.9</Version>
     </PackageReference>
-    <PackageReference Include="Syncfusion.Xamarin.SfChart.IOS">
+    <PackageReference Include="Syncfusion.Xamarin.SfChat">
       <Version>25.1.38</Version>
     </PackageReference>
   </ItemGroup>

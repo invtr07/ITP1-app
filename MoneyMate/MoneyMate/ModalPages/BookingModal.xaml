@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MoneyMate.ModalPages.BookingModal"
+    BackgroundColor="Gray">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center" BackgroundColor="White" Margin="50" Padding="10">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Enter your name" FontSize="Body" TextColor="Black" VerticalOptions="Center"/> 
+                <Entry x:Name="bookingName" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" >
+                <Label Text="Enter your query:"  TextColor="Black" FontSize="Body" VerticalOptions="Center"/>
+                <Entry x:Name="problemDesc" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+
+            <DatePicker MinimumDate="01/01/2024"
+                        MaximumDate="12/31/2024"
+                        Date="06/21/2024"/>
+
+            <Button Text="Submit" Clicked="Button_Clicked" FontSize="16" TextColor="White" BackgroundColor="#006E2A" CornerRadius="15"/>
+            <Button Text="Close" Clicked="Button_Clicked_1" FontSize="12" TextColor="White" BackgroundColor="Gray" CornerRadius="15" WidthRequest="100"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+
