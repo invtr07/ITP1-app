@@ -4,7 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="MoneyMate.DashboardPage">
     <StackLayout>
-        <Label>Dashboard page</Label>
+        <Label>Dashboard pag123456e</Label>
+        
 
     </StackLayout>
 </ContentPage>
