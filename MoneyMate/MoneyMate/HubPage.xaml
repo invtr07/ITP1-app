@@ -9,7 +9,7 @@
             <Label FontAttributes="Bold" FontSize="42" TextColor="#006E2A" Margin="20">Hub</Label>
 
             <StackLayout HorizontalOptions="CenterAndExpand" Margin="0,0,0,50" >
-                <ImageButton Clicked="ImageButton_Clicked" Source="drawable/avatar.png" HeightRequest="70" BackgroundColor="#F2F2F7"/>
+                <ImageButton Clicked="ImageButton_Clicked" Source="person.png" HeightRequest="70" BackgroundColor="#F2F2F7"/>
                 <Label Text="User name" FontAttributes="Bold" FontSize="24" TextColor="Black"></Label>
             </StackLayout>
             

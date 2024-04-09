@@ -11,9 +11,9 @@
              android:TabbedPage.ToolbarPlacement="Bottom"
              >
     
-    <local:DashboardPage Title="Dashboard" IconImageSource="drawable/dashboard_icon.png"/>
-    <local:HelpPage Title="Help" IconImageSource="drawable/help_icon.png"/>
-    <local:InsightsTab Title="Insights" IconImageSource="drawable/insights_icon.png"/>
-    <local:HubPage Title="Hub" IconImageSource="drawable/hub_icon.png"/>
+    <local:DashboardPage Title="Dashboard" IconImageSource="dashboard_icon.png"/>
+    <local:HelpPage Title="Help" IconImageSource="help_icon.png"/>
+    <local:InsightsTab Title="Insights" IconImageSource="insights_icon.png"/>
+    <local:HubPage Title="Hub" IconImageSource="hub_icon.png"/>
     
 </TabbedPage>

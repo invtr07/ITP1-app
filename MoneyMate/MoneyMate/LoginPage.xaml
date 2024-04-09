@@ -8,7 +8,7 @@
         <StackLayout Spacing="60" VerticalOptions="CenterAndExpand">
                 <FlexLayout AlignItems="Center" Direction="Column">
                      <Label FontSize="42" FontFamily="Inter" FontAttributes="Bold" TextColor="#006E2A" HorizontalOptions="Center"> Money Mate </Label>
-                    <Image Source="drawable/lloyds_logo.jpg" WidthRequest="50" HeightRequest="40"/>
+                    <Image Source="lloydslogo.png" WidthRequest="50" HeightRequest="40"/>
                     <Label Margin="0,10" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" FontSize="32" TextColor="Black" FontAttributes="Bold">Sign in</Label>
                     <Label Margin="0,5" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" FontSize="12" TextColor="Gray" FontAttributes="Bold">Enter your Lloyds login details</Label> 
                 </FlexLayout>

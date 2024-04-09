@@ -6,31 +6,20 @@
     xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
     BackgroundColor="#F2F2F7">
     <ContentPage.Content>
-        <StackLayout>
-            <StackLayout HorizontalOptions="FillAndExpand" Margin="20" BackgroundColor="White" Padding="20">
-               <Label Text="Total balance" HorizontalOptions="Center" FontSize="20"/>
-               <Label Text="£ 2,8256.00" HorizontalOptions="Center" TextColor="Black" FontSize="35"/> <!--Add data binding and create data models-->
-               <Label Text="Arranged overdraft: £ 1,000.00" HorizontalOptions="Center" FontSize="15"/>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand" Margin="20" BackgroundColor="White" Padding="20">
+                   <Label Text="Total balance" HorizontalOptions="Center" FontSize="20"/>
+                   <Label Text="£ 2,8256.00" HorizontalOptions="Center" TextColor="Black" FontSize="35"/> <!--Add data binding and create data models-->
+                   <Label Text="Arranged overdraft: £ 1,000.00" HorizontalOptions="Center" FontSize="15"/>
 
 
-            </StackLayout>
+                </StackLayout>
 
-                <chart:SfChart>
-                    <chart:SfChart.PrimaryAxis>
-
-                    <chart:CategoryAxis>
- 
-                    </chart:CategoryAxis>
-
-                </chart:SfChart.PrimaryAxis>
-
-                <chart:SfChart.SecondaryAxis>
-
-                    <chart:NumericalAxis>
-
-                    </chart:NumericalAxis>
-
-                </chart:SfChart.SecondaryAxis>
+            <chart:SfChart>
+                 <chart:DoughnutSeries x:Name="doughNut" ItemsSource ="{Binding Transactions}"
+	                  XBindingPath="Expense"
+	                  YBindingPath="Value"/>
 
             </chart:SfChart>
 
@@ -48,7 +37,7 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                            <ViewCell>
-                                <Frame Margin="5" Padding="0" BorderColor="White" CornerRadius="5" HasShadow="True">
+                                
                                     <StackLayout Orientation="Horizontal" Margin="5" MinimumHeightRequest="80">
                                         <StackLayout >
                                             <Label Text="{Binding Treference}" TextColor="Black"/>
@@ -65,10 +54,6 @@
                                         </StackLayout>
 
                                     </StackLayout> 
-
-                                </Frame>
-                                    
-
                                  
                             </ViewCell>
                         </DataTemplate>
@@ -76,6 +61,8 @@
                 </ListView>
                
         </StackLayout>
+
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
 
