@@ -2,20 +2,35 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:sfChat="clr-namespace:Syncfusion.XForms.Chat;assembly=Syncfusion.SfChat.XForms"
     x:Class="MoneyMate.HelpPage"
     BackgroundColor="#F2F2F7"
-    >
+    Title="AI help">
     <ContentPage.Content>
-        <StackLayout HorizontalOptions="FillAndExpand">
-            <Label FontAttributes="Bold" FontSize="30" TextColor="#006E2A" Margin="20" HorizontalOptions="FillAndExpand">How can we help you?</Label>
+       
+            <!--<Label FontAttributes="Bold" FontSize="30" TextColor="#006E2A" Margin="20" HorizontalOptions="FillAndExpand">How can we help you?</Label>
 
             <StackLayout VerticalOptions="CenterAndExpand" Margin="10">
-                <Button Clicked="Button_Clicked" Text="AI chat" ImageSource="drawable/aichat.png" BackgroundColor="White" CornerRadius="15" Margin="0,0,0,50" />
-                <Button Clicked="Button_Clicked_1" Text="Financial consultant" ImageSource="drawable/person.png" BackgroundColor="White" CornerRadius="15"/>
-            </StackLayout>
+                <Button Clicked="Button_Clicked" Text="AI chat" ImageSource="aichat.png" BackgroundColor="White" CornerRadius="15" Margin="0,0,0,50" />
+                <Button Clicked="Button_Clicked_1" Text="Financial consultant" ImageSource="person.png" BackgroundColor="White" CornerRadius="15"/>
+            </StackLayout>-->
             
 
-        </StackLayout>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    
+                    
+                    <Button Clicked="Button_Clicked_1" Text="Book expert consultation"  BackgroundColor="green" TextColor="white" CornerRadius="15" HorizontalOptions="EndAndExpand"/>
+
+                </StackLayout>
+                
+               <sfChat:SfChat x:Name="Chat"/>
+                <Label Margin="10" HorizontalTextAlignment="Center" FontSize="Subtitle">AI can make mistakes. Consider consulting with finance advisor for important queries!</Label>
+               
+                
+        
+            </StackLayout> 
+        
         
     </ContentPage.Content>
 </ContentPage>

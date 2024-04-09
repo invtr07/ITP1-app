@@ -16840,7 +16840,7 @@ namespace MoneyMate.Droid
 			public const int insights_icon = 2131165332;
 			
 			// aapt resource value: 0x7F070095
-			public const int lloyds_logo = 2131165333;
+			public const int lloydslogo = 2131165333;
 			
 			// aapt resource value: 0x7F070096
 			public const int material_cursor_drawable = 2131165334;

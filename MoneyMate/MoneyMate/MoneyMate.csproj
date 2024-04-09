@@ -20,6 +20,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.0" />
     <PackageReference Include="Syncfusion.Xamarin.SfChart" Version="24.2.9" />
     <PackageReference Include="Syncfusion.Xamarin.SfChat" Version="25.1.38" />
+    <PackageReference Include="MySqlConnector" Version="2.3.6" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="SharedResources\" />
