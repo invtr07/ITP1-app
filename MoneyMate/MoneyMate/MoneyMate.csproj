@@ -25,15 +25,15 @@
   <ItemGroup>
     <None Remove="SharedResources\" />
     <None Remove="ParentPages\" />
-    <None Remove="Data models\" />
     <None Remove="ModalPages\" />
     <None Remove="InsightComponents\" />
+    <None Remove="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="SharedResources\" />
     <Folder Include="ParentPages\" />
-    <Folder Include="Data models\" />
     <Folder Include="ModalPages\" />
     <Folder Include="InsightComponents\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
 </Project>

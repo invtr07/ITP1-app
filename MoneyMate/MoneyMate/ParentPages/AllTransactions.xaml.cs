@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 
-namespace MoneyMate
+namespace MoneyMate.ParentPages
 {	
-	public partial class InsightsPage : ContentPage
+	public partial class AllTransactions : ContentPage
 	{	
-		public InsightsPage ()
+		public AllTransactions ()
 		{
 			InitializeComponent ();
 		}

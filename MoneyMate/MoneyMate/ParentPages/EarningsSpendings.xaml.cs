@@ -8,7 +8,7 @@ namespace MoneyMate.ParentPages
 	public partial class EarningsSpendings : ContentPage
 	{
         public Transactions[] transactions;
-        public Transactions[] doughNutCategories;
+        
 
         public EarningsSpendings ()
 		{
@@ -23,24 +23,18 @@ namespace MoneyMate.ParentPages
             
 
             };
-            doughNutCategories = new Transactions[] {
-                new Transactions { Category="A", Amount= 500.00m},
-                new Transactions { Category = "B", Amount = 300.00m },
-                new Transactions { Category="C", Amount= 700.00m}
-
-
-            };
+            
 
 
 
-            ListViewT.ItemsSource = transactions;
-            doughNut.ItemsSource = transactions;
+            CollectionViewT.ItemsSource = transactions;
+            
 
         }
 
         void SeeAllTapped(System.Object sender, System.EventArgs e)
         {
-            DisplayAlert("Alert", "See all tapped!", "OK");
+            Navigation.PushAsync(new AllTransactions(), true);
         }
 
         public class Transactions

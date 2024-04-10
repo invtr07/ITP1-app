@@ -2,10 +2,81 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="MoneyMate.DashboardPage">
-    <StackLayout>
-        <Label>Dashboard page</Label>
+    x:Class="MoneyMate.DashboardPage"
+     xmlns:syncfusion="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+     >
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="10">
 
-    </StackLayout>
+                <!-- Header Section -->
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Hello" FontAttributes="Bold" Margin="10" FontSize="36" TextColor="#1A7D3F"/>
+                    <Label Text="username" FontAttributes="Bold" Margin="0,10" FontSize="36" TextColor="#1A7D3F"/>
+                    <Label Text="!" FontAttributes="Bold" Margin="0,10" FontSize="36" TextColor="#1A7D3F"/>
+
+                    <!--<Button Text="Edit" HorizontalOptions="EndAndExpand" TextColor="#1A7D3F"/>-->
+                </StackLayout>
+
+                <!-- Total Balance Section -->
+                <Frame CornerRadius="10" Padding="15" HorizontalOptions="FillAndExpand">
+                    <StackLayout>
+                        <Label Text="Total Balance on current account" FontAttributes="Bold"/>
+                        <Label Text="£ 2826.00" FontSize="Large" FontAttributes="Bold"/>
+                        <!-- Income and Expenses should be dynamic, consider using Bindings -->
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <Label Text="Income" FontAttributes="Bold"/>
+                            <Label Text="£ 2,573.00" HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <Label Text="Expenses" FontAttributes="Bold"/>
+                            <Label Text="£ 3,973.00" HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Chart Section -->
+                <syncfusion:SfChart BindingContext="{Binding DoughNutChartModel}">
+                    <syncfusion:SfChart.Title>
+                         <syncfusion:ChartTitle Text="Top 5 spending categories of last month"/>
+                    </syncfusion:SfChart.Title>
+                    
+                    <syncfusion:SfChart.Series>
+                        <syncfusion:DoughnutSeries ItemsSource="{Binding ExpenseDataCollection}"
+                                   XBindingPath="Category"
+                                   YBindingPath="Amount"
+                                   StartAngle="0" 
+                                   EndAngle="360"
+                                   ExplodeOnTouch="True"
+                                   DataMarkerPosition="OutsideExtended"
+                                   EnableSmartLabels="True">
+                         
+                        </syncfusion:DoughnutSeries>
+                    </syncfusion:SfChart.Series>
+                </syncfusion:SfChart>
+
+                 <syncfusion:SfChart x:Name="lineChart" BindingContext="{Binding LineChartModel}">
+                   
+                    <syncfusion:SfChart.PrimaryAxis>
+                        <syncfusion:CategoryAxis />
+                    </syncfusion:SfChart.PrimaryAxis>
+
+                    <syncfusion:SfChart.SecondaryAxis>
+                        <syncfusion:NumericalAxis />
+                    </syncfusion:SfChart.SecondaryAxis>
+
+                    <syncfusion:SfChart.Series>
+                        <syncfusion:LineSeries ItemsSource="{Binding LineChartData}"
+                                               XBindingPath="Date"
+                                               YBindingPath="Amount">
+                        </syncfusion:LineSeries>
+                    </syncfusion:SfChart.Series>
+                </syncfusion:SfChart>
+
+            </StackLayout>
+        </ScrollView>
+        </ContentPage.Content>
 </ContentPage>
 
+    
+    
