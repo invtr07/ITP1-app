@@ -17,7 +17,7 @@ namespace MoneyMate
             LineChartModel = new ViewModels.NetCashFlow();
             DoughNutChartModel = new ViewModels.SpendingCategory();
 
-            this.BindingContext = this;
+            BindingContext = this;
         }
 	}
 }

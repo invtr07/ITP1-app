@@ -36,7 +36,9 @@
                 </Frame>
 
                 <!-- Chart Section -->
-                <syncfusion:SfChart BindingContext="{Binding DoughNutChartModel}">
+
+                <Frame CornerRadius="15" Padding="15" HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="5">
+                    <syncfusion:SfChart BindingContext="{Binding DoughNutChartModel}">
                     <syncfusion:SfChart.Title>
                          <syncfusion:ChartTitle Text="Top 5 spending categories of last month"/>
                     </syncfusion:SfChart.Title>
@@ -49,29 +51,55 @@
                                    EndAngle="360"
                                    ExplodeOnTouch="True"
                                    DataMarkerPosition="OutsideExtended"
-                                   EnableSmartLabels="True">
+                                   EnableSmartLabels="True"
+                                   >
                          
                         </syncfusion:DoughnutSeries>
                     </syncfusion:SfChart.Series>
                 </syncfusion:SfChart>
 
-                 <syncfusion:SfChart x:Name="lineChart" BindingContext="{Binding LineChartModel}">
+                </Frame>
+                
+                
+                <Frame CornerRadius="15" Padding="15" HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="5">
+                    <syncfusion:SfChart x:Name="lineChart" BindingContext="{Binding LineChartModel}" HorizontalOptions="FillAndExpand" HeightRequest="230">
+                     <syncfusion:SfChart.Title>
+                         <syncfusion:ChartTitle Text="Net cash flow dynamics"/>
+                    </syncfusion:SfChart.Title>
                    
                     <syncfusion:SfChart.PrimaryAxis>
-                        <syncfusion:CategoryAxis />
+                        <syncfusion:CategoryAxis>
+                            <syncfusion:CategoryAxis.MajorGridLineStyle>
+                                <syncfusion:ChartLineStyle StrokeWidth="0" />
+                            </syncfusion:CategoryAxis.MajorGridLineStyle>
+
+                        </syncfusion:CategoryAxis>
+                        
                     </syncfusion:SfChart.PrimaryAxis>
 
                     <syncfusion:SfChart.SecondaryAxis>
-                        <syncfusion:NumericalAxis />
+                        <syncfusion:NumericalAxis>
+
+
+                        </syncfusion:NumericalAxis>
                     </syncfusion:SfChart.SecondaryAxis>
 
                     <syncfusion:SfChart.Series>
                         <syncfusion:LineSeries ItemsSource="{Binding LineChartData}"
                                                XBindingPath="Date"
-                                               YBindingPath="Amount">
+                                               YBindingPath="Amount"
+                                               Color="Green"
+                                               StrokeWidth="3">
                         </syncfusion:LineSeries>
                     </syncfusion:SfChart.Series>
                 </syncfusion:SfChart>
+
+                </Frame>
+                 
+
+                
+
+
 
             </StackLayout>
         </ScrollView>
