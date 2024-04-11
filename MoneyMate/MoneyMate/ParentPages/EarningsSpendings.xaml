@@ -2,24 +2,43 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MoneyMate.ParentPages.EarningsSpendings"
-             xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
              BackgroundColor="#F2F2F7">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
                 <StackLayout HorizontalOptions="FillAndExpand" Margin="20" BackgroundColor="White" Padding="20">
-                    <Label Text="Total balance" HorizontalOptions="Center" FontSize="20"/>
+                    <Label Text="Current account" HorizontalOptions="Center" FontSize="20"/>
                     <Label Text="£ 2,8256.00" HorizontalOptions="Center" TextColor="Black" FontSize="35"/>
                     <Label Text="Arranged overdraft: £ 1,000.00" HorizontalOptions="Center" FontSize="15"/>
                 </StackLayout>
 
-                <!--<chart:SfChart>
-                    <chart:DoughnutSeries x:Name="doughNut" ItemsSource="{Binding Transactions}"
-                                          XBindingPath="Expense"
-                                          YBindingPath="Value"/>
-                </chart:SfChart>-->
+                
 
-                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Frame CornerRadius="15" Padding="15" HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="5">
+                    <syncfusion:SfChart BindingContext="{Binding DoughNutChartModel}">
+                    <syncfusion:SfChart.Title>
+                         <syncfusion:ChartTitle Text="Top 5 spending categories of last month"/>
+                    </syncfusion:SfChart.Title>
+                    
+                    <syncfusion:SfChart.Series>
+                        <syncfusion:DoughnutSeries ItemsSource="{Binding ExpenseDataCollection}"
+                                   XBindingPath="Category"
+                                   YBindingPath="Amount"
+                                   StartAngle="0" 
+                                   EndAngle="360"
+                                   ExplodeOnTouch="True"
+                                   DataMarkerPosition="OutsideExtended"
+                                   EnableSmartLabels="True"
+                                   >
+                         
+                        </syncfusion:DoughnutSeries>
+                    </syncfusion:SfChart.Series>
+                </syncfusion:SfChart>
+
+                </Frame>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0,20,0,0">
                     <Label HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="10">Transactions</Label>
                     <Label Text="See all" FontSize="15" HorizontalOptions="End" VerticalOptions="Center" TextColor="#006E2A" Margin="10">
                         <Label.GestureRecognizers>
@@ -28,22 +47,27 @@
                     </Label>
                 </StackLayout>
 
-                <CollectionView x:Name="CollectionViewT" VerticalOptions="FillAndExpand">
+                <CollectionView x:Name="CollectionViewT" ItemsSource="{Binding TransactionsList.Transactions}" VerticalOptions="FillAndExpand" >
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical" ItemSpacing="5"/>
+                    </CollectionView.ItemsLayout>
                     <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <Frame BackgroundColor="White" CornerRadius="10" Padding="10" HasShadow="True">
-                                <StackLayout Orientation="Horizontal" Margin="5">
-                                    <StackLayout>
-                                        <Label Text="{Binding Treference}" TextColor="Black"/>
-                                        <Label Text="{Binding DT}"/>
-                                    </StackLayout>
-                                    <StackLayout HorizontalOptions="EndAndExpand">
-                                        <Label Text="{Binding Amount}"/>
-                                        <Label Text="{Binding Category}"/>
-                                    </StackLayout>
-                                </StackLayout>
-                            </Frame>
-
+                        <DataTemplate >
+                            <StackLayout Margin="0,5">
+                                    <Frame BackgroundColor="White" CornerRadius="10" Padding="10" HasShadow="True">
+                                        <StackLayout Orientation="Horizontal" Margin="5" >
+                                            <StackLayout>
+                                                <Label Text="{Binding Treference}" TextColor="Black"/>
+                                                <Label Text="{Binding DT, StringFormat='{0:MM/dd/yyyy HH:mm}'}"/>
+                                            </StackLayout>
+                                            <StackLayout HorizontalOptions="EndAndExpand">
+                                                <Label Text="{Binding Amount, StringFormat='£{0:F2}'}"/>
+                                                <Label Text="{Binding Category}"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                            </StackLayout>
+                
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>

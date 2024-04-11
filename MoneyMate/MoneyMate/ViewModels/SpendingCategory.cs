@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
+using System.Linq;
+
 
 namespace MoneyMate.ViewModels
 {
@@ -12,7 +14,22 @@ namespace MoneyMate.ViewModels
 
     public class SpendingCategory : BindableObject
     {
-        public ObservableCollection<DoughnutModel> ExpenseDataCollection { get; set; }
+        //public ObservableCollection<DoughnutModel> ExpenseDataCollection { get; set; }
+        //need to add calculation of the total amount
+        private ObservableCollection<DoughnutModel> _expenseDataCollection;
+        public ObservableCollection<DoughnutModel> ExpenseDataCollection
+        {
+            get => _expenseDataCollection;
+            set
+            {
+                _expenseDataCollection = value;
+                //OnPropertyChanged(nameof(ExpenseDataCollection));
+                //// Calculate total amount whenever the collection changes.
+                //OnPropertyChanged(nameof(TotalAmount));
+            }
+        }
+        public double TotalAmount => ExpenseDataCollection?.Sum(item => item.Amount) ?? 0;
+
 
         public SpendingCategory()
         {
@@ -26,6 +43,8 @@ namespace MoneyMate.ViewModels
                 new DoughnutModel { Category = "Others", Amount = 250 }
 
             };
+            ExpenseDataCollection.CollectionChanged += (sender, args) => OnPropertyChanged(nameof(TotalAmount));
+
         }
     }
 }

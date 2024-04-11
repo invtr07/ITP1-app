@@ -4,65 +4,124 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="MoneyMate.DashboardPage"
      xmlns:syncfusion="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
-     >
+     BackgroundColor="#F2F2F7">
+
+    
+
+
+
+
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Spacing="10">
 
                 <!-- Header Section -->
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="Hello" FontAttributes="Bold" Margin="10" FontSize="36" TextColor="#1A7D3F"/>
-                    <Label Text="username" FontAttributes="Bold" Margin="0,10" FontSize="36" TextColor="#1A7D3F"/>
-                    <Label Text="!" FontAttributes="Bold" Margin="0,10" FontSize="36" TextColor="#1A7D3F"/>
+                <Frame HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                    <Frame.Background>
+                        <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
+                            <GradientStop Color="#c0f2d2" Offset="0.0"/>
+                            <GradientStop Color="#white" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Hello" FontAttributes="Bold" Margin="10" FontSize="36" TextColor="#1A7D3F"/>
+                            <Label Text="username" FontAttributes="Bold" Margin="0,10" FontSize="36" TextColor="#1A7D3F"/>
+                            <Label Text="!" FontAttributes="Bold" Margin="0,10" FontSize="36" TextColor="#1A7D3F"/>
 
-                    <!--<Button Text="Edit" HorizontalOptions="EndAndExpand" TextColor="#1A7D3F"/>-->
-                </StackLayout>
-
+                            <!--<Button Text="Edit" HorizontalOptions="EndAndExpand" TextColor="#1A7D3F"/>-->
+                        </StackLayout>
+                   
+                </Frame>
+                
+                <StackLayout Margin="7,0,7,15">
                 <!-- Total Balance Section -->
-                <Frame CornerRadius="10" Padding="15" HorizontalOptions="FillAndExpand">
+                <Frame CornerRadius="10" Padding="15" HorizontalOptions="FillAndExpand" Margin="10,0,10,0">
                     <StackLayout>
-                        <Label Text="Total Balance on current account" FontAttributes="Bold"/>
-                        <Label Text="£ 2826.00" FontSize="Large" FontAttributes="Bold"/>
+                        <Label Text="Personal current account" FontAttributes="Bold" FontSize="20" TextColor="Black"/>
+                        <Label Text="£ 2826.00" FontSize="30" FontAttributes="Bold" TextColor="#1A7D3F"/>
                         <!-- Income and Expenses should be dynamic, consider using Bindings -->
                         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                            <Label Text="Income" FontAttributes="Bold"/>
-                            <Label Text="£ 2,573.00" HorizontalOptions="EndAndExpand"/>
+                            <Label Text="Income" FontAttributes="Bold" TextColor="Black"/>
+                            <Label Text="£ 2,573.00" HorizontalOptions="EndAndExpand" TextColor="#1A7D3F"/>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                            <Label Text="Expenses" FontAttributes="Bold"/>
-                            <Label Text="£ 3,973.00" HorizontalOptions="EndAndExpand"/>
+                            <Label Text="Expenses" FontAttributes="Bold" TextColor="Black"/>
+                            <Label Text="£ 3,973.00" HorizontalOptions="EndAndExpand" TextColor="#1A7D3F"/>
                         </StackLayout>
                     </StackLayout>
                 </Frame>
 
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"  Margin="10,0,10,0">
+                    <Frame WidthRequest="140" HeightRequest="135" CornerRadius="10" HorizontalOptions="FillAndExpand" Padding="10">
+                        <StackLayout>
+                            <Label Text="Interest" TextColor="Black" FontSize="24"/>
+
+                            <StackLayout >
+                                <Label Text="Lloyds credit card:" TextColor="Black" FontAttributes="Bold"/>
+                                <Label Text="17.94%"/>
+                            </StackLayout>
+
+                            <StackLayout >
+                                <Label Text="Club Lloyds Advantage Saver:" TextColor="Black" FontAttributes="Bold"/>
+                                <Label Text="4.0%"/>
+                            </StackLayout>
+                       
+                        </StackLayout>
+
+                    </Frame>
+                    <Frame WidthRequest="140" HeightRequest="135" HorizontalOptions="FillAndExpand" CornerRadius="10">
+
+                        <StackLayout>
+                            <Label Text="Total interest earned:" TextColor="Black"  FontSize="20"/>
+                            <Label Text="oops, seems you don't have saving account"/>
+
+
+                        </StackLayout>
+                    </Frame>
+
+                </StackLayout>
+
                 <!-- Chart Section -->
 
-                <Frame CornerRadius="15" Padding="15" HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="5">
+                <Frame CornerRadius="15" Padding="15" HeightRequest="250"  BackgroundColor="White" Margin="10,0,10,0">
                     <syncfusion:SfChart BindingContext="{Binding DoughNutChartModel}">
-                    <syncfusion:SfChart.Title>
-                         <syncfusion:ChartTitle Text="Top 5 spending categories of last month"/>
-                    </syncfusion:SfChart.Title>
-                    
-                    <syncfusion:SfChart.Series>
-                        <syncfusion:DoughnutSeries ItemsSource="{Binding ExpenseDataCollection}"
-                                   XBindingPath="Category"
-                                   YBindingPath="Amount"
-                                   StartAngle="0" 
-                                   EndAngle="360"
-                                   ExplodeOnTouch="True"
-                                   DataMarkerPosition="OutsideExtended"
-                                   EnableSmartLabels="True"
-                                   >
-                         
-                        </syncfusion:DoughnutSeries>
-                    </syncfusion:SfChart.Series>
+                        <syncfusion:SfChart.Title>
+                             <syncfusion:ChartTitle Text="Top 5 spending categories of last month"/>
+                        </syncfusion:SfChart.Title>
+              
+                        <syncfusion:SfChart.Series>
+                            <syncfusion:DoughnutSeries ItemsSource="{Binding ExpenseDataCollection}"
+                                       XBindingPath="Category"
+                                       YBindingPath="Amount"
+                                       StartAngle="0" 
+                                       EndAngle="360"
+                                       ExplodeOnTouch="True"
+                                       DataMarkerPosition="OutsideExtended"
+                                       EnableSmartLabels="True"
+                                       >
+                                <syncfusion:DoughnutSeries.CenterView>
+                                    <ContentView>
+                                        <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="18" TextColor="Black"
+                                             HorizontalOptions="Center" VerticalOptions="CenterAndExpand" >
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding DoughNutChartModel.TotalAmount}" FontSize="12" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </ContentView>
+                                </syncfusion:DoughnutSeries.CenterView>
+                                
+                          
+                            </syncfusion:DoughnutSeries>
+                        </syncfusion:SfChart.Series>
                 </syncfusion:SfChart>
 
                 </Frame>
                 
                 
-                <Frame CornerRadius="15" Padding="15" HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="5">
-                    <syncfusion:SfChart x:Name="lineChart" BindingContext="{Binding LineChartModel}" HorizontalOptions="FillAndExpand" HeightRequest="230">
+                <Frame CornerRadius="15" Padding="15" HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="10,0,10,0">
+                    <syncfusion:SfChart x:Name="lineChart" BindingContext="{Binding LineChartModel}" HeightRequest="228">
                      <syncfusion:SfChart.Title>
                          <syncfusion:ChartTitle Text="Net cash flow dynamics"/>
                     </syncfusion:SfChart.Title>
@@ -89,7 +148,8 @@
                                                XBindingPath="Date"
                                                YBindingPath="Amount"
                                                Color="Green"
-                                               StrokeWidth="3">
+                                               StrokeWidth="3"
+                                               >
                         </syncfusion:LineSeries>
                     </syncfusion:SfChart.Series>
                 </syncfusion:SfChart>
@@ -98,9 +158,7 @@
                  
 
                 
-
-
-
+                    </StackLayout>
             </StackLayout>
         </ScrollView>
         </ContentPage.Content>
