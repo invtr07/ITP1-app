@@ -61,8 +61,8 @@
                                                 <Label Text="{Binding DT, StringFormat='{0:MM/dd/yyyy HH:mm}'}"/>
                                             </StackLayout>
                                             <StackLayout HorizontalOptions="EndAndExpand">
-                                                <Label Text="{Binding Amount, StringFormat='£{0:F2}'}"/>
-                                                <Label Text="{Binding Category}"/>
+                                                <Label Text="{Binding Amount, StringFormat='£{0:F2}'}" HorizontalOptions="EndAndExpand"/>
+                                                <Label Text="{Binding Category}" HorizontalOptions="EndAndExpand"/>
                                             </StackLayout>
                                         </StackLayout>
                                     </Frame>

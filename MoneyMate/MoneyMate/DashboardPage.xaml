@@ -6,10 +6,6 @@
      xmlns:syncfusion="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
      BackgroundColor="#F2F2F7">
 
-    
-
-
-
 
     <ContentPage.Content>
         <ScrollView>
