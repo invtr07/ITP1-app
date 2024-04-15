@@ -37,10 +37,46 @@
                 </syncfusion:SfChart>
 
                 </Frame>
+                
+                <Frame CornerRadius="15" Padding="15" HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="10,0,10,0">
+                    <syncfusion:SfChart x:Name="LineChart" BindingContext="{Binding LineChartModel}" HeightRequest="228">
+                        <syncfusion:SfChart.Title>
+                            <syncfusion:ChartTitle Text="Net cash flow dynamics"/>
+                        </syncfusion:SfChart.Title>
+                   
+                        <syncfusion:SfChart.PrimaryAxis>
+                            <syncfusion:CategoryAxis>
+                                <syncfusion:CategoryAxis.MajorGridLineStyle>
+                                    <syncfusion:ChartLineStyle StrokeWidth="0" />
+                                </syncfusion:CategoryAxis.MajorGridLineStyle>
+
+                            </syncfusion:CategoryAxis>
+                        
+                        </syncfusion:SfChart.PrimaryAxis>
+
+                        <syncfusion:SfChart.SecondaryAxis>
+                            <syncfusion:NumericalAxis>
+
+
+                            </syncfusion:NumericalAxis>
+                        </syncfusion:SfChart.SecondaryAxis>
+
+                        <syncfusion:SfChart.Series>
+                            <syncfusion:LineSeries ItemsSource="{Binding LineChartData}"
+                                                   XBindingPath="Date"
+                                                   YBindingPath="Amount"
+                                                   Color="Green"
+                                                   StrokeWidth="3"
+                            >
+                            </syncfusion:LineSeries>
+                        </syncfusion:SfChart.Series>
+                    </syncfusion:SfChart>
+
+                </Frame>
 
                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0,20,0,0">
                     <Label HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="10">Transactions</Label>
-                    <Label Text="See all" FontSize="15" HorizontalOptions="End" VerticalOptions="Center" TextColor="#006E2A" Margin="10">
+                    <Label Text="See all" FontSize="15" HorizontalOptions="End" VerticalOptions="Center" TextColor="#006E2A" Margin="10" >
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="SeeAllTapped"/>
                         </Label.GestureRecognizers>

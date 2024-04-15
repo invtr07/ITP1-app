@@ -44,6 +44,7 @@
                             <Label Text="Expenses" FontAttributes="Bold" TextColor="Black"/>
                             <Label Text="£ 3,973.00" HorizontalOptions="EndAndExpand" TextColor="#1A7D3F"/>
                         </StackLayout>
+                        
                     </StackLayout>
                 </Frame>
 
@@ -117,7 +118,7 @@
                 
                 
                 <Frame CornerRadius="15" Padding="15" HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="10,0,10,0">
-                    <syncfusion:SfChart x:Name="lineChart" BindingContext="{Binding LineChartModel}" HeightRequest="228">
+                    <syncfusion:SfChart x:Name="LineChart" BindingContext="{Binding LineChartModel}" HeightRequest="228">
                      <syncfusion:SfChart.Title>
                          <syncfusion:ChartTitle Text="Net cash flow dynamics"/>
                     </syncfusion:SfChart.Title>

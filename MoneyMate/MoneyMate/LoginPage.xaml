@@ -14,8 +14,8 @@
                 </FlexLayout>
                             
                <FlexLayout Direction="Column" AlignItems="Center">
-                     <Entry Margin="10" Placeholder="Full name" WidthRequest="300"></Entry>
-                     <Entry Margin="10" Placeholder="Password" WidthRequest="300"></Entry>
+                     <Entry x:Name="enteredID" Placeholder="Your ID" WidthRequest="300"></Entry>
+                     <Entry x:Name="enteredPass" Margin="10" Placeholder="Your password" WidthRequest="300"></Entry>
                     <Button Clicked="Button_Clicked" Margin="12" Text="Sign in" BackgroundColor="#006E2A" TextColor="White" WidthRequest="300" CornerRadius="15"/>
                 </FlexLayout>
  

@@ -5,7 +5,7 @@
     x:Class="MoneyMate.ParentPages.Savings">
     <ContentPage.Content>
         <StackLayout>
-            <Label>Savings</Label>
+            
 
         </StackLayout>
         
