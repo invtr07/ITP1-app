@@ -10,15 +10,15 @@
             <Ellipse 
                 AbsoluteLayout.LayoutBounds="-105, -250, 600, 600"
                 AbsoluteLayout.LayoutFlags="None" 
-                Fill="#B6D1C4"/>
+                Fill="#B6D2C4"/>
             
             <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,AutoSize"
                          AbsoluteLayout.LayoutFlags="WidthProportional">
                 <Label FontAttributes="Bold" FontSize="42" TextColor="#006E2A" Margin="20">Hub</Label>
 
                 <StackLayout HorizontalOptions="CenterAndExpand" Margin="0,0,0,35" >
-                    <ImageButton Clicked="ImageButton_Clicked" Source="person.png" HeightRequest="100" BackgroundColor="#F2F2F7" Margin="0,20,0,0"/>
-                    <Label Text="User name" FontAttributes="Bold" FontSize="30" TextColor="Black" Margin="0,10,0,0"></Label>
+                    <Image Source="drawable/avatar.png" HeightRequest="100" Margin="0,20,0,0"/>
+                    <Label x:Name="userName" FontAttributes="Bold" FontSize="30" TextColor="Black" Margin="0,10,0,0"></Label>
                 </StackLayout>
 
 
@@ -34,21 +34,3 @@
     </ContentPage.Content>
 </ContentPage>
 
-<!-- <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"> -->
-<!--              -->
-<!--     <Label FontAttributes="Bold" FontSize="42" TextColor="#006E2A" Margin="20">Hub</Label> -->
-<!-- -->
-<!--     <StackLayout HorizontalOptions="CenterAndExpand" Margin="0,0,0,50" > -->
-<!--         <ImageButton Clicked="ImageButton_Clicked" Source="person.png" HeightRequest="70" BackgroundColor="#F2F2F7"/> -->
-<!--         <Label Text="User name" FontAttributes="Bold" FontSize="24" TextColor="Black"></Label> -->
-<!--     </StackLayout> -->
-<!--              -->
-<!-- -->
-<!--     <StackLayout VerticalOptions="Center"> -->
-<!--         <Button  Clicked="Button_Clicked" Text="Cash flow" FontSize="20" BackgroundColor="White" FontAttributes="Bold" ImageSource="drawable/cash_flow.png" CornerRadius="15" Margin="10"/> -->
-<!-- -->
-<!--         <Button Clicked="Button_Clicked_1" Text="Savings control" ImageSource="drawable/savings.png" FontSize="20" FontAttributes="Bold" BackgroundColor="White" CornerRadius="15" Margin="10"/> -->
-<!-- -->
-<!--         <Button Clicked="Button_Clicked_2" Text="Debts control" ImageSource="drawable/debts.png" FontSize="20" FontAttributes="Bold" BackgroundColor="White" CornerRadius="15" Margin="10"/> -->
-<!--     </StackLayout> -->
-<!-- </StackLayout> -->

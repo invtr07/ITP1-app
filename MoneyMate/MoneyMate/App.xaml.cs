@@ -7,6 +7,10 @@ namespace MoneyMate
 {
     public partial class App : Application
     {
+        public static string savedName;
+        public static string savedSurname;
+        public static string savedID;
+        
         public App ()
         {
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NBaF5cXmZCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdnWXtec3RdRGhcVkFxXEE=");

@@ -2,12 +2,106 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:syncfusion="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
     x:Class="MoneyMate.ParentPages.Savings">
     <ContentPage.Content>
-        <StackLayout>
-            
+        <ScrollView>
+            <StackLayout Padding="10">
+                <!-- Savings Account Section -->
+                <Frame CornerRadius="10" Padding="15" BackgroundColor="White">
+                    <StackLayout>
+                        <Label Text="Total savings" FontAttributes="Bold"  TextColor="Black" FontSize="20" HorizontalOptions="Center"/>
+                        <StackLayout Orientation="Horizontal" >
+                            <Label Text="Easy Saver"/>
+                            <StackLayout HorizontalOptions="EndAndExpand">
+                                <Label Text="£ 5,000.00" HorizontalOptions="EndAndExpand"/>
+                                <Label Text="interest: 1.4%" HorizontalOptions="EndAndExpand"/>
+                
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" >
+                            <Label Text="Advantage Saver"/>
+                            <StackLayout HorizontalOptions="EndAndExpand">
+                                <Label Text="£ 3,000.00" HorizontalOptions="EndAndExpand"/>
+                                <Label Text="interest: 4.0%" HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
 
-        </StackLayout>
+                <!-- Chart Section -->
+                <Frame CornerRadius="10" Padding="15" BackgroundColor="White" Margin="0,10,0,0">
+                    <syncfusion:SfChart x:Name="LineChart" BindingContext="{Binding LineChartModel}" HeightRequest="228">
+                        <syncfusion:SfChart.Title>
+                            <syncfusion:ChartTitle Text="Saving dynamics during last 30 days"/>
+                        </syncfusion:SfChart.Title>
+                   
+                        <syncfusion:SfChart.PrimaryAxis>
+                            <syncfusion:CategoryAxis>
+                                <syncfusion:CategoryAxis.MajorGridLineStyle>
+                                    <syncfusion:ChartLineStyle StrokeWidth="0" />
+                                </syncfusion:CategoryAxis.MajorGridLineStyle>
+
+                            </syncfusion:CategoryAxis>
+                        
+                        </syncfusion:SfChart.PrimaryAxis>
+
+                        <syncfusion:SfChart.SecondaryAxis>
+                            <syncfusion:NumericalAxis>
+
+                            </syncfusion:NumericalAxis>
+                        </syncfusion:SfChart.SecondaryAxis>
+
+                        <syncfusion:SfChart.Series>
+                            <syncfusion:LineSeries ItemsSource="{Binding LineChartData}"
+                                                   XBindingPath="Date"
+                                                   YBindingPath="Amount"
+                                                   Color="Green"
+                                                   StrokeWidth="3"
+                            >
+                            </syncfusion:LineSeries>
+                        </syncfusion:SfChart.Series>
+                    </syncfusion:SfChart>
+                </Frame>
+               
+
+                <!-- Transactions Section -->
+                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0,20,0,0">
+                                    <Label HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="10">Transactions</Label>
+                                    <Label Text="See all" FontSize="15" HorizontalOptions="End" VerticalOptions="Center" TextColor="#006E2A" Margin="10" >
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="SeeAllTapped"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </StackLayout>
+
+                
+                <CollectionView x:Name="CollectionViewT" ItemsSource="{Binding TransactionsList.Transactions}" VerticalOptions="FillAndExpand" >
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical" ItemSpacing="5"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate >
+                            <StackLayout Margin="0,5">
+                                <Frame BackgroundColor="White" CornerRadius="10" Padding="10" HasShadow="True">
+                                    <StackLayout Orientation="Horizontal" Margin="5" >
+                                        <StackLayout>
+                                            <Label Text="{Binding Treference}" TextColor="Black"/>
+                                            <Label Text="{Binding DT, StringFormat='{0:MM/dd/yyyy HH:mm}'}"/>
+                                        </StackLayout>
+                                        <StackLayout HorizontalOptions="EndAndExpand">
+                                            <Label Text="{Binding Amount, StringFormat='£{0:F2}'}" HorizontalOptions="EndAndExpand"/>
+                                            <Label Text="{Binding Category}" HorizontalOptions="EndAndExpand"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ScrollView>
         
     </ContentPage.Content>
 </ContentPage>
