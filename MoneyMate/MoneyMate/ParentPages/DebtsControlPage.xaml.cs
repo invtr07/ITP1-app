@@ -18,6 +18,10 @@ namespace MoneyMate
 
 			BindingContext = this; 
 		}
+		void SeeAllTapped(System.Object sender, System.EventArgs e)
+		{
+			
+		}
 	}
 }
 

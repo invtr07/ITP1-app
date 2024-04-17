@@ -58,21 +58,21 @@
       <Version>13.0.3</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfPopupLayout">
-      <Version>25.1.35</Version>
+      <Version>25.1.40</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2662" />
     <PackageReference Include="Xamarin.Essentials" Version="1.8.1" />
     <PackageReference Include="Syncfusion.Licensing">
-      <Version>25.1.38</Version>
+      <Version>25.1.40</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.Core">
-      <Version>25.1.38</Version>
+      <Version>25.1.40</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfChart">
-      <Version>24.2.9</Version>
+      <Version>25.1.40</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfChat">
-      <Version>25.1.38</Version>
+      <Version>25.1.40</Version>
     </PackageReference>
     <PackageReference Include="MySqlConnector">
       <Version>2.3.6</Version>
@@ -89,7 +89,6 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\avatar.png" />
     <AndroidResource Include="Resources\values\styles.xml" />
     <AndroidResource Include="Resources\values\colors.xml" />
     <AndroidResource Include="Resources\mipmap-anydpi-v26\icon.xml" />
@@ -132,10 +131,6 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\person.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
     <AndroidResource Include="Resources\drawable\aichat.png">
       <SubType></SubType>
       <Generator></Generator>
@@ -145,6 +140,10 @@
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\onboarding.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\avatar.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>

@@ -36,6 +36,10 @@ namespace MoneyMate.InsightComponents
         {
 			
         }
+
+        void SearchBar_TextChanged(System.Object sender, Xamarin.Forms.TextChangedEventArgs e)
+        {
+        }
     }
 }
 

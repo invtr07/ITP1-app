@@ -63,6 +63,17 @@
                     </syncfusion:SfChart>
                 </Frame>
                 
+                
+                
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0,20,0,0">
+                    <Label HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="10">Transactions</Label>
+                    <Label Text="See all" FontSize="15" HorizontalOptions="End" VerticalOptions="Center" TextColor="#006E2A" Margin="10" >
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="SeeAllTapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                
                 <CollectionView x:Name="CollectionViewT" ItemsSource="{Binding TransactionsList.Transactions}" VerticalOptions="FillAndExpand" >
                     <CollectionView.ItemsLayout>
                         <LinearItemsLayout Orientation="Vertical" ItemSpacing="5"/>
