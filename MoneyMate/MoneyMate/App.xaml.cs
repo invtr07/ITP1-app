@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Syncfusion;
+using MySqlConnector;
 
 namespace MoneyMate
 {
@@ -10,7 +11,9 @@ namespace MoneyMate
         public static string savedName;
         public static string savedSurname;
         public static string savedID;
-        
+
+        public static MySqlConnection dbConnection = new MySqlConnection("server=dbhost.cs.man.ac.uk;user=y95106bt;password=Maxwell8899;database=y95106bt");
+
         public App ()
         {
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NBaF5cXmZCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdnWXtec3RdRGhcVkFxXEE=");
@@ -22,14 +25,17 @@ namespace MoneyMate
         
         protected override void OnStart ()
         {
+            OnResume();
         }
 
         protected override void OnSleep ()
         {
+            dbConnection.Close();
         }
 
         protected override void OnResume ()
         {
+            dbConnection.Open();
         }
     }
 }

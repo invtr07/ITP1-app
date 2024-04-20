@@ -5,7 +5,8 @@
     x:Class="MoneyMate.HubPage"
     BackgroundColor="#F2F2F7">
     <ContentPage.Content>
-        <AbsoluteLayout>
+        <ScrollView>
+            <AbsoluteLayout>
             
             <Ellipse 
                 AbsoluteLayout.LayoutBounds="-105, -250, 600, 600"
@@ -28,9 +29,17 @@
                     <Button Clicked="Button_Clicked_1" Text="Savings Control" ImageSource="drawable/savings.png" FontSize="24" FontAttributes="Bold" BackgroundColor="White" CornerRadius="15" Margin="10,10,10,20" TextTransform="None"/>
 
                     <Button Clicked="Button_Clicked_2" Text="Debts Control" ImageSource="drawable/debts.png" FontSize="24" FontAttributes="Bold" BackgroundColor="White" CornerRadius="15" Margin="10,10,10,20" TextTransform="None"/>
+
+                    <Label Text="Danger zone" TextColor="darkred"/>
+                    <Button Text="Log out" Clicked="Button_Clicked_3"/>
                 </StackLayout>
+
+                
             </StackLayout>
         </AbsoluteLayout>
+
+        </ScrollView>
+        
     </ContentPage.Content>
 </ContentPage>
 

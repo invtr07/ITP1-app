@@ -6,8 +6,8 @@
     x:Class="MoneyMate.DebtsControlPage"
     Title="Debts control">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout>
+        <ScrollView >
+            <StackLayout Padding="10">
                 <Frame CornerRadius="10" Padding="15" BackgroundColor="White">
                     <StackLayout>
                         <Label Text="Debts breakdown" FontAttributes="Bold"  TextColor="Black" FontSize="20" HorizontalOptions="Center"/>

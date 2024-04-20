@@ -30,7 +30,17 @@ namespace MoneyMate
             Navigation.PushAsync(new MoneyMate.DebtsControlPage());
         }
 
-        
+        void Button_Clicked_3(System.Object sender, System.EventArgs e)
+        {
+            App.savedID = "";
+            App.savedName = "";
+            App.savedSurname = "";
+            Navigation.PopAsync();
+
+
+
+        }
+
     }
 }
 

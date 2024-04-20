@@ -22,7 +22,7 @@
                                     <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
 
-                                <!-- Title with larger font and a subtle shadow for a raised effect -->
+                                  
                                 <Label Grid.Row="0"
                                        Text="{Binding Title}"
                                        FontAttributes="Bold"
@@ -31,11 +31,11 @@
                                        LineBreakMode="WordWrap"
                                        Margin="0,0,0,5" /> 
 
-                                <!-- Brief with lighter font for contrast -->
+                                 
                                 <Label Grid.Row="1"
                                        Text="{Binding Brief}"
                                        TextColor="Gray"
-                                       LineBreakMode="TailTruncation" /> <!-- Changed line break mode for a cleaner look in case of overflow -->
+                                       LineBreakMode="TailTruncation" />   
                             </Grid>
                         </Frame>
 
