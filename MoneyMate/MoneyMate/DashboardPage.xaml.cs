@@ -13,11 +13,13 @@ namespace MoneyMate
         public DashboardPage ()
 		{
 			InitializeComponent ();
+			
+			userName.Text = App.savedName;
 
             LineChartModel = new ViewModels.NetCashFlow();
             DoughNutChartModel = new ViewModels.SpendingCategory();
 
-            this.BindingContext = this;
+            BindingContext = this;
         }
 	}
 }

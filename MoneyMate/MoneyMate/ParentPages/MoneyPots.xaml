@@ -4,13 +4,18 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="MoneyMate.ParentPages.MoneyPots">
     <ContentPage.Content>
-        <StackLayout>
-            <Button Clicked="Button_Clicked" Text="+  Add new money pot" TextColor="White" FontAttributes="Bold" BackgroundColor="#006E2A" CornerRadius="15"  Margin="20" />
+        <ScrollView>
+            <StackLayout>
+                <Button Clicked="Button_Clicked" Text="+  Add new money pot" TextColor="White" FontAttributes="Bold" BackgroundColor="#006E2A" CornerRadius="15"  Margin="20" />
 
-            <Label HorizontalOptions="CenterAndExpand"> Add new money pot to improve your saving habits!</Label>
-
-        </StackLayout>
-        
+                <Label HorizontalOptions="CenterAndExpand"> Add new money pot to improve your saving habits!</Label>
+            
+                <StackLayout x:Name="SavingPotsStackLayout" >
+                    <!-- Existing saving pots can be defined here if needed -->
+                </StackLayout>
+    
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
 

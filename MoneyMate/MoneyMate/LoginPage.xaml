@@ -10,12 +10,12 @@
                      <Label FontSize="42" FontFamily="Inter" FontAttributes="Bold" TextColor="#006E2A" HorizontalOptions="Center"> Money Mate </Label>
                     <Image Source="lloydslogo.png" WidthRequest="50" HeightRequest="40"/>
                     <Label Margin="0,10" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" FontSize="32" TextColor="Black" FontAttributes="Bold">Sign in</Label>
-                    <Label Margin="0,5" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" FontSize="12" TextColor="Gray" FontAttributes="Bold">Enter your Lloyds login details</Label> 
+                    <Label Margin="0,5" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" FontSize="12" TextColor="Gray" FontAttributes="Bold">Enter your Lloyds login details</Label>
                 </FlexLayout>
                             
                <FlexLayout Direction="Column" AlignItems="Center">
-                     <Entry Margin="10" Placeholder="Full name" WidthRequest="300"></Entry>
-                     <Entry Margin="10" Placeholder="Password" WidthRequest="300"></Entry>
+                     <Entry x:Name="enteredID" Text="70986212120" Placeholder="Your ID" WidthRequest="300"></Entry>
+                     <Entry x:Name="enteredPass" Text="1" Margin="10" Placeholder="Your password" WidthRequest="300" IsPassword="True"></Entry>
                     <Button Clicked="Button_Clicked" Margin="12" Text="Sign in" BackgroundColor="#006E2A" TextColor="White" WidthRequest="300" CornerRadius="15"/>
                 </FlexLayout>
  

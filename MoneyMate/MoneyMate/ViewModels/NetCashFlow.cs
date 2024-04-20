@@ -23,6 +23,10 @@ namespace MoneyMate.ViewModels
             new LineChartModel { Date = "Aug", Amount = 500 },
             new LineChartModel { Date = "Sep", Amount = 800 },
             new LineChartModel { Date = "Oct", Amount = 1200 },
+            new LineChartModel { Date = "Nov", Amount = 1000 },
+            new LineChartModel { Date = "Dec", Amount = 500 },
+            new LineChartModel { Date = "Jan", Amount = 1600 },
+
         };
         }
     }

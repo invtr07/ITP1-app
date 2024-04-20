@@ -5,7 +5,8 @@
             xmlns:local="clr-namespace:MoneyMate.ParentPages;assembly=MoneyMate"
             BarBackgroundColor="#D9D9D9"
              SelectedTabColor="#006E2A"
-             UnselectedTabColor="#959697">
+             UnselectedTabColor="#959697"
+             Title="Savings control">
     <local:Savings Title="Savings"/>
     <local:MoneyPots Title="Money pots"/>
 

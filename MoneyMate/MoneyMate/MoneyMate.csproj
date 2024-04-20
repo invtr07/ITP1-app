@@ -13,13 +13,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Syncfusion.Xamarin.SfPopupLayout" Version="25.1.40" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2662" />
     <PackageReference Include="Xamarin.Essentials" Version="1.8.1" />
-    <PackageReference Include="Syncfusion.Licensing" Version="25.1.38" />
-    <PackageReference Include="Syncfusion.Xamarin.Core" Version="25.1.38" />
+    <PackageReference Include="Syncfusion.Licensing" Version="25.1.40" />
+    <PackageReference Include="Syncfusion.Xamarin.Core" Version="25.1.40" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.0" />
-    <PackageReference Include="Syncfusion.Xamarin.SfChart" Version="24.2.9" />
-    <PackageReference Include="Syncfusion.Xamarin.SfChat" Version="25.1.38" />
+    <PackageReference Include="Syncfusion.Xamarin.SfChart" Version="25.1.40" />
+    <PackageReference Include="Syncfusion.Xamarin.SfChat" Version="25.1.40" />
     <PackageReference Include="MySqlConnector" Version="2.3.6" />
   </ItemGroup>
   <ItemGroup>
@@ -34,6 +36,5 @@
     <Folder Include="ParentPages\" />
     <Folder Include="ModalPages\" />
     <Folder Include="InsightComponents\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
 </Project>

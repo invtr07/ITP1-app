@@ -7,28 +7,20 @@ namespace MoneyMate.ParentPages
 {	
 	public partial class EarningsSpendings : ContentPage
 	{
-        public Transactions[] transactions;
         
+        public ViewModels.SpendingCategory DoughNutChartModel { get; private set; }
+        public ViewModels.NetCashFlow LineChartModel { get; private set; }
+        public ViewModels.AllTransactions TransactionsList { get; private set; }
 
         public EarningsSpendings ()
 		{
 			InitializeComponent ();
-
-            transactions = new Transactions[]{
-                new Transactions{ TransactionID="123", Treference="Lloydsbank", DT= new DateTime(2024, 4, 6, 10, 30, 0),Category="A" , Amount= 500.00m},
-                new Transactions{ TransactionID="123", Treference="Lloydsbank", DT= new DateTime(2024, 4, 6, 10, 30, 0),Category="B", Amount= 500.00m},
-                new Transactions{ TransactionID="123", Treference="Lloydsbank", DT= new DateTime(2024, 4, 6, 10, 30, 0), Category="C", Amount= 500.00m},
-                new Transactions{ TransactionID="123", Treference="Lloydsbank", DT= new DateTime(2024, 4, 6, 10, 30, 0), Category="D", Amount= 500.00m},
-
             
+            LineChartModel = new ViewModels.NetCashFlow();
+            TransactionsList = new ViewModels.AllTransactions();
+            DoughNutChartModel = new ViewModels.SpendingCategory();
 
-            };
-            
-
-
-
-            CollectionViewT.ItemsSource = transactions;
-            
+            BindingContext = this;
 
         }
 
@@ -36,17 +28,6 @@ namespace MoneyMate.ParentPages
         {
             Navigation.PushAsync(new AllTransactions(), true);
         }
-
-        public class Transactions
-        {
-            public string TransactionID { get; set; }
-            public string Treference { get; set; }
-            public DateTime DT { get; set; }
-            public string Category { get; set; }
-            public decimal Amount { get; set; }
-        }
-
-
     }
 }
 

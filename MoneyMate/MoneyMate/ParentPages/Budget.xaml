@@ -9,6 +9,10 @@
             <Button Clicked="Button_Clicked" Text="+  Add new budget" TextColor="White" FontAttributes="Bold" BackgroundColor="#006E2A" CornerRadius="15"  Margin="20" />
 
             <Label HorizontalOptions="CenterAndExpand"> Add new budget to limit your spending</Label>
+            
+            <StackLayout x:Name="BudgetLayout" >
+                <!-- Existing saving pots can be defined here if needed -->
+            </StackLayout>
 
         </StackLayout>
     </ContentPage.Content>

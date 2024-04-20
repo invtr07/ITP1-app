@@ -7,13 +7,13 @@
     <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
             <Label FontSize="42" FontFamily="Inter" FontAttributes="Bold" TextColor="#006E2A" HorizontalOptions="Center"> Money Mate </Label>
             <Label FontSize="20" FontFamily="Inter" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center">LLOYDS BANK</Label>
-     
+    
             <Image Source="lloydslogo.png" WidthRequest="50" HeightRequest="40"/>
             <Image Source="onboarding.png" WidthRequest="300" HeightRequest="300"/>
-
+    
             <Button Clicked="Button_Clicked" Text="Get started" TextColor="White" BackgroundColor="#006E2A"
                     Margin="50" WidthRequest="300" CornerRadius="15"/>
-
+    
     </StackLayout>
 </ContentPage>
 

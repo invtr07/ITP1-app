@@ -2,10 +2,11 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="MoneyMate.InsightComponents.SuggestionsPage">
+    x:Class="MoneyMate.InsightComponents.SuggestionsPage"
+    BackgroundColor="#F2F2F7">
     <ContentPage.Content>
         <StackLayout>
-            <SearchBar Placeholder="Search by title..." />
+            <SearchBar Placeholder="Search by title..." TextChanged="SearchBar_TextChanged"/>
             <ListView x:Name="Listview1" RowHeight="90"  ItemTapped="Listview1_ItemTapped" Margin="0,50">
                  <ListView.Header>
                     <StackLayout>

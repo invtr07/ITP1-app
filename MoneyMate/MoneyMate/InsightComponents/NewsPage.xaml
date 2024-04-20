@@ -5,23 +5,59 @@
     x:Class="MoneyMate.InsightComponents.NewsPage">
     <ContentPage.Content>
         <StackLayout>
-            <SearchBar Placeholder="Search by title..." />
+            <SearchBar Placeholder="Search by title..." TextChanged="SearchBar_TextChanged"/>
 
-            <ListView x:Name="Listview1" RowHeight="90"  ItemTapped="ListView_ItemTapped" Margin="0,50">
-                 <ListView.Header>
-                    <StackLayout>
-                        <Label Text="Latest socio-economic news" FontSize="20" FontAttributes="Bold" Margin="10" TextColor="Black"/>
-                    </StackLayout>
-                </ListView.Header>
-                <ListView.ItemTemplate>
+            <CollectionView x:Name="CollectionView1"
+                            ItemsSource="{Binding NewsItems}"
+                            SelectionMode="Single"
+                            SelectionChanged="CollectionView1_ItemTapped">
+                <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Title}" Detail="{Binding Brief}"/>
+                        <StackLayout Margin="5">
+                            <Frame Padding="10"
+                                   BorderColor="LightGray" CornerRadius="10" >
+                            <Grid Padding="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                  
+                                <Label Grid.Row="0"
+                                       Text="{Binding Title}"
+                                       FontAttributes="Bold"
+                                       FontSize="Medium"
+                                       TextColor="DarkSlateBlue" 
+                                       LineBreakMode="WordWrap"
+                                       Margin="0,0,0,5" /> 
+
+                                 
+                                <Label Grid.Row="1"
+                                       Text="{Binding Brief}"
+                                       TextColor="Gray"
+                                       LineBreakMode="TailTruncation" />   
+                            </Grid>
+                        </Frame>
+
+                        </StackLayout>
+                        
                     </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
         </StackLayout>
         
     </ContentPage.Content>
 </ContentPage>
 
+<!--<StackLayout Orientation="Horizontal">
+                                <StackLayout Orientation="Vertical" Padding="5">
+                                    <Label Text="{Binding Title}" FontAttributes="Bold"
+                                                                   FontSize="Medium"
+                                                                   TextColor="DarkSlateBlue"/>
+                                    <Label Text="{Binding Brief}" TextColor="Gray"
+                                                                    LineBreakMode="TailTruncation" />
+                                </StackLayout>
+                            </StackLayout>-->
+
+                                <!--<Image Source="{Binding ImageUrl}" WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>-->

@@ -5,7 +5,7 @@
              xmlns:local="clr-namespace:MoneyMate;assembly=MoneyMate"
              NavigationPage.HasNavigationBar="False"
              xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
-             BarBackgroundColor="#D9D9D9"
+             
              SelectedTabColor="#006E2A"
              UnselectedTabColor="#959697"
              android:TabbedPage.ToolbarPlacement="Bottom"

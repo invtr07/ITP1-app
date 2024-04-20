@@ -9,7 +9,9 @@ namespace MoneyMate
 		public HubPage ()
 		{
 			InitializeComponent ();
-		}
+            
+            userName.Text = App.savedName + " " + App.savedSurname;
+        }
 
         void Button_Clicked(System.Object sender, System.EventArgs e)
         {
@@ -28,10 +30,17 @@ namespace MoneyMate
             Navigation.PushAsync(new MoneyMate.DebtsControlPage());
         }
 
-        void ImageButton_Clicked(System.Object sender, System.EventArgs e)
+        void Button_Clicked_3(System.Object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new MoneyMate.ParentPages.ProfilePage());
+            App.savedID = "";
+            App.savedName = "";
+            App.savedSurname = "";
+            Navigation.PopAsync();
+
+
+
         }
+
     }
 }
 
