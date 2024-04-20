@@ -25,17 +25,17 @@ namespace MoneyMate
         
         protected override void OnStart ()
         {
-            OnResume();
+            
         }
 
         protected override void OnSleep ()
         {
-            dbConnection.Close();
+            
         }
 
         protected override void OnResume ()
         {
-            dbConnection.Open();
+            
         }
     }
 }

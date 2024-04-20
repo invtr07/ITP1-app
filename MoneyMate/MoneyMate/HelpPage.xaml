@@ -7,28 +7,20 @@
     BackgroundColor="#F2F2F7"
     Title="AI help">
     <ContentPage.Content>
-       
-            <!--<Label FontAttributes="Bold" FontSize="30" TextColor="#006E2A" Margin="20" HorizontalOptions="FillAndExpand">How can we help you?</Label>
-
-            <StackLayout VerticalOptions="CenterAndExpand" Margin="10">
-                <Button Clicked="Button_Clicked" Text="AI chat" ImageSource="aichat.png" BackgroundColor="White" CornerRadius="15" Margin="0,0,0,50" />
-                <Button Clicked="Button_Clicked_1" Text="Financial consultant" ImageSource="person.png" BackgroundColor="White" CornerRadius="15"/>
-            </StackLayout>-->
-            
-
+        
             <StackLayout>
                 
                 
-               <sfChat:SfChat x:Name="Chat"/>
+               <sfChat:SfChat x:Name="chat" SendMessage="Chat_OnSendMessage"/>
                 
                
                <Label Margin="7,1,7,10" HorizontalTextAlignment="Center" FontSize="Subtitle">
                    <Label.FormattedText>
                        <FormattedString>
                            <Span Text="AI can make mistakes. " />
-                           <Span Text="Consult with a finance advisor" TextColor="Blue" TextDecorations="Underline">
+                           <Span Text="Consult with a finance advisor" TextColor="Blue" TextDecorations="Underline" >
                                <Span.GestureRecognizers>
-                                   <TapGestureRecognizer Command="{Binding ConsultCommand}" />
+                                   <TapGestureRecognizer  />
                                </Span.GestureRecognizers>
                            </Span>
                            <Span Text=" for important queries!" />
