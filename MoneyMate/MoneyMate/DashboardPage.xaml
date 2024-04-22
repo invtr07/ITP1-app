@@ -79,14 +79,15 @@
 
                 <!-- Chart Section -->
 
-                <Frame CornerRadius="15" Padding="15" HeightRequest="250"  BackgroundColor="White" Margin="10,0,10,0">
+                <Frame CornerRadius="15" Padding="15" HeightRequest="270"  BackgroundColor="White" Margin="10,0,10,0">
                     <syncfusion:SfChart BindingContext="{Binding DoughNutChartModel}">
                         <syncfusion:SfChart.Title>
-                             <syncfusion:ChartTitle Text="Top 5 spending categories of last month"/>
+                             <syncfusion:ChartTitle Text="Top 5 spending categories (2023)" FontAttributes="Bold" FontSize="18" />
                         </syncfusion:SfChart.Title>
               
                         <syncfusion:SfChart.Series>
                             <syncfusion:DoughnutSeries ItemsSource="{Binding ExpenseDataCollection}"
+                                                       EnableAnimation="True"
                                        XBindingPath="Category"
                                        YBindingPath="Amount"
                                        StartAngle="0" 
@@ -95,18 +96,35 @@
                                        DataMarkerPosition="OutsideExtended"
                                        EnableSmartLabels="True"
                                        >
-                                <syncfusion:DoughnutSeries.CenterView>
-                                    <ContentView>
-                                        <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="18" TextColor="Black"
-                                             HorizontalOptions="Center" VerticalOptions="CenterAndExpand" >
-                                            <Label.FormattedText>
-                                                <FormattedString>
-                                                    <Span Text="{Binding DoughNutChartModel.TotalAmount}" FontSize="12" />
-                                                </FormattedString>
-                                            </Label.FormattedText>
-                                        </Label>
-                                    </ContentView>
-                                </syncfusion:DoughnutSeries.CenterView>
+                                <syncfusion:DoughnutSeries.ColorModel>
+                                    <syncfusion:ChartColorModel Palette="Custom">
+                                        <syncfusion:ChartColorModel.CustomBrushes>
+                                            <Color>#0d3f20</Color> <!-- Utilities -->
+                                            <Color>#12582c</Color> <!-- Utilities -->
+                                            <Color>#1a7d3f</Color> <!-- Transport -->
+                                            <Color>#5fa479</Color> <!-- Other Category 1 -->
+                                            <Color>#76b18c</Color> <!-- Other Category 2 -->
+                                            <Color>#e8f2ec</Color> <!-- Other Category 3 -->
+                                        </syncfusion:ChartColorModel.CustomBrushes>
+                                    </syncfusion:ChartColorModel>
+                                </syncfusion:DoughnutSeries.ColorModel>
+                                
+                                <syncfusion:DoughnutSeries.DataMarker>
+                                    <syncfusion:ChartDataMarker ShowLabel="True" LabelContent="Percentage">
+                                        <!--  -->
+                                        <syncfusion:ChartDataMarker.LabelTemplate>
+                                            <DataTemplate>
+                                                <StackLayout>
+                                                    <Label Text="{Binding Category}" />
+                                                    <Label Text="{Binding Percentage, StringFormat='{0:0.0}%'}" FontSize="12" />
+                                                </StackLayout>
+                                            </DataTemplate>
+                                        </syncfusion:ChartDataMarker.LabelTemplate>
+                                    </syncfusion:ChartDataMarker>
+                                </syncfusion:DoughnutSeries.DataMarker>
+                                
+                                
+                                
                                 
                           
                             </syncfusion:DoughnutSeries>

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
+using System.Threading.Tasks;
+using MoneyMate.DatabaseAccess;
 
 namespace MoneyMate
 {
@@ -20,6 +22,35 @@ namespace MoneyMate
             DoughNutChartModel = new ViewModels.SpendingCategory();
 
             BindingContext = this;
+        }
+        private async Task LoadTopSpendingCategories()
+        {
+	        DatabaseControl dbService = new DatabaseControl();
+            
+	        try
+	        {
+		        var newCategories = await dbService.LoadTopSpendingCategories();
+		        if (DoughNutChartModel.ExpenseDataCollection != null)
+		        {
+			        Device.BeginInvokeOnMainThread(() => 
+			        {
+				        DoughNutChartModel.ExpenseDataCollection.Clear();
+				        foreach (var category in newCategories)
+				        {
+					        DoughNutChartModel.ExpenseDataCollection.Add(category);
+				        }
+			        });
+		        }
+	        }
+	        catch(Exception ex)
+	        {
+		        await DisplayAlert("Error", $"{ex.Message}", "OK");
+	        }
+        }
+        protected override async void OnAppearing()
+        {
+	        base.OnAppearing();
+	        await LoadTopSpendingCategories();
         }
 	}
 }

@@ -26,14 +26,15 @@
 
                 
 
-                <Frame CornerRadius="15" Padding="15" HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="5">
+                <Frame HeightRequest="270" CornerRadius="15" Padding="15" HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="5">
                     <syncfusion:SfChart BindingContext="{Binding DoughNutChartModel}">
                     <syncfusion:SfChart.Title>
-                         <syncfusion:ChartTitle Text="Top 5 spending categories of last month"/>
+                         <syncfusion:ChartTitle Text="Top 5 spending categories over last year" FontAttributes="Bold" FontSize="20"/>
                     </syncfusion:SfChart.Title>
                     
                     <syncfusion:SfChart.Series>
                         <syncfusion:DoughnutSeries ItemsSource="{Binding ExpenseDataCollection}"
+                                                   EnableAnimation="True"
                                    XBindingPath="Category"
                                    YBindingPath="Amount"
                                    StartAngle="0" 
@@ -42,11 +43,36 @@
                                    DataMarkerPosition="OutsideExtended"
                                    EnableSmartLabels="True"
                                    >
-                         
+                            <syncfusion:DoughnutSeries.ColorModel>
+                                <syncfusion:ChartColorModel Palette="Custom">
+                                    <syncfusion:ChartColorModel.CustomBrushes>
+                                        <Color>#0d3f20</Color> <!-- Utilities -->
+                                        <Color>#12582c</Color> <!-- Utilities -->
+                                        <Color>#1a7d3f</Color> <!-- Transport -->
+                                        <Color>#5fa479</Color> <!-- Other Category 1 -->
+                                        <Color>#76b18c</Color> <!-- Other Category 2 -->
+                                        <Color>#e8f2ec</Color> <!-- Other Category 3 -->
+                                    </syncfusion:ChartColorModel.CustomBrushes>
+                                </syncfusion:ChartColorModel>
+                            </syncfusion:DoughnutSeries.ColorModel>
+                            
+                            <syncfusion:DoughnutSeries.DataMarker>
+                                <syncfusion:ChartDataMarker ShowLabel="True">
+                                    <syncfusion:ChartDataMarker.LabelTemplate>
+                                        <DataTemplate>
+                                            <StackLayout>
+                                                <Label Text="{Binding Category}" />
+                                                <Label Text="{Binding Percentage, StringFormat='{0:0.0}%'}" FontSize="12" />
+                                            </StackLayout>
+                                        </DataTemplate>
+                                    </syncfusion:ChartDataMarker.LabelTemplate>
+                                </syncfusion:ChartDataMarker>
+                            </syncfusion:DoughnutSeries.DataMarker>
                         </syncfusion:DoughnutSeries>
+                        
                     </syncfusion:SfChart.Series>
+                        
                 </syncfusion:SfChart>
-
                 </Frame>
                 
                 <Frame CornerRadius="15" Padding="15" HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="10,0,10,0">
@@ -96,16 +122,16 @@
 
                 <CollectionView x:Name="CollectionViewT" ItemsSource="{Binding TransactionsList.Transactions}" VerticalOptions="FillAndExpand" >
                     <CollectionView.ItemsLayout>
-                        <LinearItemsLayout Orientation="Vertical" ItemSpacing="5"/>
+                        <LinearItemsLayout Orientation="Vertical" ItemSpacing="2"/>
                     </CollectionView.ItemsLayout>
                     <CollectionView.ItemTemplate>
                         <DataTemplate >
-                            <StackLayout Margin="0,5">
+                            <StackLayout Margin="0,2">
                                     <Frame BackgroundColor="White" CornerRadius="10" Padding="10" HasShadow="True">
                                         <StackLayout Orientation="Horizontal" Margin="5" >
                                             <StackLayout>
                                                 <Label Text="{Binding Treference}" TextColor="Black"/>
-                                                <Label Text="{Binding DT, StringFormat='{0:MM/dd/yyyy HH:mm}'}"/>
+                                                <Label Text="{Binding DT, StringFormat='{0:MM/dd/yyyy HH:mm}'}"/> 
                                             </StackLayout>
                                             <StackLayout HorizontalOptions="EndAndExpand">
                                                 <Label Text="{Binding Amount, StringFormat='£{0:F2}'}" HorizontalOptions="EndAndExpand"/>

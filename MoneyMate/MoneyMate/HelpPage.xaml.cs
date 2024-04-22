@@ -9,7 +9,7 @@ using Syncfusion.XForms.Chat;
 using Xamarin.Forms;
 using Newtonsoft.Json;
 using System.Collections.ObjectModel;
-using Xamarin.Forms;
+
 
 namespace MoneyMate
 {	

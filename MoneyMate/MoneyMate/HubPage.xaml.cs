@@ -35,10 +35,9 @@ namespace MoneyMate
             App.savedID = "";
             App.savedName = "";
             App.savedSurname = "";
+            App.dbConnection.Close();
             Navigation.PopAsync();
-
-
-
+            
         }
 
     }
