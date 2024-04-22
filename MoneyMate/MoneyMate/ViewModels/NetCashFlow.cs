@@ -6,30 +6,33 @@ namespace MoneyMate.ViewModels
 {
     public class LineChartModel
     {
-        public string Date { get; set; }
-        public double Amount { get; set; }
+        public DateTime Date { get; set; }
+        public decimal Amount { get; set; }
+        
+        public int TimeFrame { get; set; } // Represents the week number
+        public int Year { get; set; }
     }
 
     public class NetCashFlow : BindableObject
     {
-        public ObservableCollection<LineChartModel> LineChartData { get; set; } // Line chart data collection
+        private ObservableCollection<LineChartModel> _lineChartData;
+        public ObservableCollection<LineChartModel> LineChartData
+        {
+            get => _lineChartData;
+            set
+            {
+                _lineChartData = value;
+                OnPropertyChanged();
+                
+            }
+        } // Line chart data collection
 
         public NetCashFlow()
         {
-            
-            LineChartData = new ObservableCollection<LineChartModel>
-        {
-            // Mock data for line chart. This will be replaced with database data in the future.
-            new LineChartModel { Date = "Aug", Amount = 500 },
-            new LineChartModel { Date = "Sep", Amount = 800 },
-            new LineChartModel { Date = "Oct", Amount = 1200 },
-            new LineChartModel { Date = "Nov", Amount = 1000 },
-            new LineChartModel { Date = "Dec", Amount = 500 },
-            new LineChartModel { Date = "Jan", Amount = 1600 },
-
-        };
+            LineChartData = new ObservableCollection<LineChartModel>();
         }
     }
 
 }
+
 
