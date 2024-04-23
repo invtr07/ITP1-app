@@ -66,16 +66,13 @@
                         </StackLayout>
 
                     </Frame>
+                    
                     <Frame WidthRequest="140" HeightRequest="135" HorizontalOptions="FillAndExpand" CornerRadius="10">
-
                         <StackLayout>
                             <Label Text="Total interest earned:" TextColor="Black"  FontSize="20"/>
-                            <Label x:Name="MyLabel" Text="{Binding TotalInterest}"/>
-
-
+                            <Label Text="{Binding TotalAmount, StringFormat='+ {0:C}'}" TextColor="#1A7D3F" FontAttributes="Bold" FontSize="20"/>
                         </StackLayout>
                     </Frame>
-
                 </StackLayout>
 
                 <!-- Chart Section -->

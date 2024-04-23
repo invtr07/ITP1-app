@@ -171,7 +171,27 @@ namespace MoneyMate.DatabaseAccess
         }
         
         
-        
+        public async Task<decimal> GetTotalTransactionAmount()
+        {
+            string query = $@"SELECT SUM(transaction_Amount) AS Total 
+                      FROM transaction t 
+                      WHERE t.account_ID IN 
+                          (SELECT account_ID 
+                           FROM account 
+                           WHERE customer_ID = {App.savedID} 
+                           AND product_ID IN (103, 104))
+                      AND t.transaction_Reference = 'Lloyds Bank';";
+
+            using (MySqlCommand cmd = new MySqlCommand(query, App.dbConnection))
+            {
+                App.dbConnection.Open();
+                var result = await cmd.ExecuteScalarAsync();
+                App.dbConnection.Close(); // Make sure to close the connection
+
+                return result != DBNull.Value ? Convert.ToDecimal(result) : 0;
+            }
+        }
+
 
     }
 }

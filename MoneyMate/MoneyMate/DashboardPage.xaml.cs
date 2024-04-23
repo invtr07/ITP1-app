@@ -17,8 +17,7 @@ namespace MoneyMate
 	{
         public ViewModels.NetCashFlow LineChartModel { get; private set; }
         public ViewModels.SpendingCategory DoughNutChartModel { get; private set; }
-        
-        
+        private InterestEarnedModel totalInterestEarned;
         
         public enum TimeGrouping
         {
@@ -26,7 +25,6 @@ namespace MoneyMate
 	        Monthly
         }
         
-
         public DashboardPage ()
 		{
 			InitializeComponent ();
@@ -35,9 +33,25 @@ namespace MoneyMate
 
             LineChartModel = new ViewModels.NetCashFlow();
             DoughNutChartModel = new ViewModels.SpendingCategory();
+            totalInterestEarned = new InterestEarnedModel();
             
             BindingContext = this;
             
+        }
+
+        //this code I wrote to load the total interest earned and display it on the dashboard
+        private async Task LoadTotalInterestEarned()
+        {
+	        DatabaseControl dbService = new DatabaseControl();
+	        try
+	        {
+		        decimal totalTransactionAmount = await dbService.GetTotalTransactionAmount();
+		        totalInterestEarned.TotalAmount = totalTransactionAmount;
+	        }
+	        catch (Exception ex)
+	        {
+		        await DisplayAlert("Error", $"Failed to load total transaction amount: {ex.Message}", "OK");
+	        }
         }
         
         
@@ -109,7 +123,7 @@ namespace MoneyMate
 	        base.OnAppearing();
 	        await LoadTopSpendingCategories();
 	        await LoadNetCashFlowData(TimeGrouping.Weekly);
-	        
+	        await LoadTotalInterestEarned();
         }
         
         

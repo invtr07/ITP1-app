@@ -1,37 +1,33 @@
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
-using System;
-using System.Collections.ObjectModel;
 using Xamarin.Forms;
 
 namespace MoneyMate.ViewModels
 {
-    public class TransactionTotal
+    public class InterestEarnedModel : INotifyPropertyChanged
     {
-        public decimal TotalAmount { get; set; }
-    }
-    
-    public class InterestEarnedModel
-    {
-        private ObservableCollection<TransactionTotal> _transactionTotals;
-        public ObservableCollection<TransactionTotal> TransactionTotals
+        private decimal _totalAmount;
+        public decimal TotalAmount
         {
-            get => _transactionTotals;
+            get => _totalAmount;
             set
             {
-                _transactionTotals = value;
-                OnPropertyChanged();
+                if (_totalAmount != value)
+                {
+                    _totalAmount = value;
+                    OnPropertyChanged();
+                }
             }
         }
 
         public InterestEarnedModel()
         {
-            TransactionTotals = new ObservableCollection<TransactionTotal>();
+            // Initialize with a default value if necessary, e.g., 0
+            TotalAmount = 0;
         }
-        
+
         public event PropertyChangedEventHandler PropertyChanged;
+
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
