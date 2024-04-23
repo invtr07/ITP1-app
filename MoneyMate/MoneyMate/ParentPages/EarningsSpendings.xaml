@@ -62,12 +62,13 @@
                                     <syncfusion:ChartDataMarker.LabelTemplate>
                                         <DataTemplate>
                                             <StackLayout>
-                                                <Label Text="{Binding Category}" />
-                                                <Label Text="{Binding Percentage, StringFormat='{0:0.0}%'}" FontSize="12" />
+                                                <Label Text="{Binding Category}" TextColor="Black"/>
+                                                <Label Text="{Binding Percentage, StringFormat='{0:0.0}%'}" FontSize="12" TextColor="Black" />
                                             </StackLayout>
                                         </DataTemplate>
                                     </syncfusion:ChartDataMarker.LabelTemplate>
                                 </syncfusion:ChartDataMarker>
+                                
                             </syncfusion:DoughnutSeries.DataMarker>
                         </syncfusion:DoughnutSeries>
                         

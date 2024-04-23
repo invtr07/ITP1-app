@@ -24,7 +24,7 @@ namespace MoneyMate
                     App.dbConnection.Open();
 
                     using (var cmd = new MySqlCommand(
-                               "SELECT customer_ID, name, surname, password FROM customer WHERE customer_ID = @userID"
+                               "SELECT customer_ID, name, surname, password, monthly_Income FROM customer WHERE customer_ID = @userID"
                                , App.dbConnection))
                     {
                         cmd.Parameters.AddWithValue("@userID", userID);
@@ -39,12 +39,9 @@ namespace MoneyMate
                                     App.savedName = reader["name"].ToString();
                                     App.savedSurname = reader["surname"].ToString();
                                     App.savedID = reader["customer_ID"].ToString();
+                                    App.income = reader["monthly_Income"] != DBNull.Value ? Convert.ToDecimal(reader["monthly_Income"]) : 0;
 
                                     // Navigation to the tabbed page after successful login
-                                    Device.BeginInvokeOnMainThread(async () =>
-                                    {
-                                        await Navigation.PushAsync(new MyTabbedPage());
-                                    });
                                 }
                                 else
                                 {
@@ -62,7 +59,34 @@ namespace MoneyMate
                                 });
                             }
                         }
+                        
+                        using (MySqlCommand command = new MySqlCommand($@"SELECT SUM(transaction_Amount) AS Total 
+                                                                  FROM transaction t 
+                                                                  WHERE t.account_ID IN 
+                                                                      (SELECT account_ID 
+                                                                       FROM account 
+                                                                       WHERE customer_ID = {App.savedID} 
+                                                                       AND product_ID IN (103, 104))
+                                                                  AND t.transaction_Reference = 'Lloyds Bank';",App.dbConnection))
+                        {
+                            using(var reader = command.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    App.savedTotalInterest = reader["Total"] != DBNull.Value ? Convert.ToDecimal(reader["Total"]) : 0;
+                                }
+                            }
+                        }
+                        
+                        
+                        Device.BeginInvokeOnMainThread(async () =>
+                        {
+                            await Navigation.PushAsync(new MyTabbedPage());
+                        });
+                        
                     }
+                    
+                    
                 }
                 catch (MySqlException ex)
                 {

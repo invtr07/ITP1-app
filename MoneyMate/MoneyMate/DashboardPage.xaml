@@ -10,7 +10,7 @@
 
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Spacing="10">
+            <StackLayout Spacing="5">
 
                 <!-- Header Section -->
                 <Frame HorizontalOptions="FillAndExpand" VerticalOptions="Start">
@@ -34,15 +34,15 @@
                 <Frame CornerRadius="10" Padding="15" HorizontalOptions="FillAndExpand" Margin="10,0,10,0">
                     <StackLayout>
                         <Label Text="Personal current account" FontAttributes="Bold" FontSize="20" TextColor="Black"/>
-                        <Label Text="£ 2826.00" FontSize="30" FontAttributes="Bold" TextColor="#1A7D3F"/>
+                        <Label x:Name="PersBalanceLabel" FontSize="30" FontAttributes="Bold" TextColor="#1A7D3F"/>
                         <!-- Income and Expenses should be dynamic, consider using Bindings -->
                         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                             <Label Text="Income" FontAttributes="Bold" TextColor="Black"/>
-                            <Label Text="£ 2,573.00" HorizontalOptions="EndAndExpand" TextColor="#1A7D3F"/>
+                            <Label x:Name="IncomeLabel" HorizontalOptions="EndAndExpand" TextColor="#1A7D3F"/>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                             <Label Text="Expenses" FontAttributes="Bold" TextColor="Black"/>
-                            <Label Text="£ 3,973.00" HorizontalOptions="EndAndExpand" TextColor="#1A7D3F"/>
+                            <Label x:Name="ExpenseLabel" HorizontalOptions="EndAndExpand" TextColor="#1A7D3F"/>
                         </StackLayout>
                         
                     </StackLayout>
@@ -69,15 +69,15 @@
                     
                     <Frame WidthRequest="140" HeightRequest="135" HorizontalOptions="FillAndExpand" CornerRadius="10">
                         <StackLayout>
-                            <Label Text="Total interest earned:" TextColor="Black"  FontSize="20"/>
-                            <Label Text="{Binding TotalAmount, StringFormat='+ {0:C}'}" TextColor="#1A7D3F" FontAttributes="Bold" FontSize="20"/>
+                            <Label Text="Total interest earned:" TextColor="Black"  FontSize="20" FontAttributes="Bold"/>
+                            <Label x:Name="TotalInterestLabel" TextColor="#1A7D3F" FontAttributes="Bold" FontSize="30" Margin="0,20"/>
                         </StackLayout>
                     </Frame>
                 </StackLayout>
 
                 <!-- Chart Section -->
 
-                <Frame CornerRadius="15" Padding="15" HeightRequest="270"  BackgroundColor="White" Margin="10,0,10,0">
+                <Frame CornerRadius="15" Padding="15" HeightRequest="300"  BackgroundColor="White" Margin="10,0,10,0">
                     <syncfusion:SfChart BindingContext="{Binding DoughNutChartModel}">
                         <syncfusion:SfChart.Title>
                              <syncfusion:ChartTitle Text="Top 5 spending categories (2023)" FontAttributes="Bold" FontSize="18" />
@@ -112,9 +112,9 @@
                                         <!--  -->
                                         <syncfusion:ChartDataMarker.LabelTemplate>
                                             <DataTemplate>
-                                                <StackLayout>
-                                                    <Label Text="{Binding Category}" />
-                                                    <Label Text="{Binding Percentage, StringFormat='{0:0.0}%'}" FontSize="12" />
+                                                <StackLayout  Spacing="5">
+                                                    <Label Text="{Binding Category}" TextColor="Black"/>
+                                                    <Label Text="{Binding Percentage, StringFormat='{0:0.0}%'}" FontSize="12" TextColor="Black" />
                                                 </StackLayout>
                                             </DataTemplate>
                                         </syncfusion:ChartDataMarker.LabelTemplate>
@@ -152,7 +152,7 @@
                                 </x:Array>
                             </buttons:SfSegmentedControl.ItemsSource>
                         </buttons:SfSegmentedControl>
-                    <syncfusion:SfChart x:Name="lineChart" BindingContext="{Binding LineChartModel}"  HeightRequest="250">
+                    <syncfusion:SfChart x:Name="lineChart" BindingContext="{Binding LineChartModel}"  HeightRequest="300">
                         <syncfusion:SfChart.Title>
                             <syncfusion:ChartTitle Text="Net cash flow dynamics"/>
                         </syncfusion:SfChart.Title>

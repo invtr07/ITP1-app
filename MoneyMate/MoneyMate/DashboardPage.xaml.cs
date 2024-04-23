@@ -17,7 +17,7 @@ namespace MoneyMate
 	{
         public ViewModels.NetCashFlow LineChartModel { get; private set; }
         public ViewModels.SpendingCategory DoughNutChartModel { get; private set; }
-        private InterestEarnedModel totalInterestEarned;
+        public InterestEarnedModel totalInterestEarned;
         
         public enum TimeGrouping
         {
@@ -30,29 +30,19 @@ namespace MoneyMate
 			InitializeComponent ();
 			
 			userName.Text = App.savedName;
+			TotalInterestLabel.Text = $"+ £{App.savedTotalInterest}";
+			PersBalanceLabel.Text = $"£ {App.personalCurrentBalance}";
+			IncomeLabel.Text = $"£ {App.income}";
+			// ExpenseLabel.Text = $"£ {App.expenses}";
 
             LineChartModel = new ViewModels.NetCashFlow();
             DoughNutChartModel = new ViewModels.SpendingCategory();
-            totalInterestEarned = new InterestEarnedModel();
+            totalInterestEarned = new ViewModels.InterestEarnedModel();
             
             BindingContext = this;
             
         }
 
-        //this code I wrote to load the total interest earned and display it on the dashboard
-        private async Task LoadTotalInterestEarned()
-        {
-	        DatabaseControl dbService = new DatabaseControl();
-	        try
-	        {
-		        decimal totalTransactionAmount = await dbService.GetTotalTransactionAmount();
-		        totalInterestEarned.TotalAmount = totalTransactionAmount;
-	        }
-	        catch (Exception ex)
-	        {
-		        await DisplayAlert("Error", $"Failed to load total transaction amount: {ex.Message}", "OK");
-	        }
-        }
         
         
         private async Task LoadTopSpendingCategories()
@@ -111,6 +101,20 @@ namespace MoneyMate
 		        await DisplayAlert("Error", $"{ex.Message}", "OK");
 	        }
         }
+
+        private async void LoadCurrentBalance()
+        {
+	        DatabaseControl dbService = new DatabaseControl();
+			try
+	        {
+		        await dbService.LoadCurrentBalance();
+		        PersBalanceLabel.Text = $"£ {App.personalCurrentBalance}";
+	        }
+	        catch(Exception ex)
+	        {
+		        await DisplayAlert("Error", $"{ex.Message}", "OK");
+	        }
+        }
         
         private async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -121,9 +125,9 @@ namespace MoneyMate
         protected override async void OnAppearing()
         {
 	        base.OnAppearing();
+	        LoadCurrentBalance();
 	        await LoadTopSpendingCategories();
 	        await LoadNetCashFlowData(TimeGrouping.Weekly);
-	        await LoadTotalInterestEarned();
         }
         
         

@@ -31,7 +31,7 @@
                     <Button Clicked="Button_Clicked_2" Text="Debts Control" ImageSource="drawable/debts.png" FontSize="24" FontAttributes="Bold" BackgroundColor="White" CornerRadius="15" Margin="10,10,10,20" TextTransform="None"/>
 
                     <Label Text="Danger zone" TextColor="darkred"/>
-                    <Button Text="Log out" Clicked="Button_Clicked_3"/>
+                    <Button Text="Log out" Clicked="Button_Clicked_3" BackgroundColor="White" TextColor="Red"/>
                 </StackLayout>
 
                 
