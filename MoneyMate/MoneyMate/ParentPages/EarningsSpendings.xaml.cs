@@ -27,6 +27,10 @@ namespace MoneyMate.ParentPages
 		{
 			InitializeComponent ();
             
+            PersBalanceLabel.Text = $"£{App.personalCurrentBalance}";
+            IncomeLabel.Text = $"£{App.income}";
+            ExpenseLabel.Text = $"£{App.expenses}";
+            
             LineChartModel = new ViewModels.NetCashFlow();
             TransactionsList = new ViewModels.AllTransactions();
             DoughNutChartModel = new ViewModels.SpendingCategory();
@@ -41,7 +45,7 @@ namespace MoneyMate.ParentPages
             
             try
             {
-                var newTransactions = await dbService.LoadTransactions(productID1,productID2);
+                var newTransactions = await dbService.LoadTransactions(productID1,productID2, 70);
                 if (TransactionsList.Transactions != null)
                 {
                     Device.BeginInvokeOnMainThread(() => 
@@ -136,7 +140,7 @@ namespace MoneyMate.ParentPages
 
         void SeeAllTapped(System.Object sender, System.EventArgs e)
         {
-            // Navigation.PushAsync(new AllTransactions(), true);
+            Navigation.PushAsync(new AllTransactions(), true);
         }
 
         

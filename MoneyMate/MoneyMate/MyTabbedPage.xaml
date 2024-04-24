@@ -12,8 +12,12 @@
              >
     
     <local:DashboardPage Title="Dashboard" IconImageSource="dashboard_icon.png"/>
-    <!-- <local:HelpPage Title="Help" IconImageSource="help_icon.png"/> -->
+    <!--<local:HelpPage Title="Help" IconImageSource="help_icon.png"/>-->
     <local:InsightsTab Title="Insights" IconImageSource="insights_icon.png"/>
     <local:HubPage Title="Hub" IconImageSource="hub_icon.png"/>
     
 </TabbedPage>
+
+
+
+    

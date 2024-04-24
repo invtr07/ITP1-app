@@ -27,24 +27,24 @@ namespace MoneyMate.InsightComponents
 			var client = new HttpClient();
 			var request = new HttpRequestMessage
 			{
-    //             Method = HttpMethod.Get,
-    //             RequestUri = new Uri("https://reuters-business-and-financial-news.p.rapidapi.com/articles-by-trends/2024-04-18/0/20"),
-    //             Headers =
-				// {
-				// 	{ "X-RapidAPI-Key", "dd18931327mshfffafdd99574b14p1f2bbcjsn7ee577141fc2" },
-				// 	{ "X-RapidAPI-Host", "reuters-business-and-financial-news.p.rapidapi.com" },
-				// },
+                Method = HttpMethod.Get,
+                RequestUri = new Uri("https://reuters-business-and-financial-news.p.rapidapi.com/articles-by-trends/2024-04-18/0/20"),
+                Headers =
+				{
+					{ "X-RapidAPI-Key", "dd18931327mshfffafdd99574b14p1f2bbcjsn7ee577141fc2" },
+					{ "X-RapidAPI-Host", "reuters-business-and-financial-news.p.rapidapi.com" },
+				},
             };
 			using (var response = await client.SendAsync(request))
 			{
 				response.EnsureSuccessStatusCode();
 				var body = await response.Content.ReadAsStringAsync();
-
+  
 				RootObject data = JsonConvert.DeserializeObject<RootObject>(body);
-
+  
 				foreach (var item in data.articles)
 				{
-
+  
 					NewsItems.Add(new NewsItems
 					{
 						Title = item.articlesName,

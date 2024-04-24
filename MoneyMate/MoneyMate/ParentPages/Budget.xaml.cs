@@ -20,9 +20,9 @@ namespace MoneyMate.ParentPages
 		        Padding = 5,
 		        Children =
 		        {
-			        new Label { Text = "Save for iPad", VerticalOptions = LayoutOptions.Center },
+			        new Label { Text = "Gambling limit", VerticalOptions = LayoutOptions.Center },
 			        new ProgressBar { Progress = 0.3, HorizontalOptions = LayoutOptions.FillAndExpand, ProgressColor = Color.Green},
-			        new Label { Text = "Target: £500", VerticalOptions = LayoutOptions.Center }
+			        new Label { Text = "Limit: £300", VerticalOptions = LayoutOptions.Center }
 		        }
 	        };
 	        

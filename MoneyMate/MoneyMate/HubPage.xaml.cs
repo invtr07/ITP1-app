@@ -35,9 +35,18 @@ namespace MoneyMate
             App.savedID = "";
             App.savedName = "";
             App.savedSurname = "";
+            App.savedTotalInterest = 0;
+            App.income = 0;
+            App.expenses = 0;
+            App.persCurrStartingBalance = 0;
+            App.personalCurrentBalance = 0;
+            App.savingsStartingBalance1 = 0;
+            App.savingsStartingBalance2 = 0;
+            App.creditStartingBalance1 = 0;
+            App.creditStartingBalance2 = 0;
             App.dbConnection.Close();
             Navigation.PopAsync();
-            
+           
         }
 
     }

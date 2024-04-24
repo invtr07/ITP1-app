@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MoneyMate.QuestionsPage1"
+             NavigationPage.HasBackButton="False"
+             Title="Money Mate">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20" Spacing="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout Margin="0,0,0,20">
+                <Label Text="Welcome back!" HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" FontSize="28"/>
+                <Label Text="Please take this optional questionnaire answering each question honestly. This will help us better assist you in achieving your financial goals" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="17" TextColor="DimGray"/>
+            </StackLayout>
+                
+        
+        <StackLayout Margin="10">
+            <Label Text="How often do you track your expenses?" FontSize="16" TextColor="#006E2A" FontAttributes="Bold"/>
+            <Frame CornerRadius="5" BorderColor="Black" BackgroundColor="Transparent">
+                <Editor HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" HeightRequest="100" Placeholder="Enter your response here ..." />
+
+            </Frame>
+        </StackLayout>
+        
+        <StackLayout Margin="10">
+            <Label Text="What portion of your income do you typically save?" FontSize="16" TextColor="#006E2A" FontAttributes="Bold"/>
+            <Frame CornerRadius="5" BorderColor="Black" BackgroundColor="Transparent">
+                <Editor HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" HeightRequest="80" Placeholder="Enter your response here ..."/>
+
+            </Frame>
+        </StackLayout>
+        
+        <StackLayout Margin="10">
+            <Label Text="Do you have any investments? If so, what types? (e.g., stocks, mutual funds, real estate)" FontSize="16" TextColor="#006E2A" FontAttributes="Bold"/>
+            <Frame CornerRadius="5" BorderColor="Black" BackgroundColor="Transparent">
+                <Editor HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" HeightRequest="80" Placeholder="Enter your response here ..."/>
+
+            </Frame>
+        </StackLayout>
+        
+        <StackLayout Margin="10">
+            <Label Text="How often do you review your investment portfolio?" FontSize="16" TextColor="#006E2A" FontAttributes="Bold"/>
+            
+            <Frame CornerRadius="5" BorderColor="Black" BackgroundColor="Transparent">
+                <Editor HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" HeightRequest="80" Placeholder="Enter your response here ..."/>
+
+            </Frame>
+        </StackLayout>
+        
+        <StackLayout Margin="10">
+            <Label Text="What are your primary reasons for saving money? (e.g., retirement, emergency fund, major purchases)" FontSize="16" TextColor="#006E2A" FontAttributes="Bold"/>
+            <Frame CornerRadius="5" BorderColor="Black" BackgroundColor="Transparent">
+                <Editor HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" HeightRequest="80" Placeholder="Enter your response here ..." />
+
+            </Frame>
+        </StackLayout>
+        
+        <Button Clicked="Button_OnClicked" Text="Next" Margin="12" BackgroundColor="#006E2A" TextColor="White" CornerRadius="15"/>
+        
+        <Button Clicked="Button_OnClicked1" Text="Skip questionnaire" Margin="12" BackgroundColor="DimGray" TextColor="WhiteSmoke" CornerRadius="15"/>
+        
+    </StackLayout>
+        </ScrollView>
+        
+</ContentPage.Content>
+
+</ContentPage>

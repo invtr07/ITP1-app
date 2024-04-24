@@ -30,10 +30,12 @@ namespace MoneyMate
 			InitializeComponent ();
 			
 			userName.Text = App.savedName;
-			TotalInterestLabel.Text = $"+ £{App.savedTotalInterest}";
 			PersBalanceLabel.Text = $"£ {App.personalCurrentBalance}";
-			IncomeLabel.Text = $"£ {App.income}";
 			// ExpenseLabel.Text = $"£ {App.expenses}";
+			IncomeLabel.Text = $"£ {App.income}";
+			TotalInterestLabel.Text = $"+ £{App.savedTotalInterest}";
+			InterestPaidLabel.Text = $"£{App.paidInterest}";
+			
 
             LineChartModel = new ViewModels.NetCashFlow();
             DoughNutChartModel = new ViewModels.SpendingCategory();
@@ -104,10 +106,13 @@ namespace MoneyMate
 
         private async void LoadCurrentBalance()
         {
+	        decimal balance;
 	        DatabaseControl dbService = new DatabaseControl();
 			try
 	        {
-		        await dbService.LoadCurrentBalance();
+		        balance = await dbService.LoadCurrentBalance();
+		        ExpenseLabel.Text = $"${balance}";
+		        App.expenses = balance;
 		        PersBalanceLabel.Text = $"£ {App.personalCurrentBalance}";
 	        }
 	        catch(Exception ex)

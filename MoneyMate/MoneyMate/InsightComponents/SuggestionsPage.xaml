@@ -5,22 +5,53 @@
     x:Class="MoneyMate.InsightComponents.SuggestionsPage"
     BackgroundColor="#F2F2F7">
     <ContentPage.Content>
+        <ScrollView>
         <StackLayout>
-            <SearchBar Placeholder="Search by title..." TextChanged="SearchBar_TextChanged"/>
-            <ListView x:Name="Listview1" RowHeight="90"  ItemTapped="Listview1_ItemTapped" Margin="0,50">
-                 <ListView.Header>
-                    <StackLayout>
-                        <Label Text="Suggestions for you" FontSize="20" FontAttributes="Bold" Margin="10" TextColor="Black"/>
-                    </StackLayout>
-                </ListView.Header>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell Text="{Binding Title}" Detail="{Binding Brief}" />
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <Label Text="Concerning behavior" VerticalOptions="End" Margin="25,10,0,0" />
 
+            <Frame BackgroundColor="white" CornerRadius="12" Padding="10" HasShadow="True" HeightRequest="70"  Margin="10,0,10,10" VerticalOptions="Start">
+                <StackLayout Margin="5">
+                    <Label Text="Set up a limit for gambling institutions" TextColor="#006E2A" />
+                    <Label Text="During the last 30 days, a large portion of your spending has been at gambling institutions." />
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="white" CornerRadius="12" Padding="10" HasShadow="True" HeightRequest="70"  Margin="10,0,10,10" VerticalOptions="Start">
+                <StackLayout Margin="5">
+                    <Label Text="Limit spending in non-essential areas" TextColor="#006E2A"/>
+                    <Label Text="Oh No! You are close to reaching your budget limit, dont overspend by making smart financial decisions." />
+                </StackLayout>
+            </Frame>
+
+            <StackLayout>
+                <Label Text="Life events" VerticalOptions="End" Margin="25,10,0,0" />
+                <Frame BackgroundColor="white" CornerRadius="12" Padding="10" HasShadow="True" HeightRequest="70"  Margin="10,0,10,10" VerticalOptions="Start">
+                    <StackLayout Margin="5">
+                        <Label Text="Set a savings goal for wedding" TextColor="#006E2A"/>
+                        <Label Text="The average cost of a wedding in the UK is £20,775 start saving now for your special day." />
+                    </StackLayout>
+                </Frame>
+                <Frame BackgroundColor="white" CornerRadius="12" Padding="10" HasShadow="True" HeightRequest="100"  Margin="10,0,10,10" VerticalOptions="Start">
+                    <StackLayout Margin="5">
+                        <Label Text="Open a new savings account for family plan" TextColor="#006E2A"/>
+                        <Label Text="Raising a child is a wonderful, joyous and emotional journey take away some of the financial stress and start saving today to focus on those precious moments with your little one." />
+                    </StackLayout>
+                </Frame>
+                <Frame BackgroundColor="white" CornerRadius="12" Padding="10" HasShadow="True" HeightRequest="70"  Margin="10,0,10,10" VerticalOptions="Start">
+                    <StackLayout Margin="5">
+                        <Label Text="Set up a savings plan for education" TextColor="#006E2A"/>
+                        <Label Text="Considering higher education? Understanding budgeting is key to making the most of your university experience." />
+                    </StackLayout>
+                </Frame>
+                <Frame BackgroundColor="white" CornerRadius="12" Padding="10" HasShadow="True" HeightRequest="90"  Margin="10,0,10,10" VerticalOptions="Start">
+                    <StackLayout Margin="5">
+                        <Label Text="Try to make some investments" TextColor="#006E2A"/>
+                        <Label Text="Have you ever thought about investments, learn how you can make your money work harder for you and your family. " />
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
         </StackLayout>
+    </ScrollView>
+
     </ContentPage.Content>
 </ContentPage>
 

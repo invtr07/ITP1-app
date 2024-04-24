@@ -11,15 +11,15 @@
                 <Frame CornerRadius="10" Padding="15" HorizontalOptions="FillAndExpand" Margin="10,0,10,0">
                     <StackLayout>
                         <Label Text="Personal current account" FontAttributes="Bold" FontSize="20" TextColor="Black"/>
-                        <Label Text="£ 2826.00" FontSize="30" FontAttributes="Bold" TextColor="#1A7D3F"/>
+                        <Label x:Name="PersBalanceLabel" FontSize="30" FontAttributes="Bold" TextColor="#1A7D3F"/>
                         <!-- Income and Expenses should be dynamic, consider using Bindings -->
                         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                             <Label Text="Income" FontAttributes="Bold" TextColor="Black"/>
-                            <Label Text="£ 2,573.00" HorizontalOptions="EndAndExpand" TextColor="#1A7D3F"/>
+                            <Label x:Name="IncomeLabel" HorizontalOptions="EndAndExpand" TextColor="#1A7D3F"/>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                             <Label Text="Expenses" FontAttributes="Bold" TextColor="Black"/>
-                            <Label Text="£ 3,973.00" HorizontalOptions="EndAndExpand" TextColor="#1A7D3F"/>
+                            <Label x:Name="ExpenseLabel" HorizontalOptions="EndAndExpand" TextColor="#1A7D3F"/>
                         </StackLayout>
                         
                     </StackLayout>

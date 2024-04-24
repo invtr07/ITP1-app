@@ -49,30 +49,37 @@
                 </Frame>
 
                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"  Margin="10,0,10,0">
-                    <Frame WidthRequest="140" HeightRequest="135" CornerRadius="10" HorizontalOptions="FillAndExpand" Padding="10">
+                    <!-- <Frame WidthRequest="140" HeightRequest="135" CornerRadius="10" HorizontalOptions="FillAndExpand" Padding="10"> -->
+                    <!--     <StackLayout> -->
+                    <!--         <Label Text="Interest" TextColor="Black" FontSize="24"/> -->
+                    <!-- -->
+                    <!--         <StackLayout > -->
+                    <!--             <Label Text="Lloyds credit card:" TextColor="Black" FontAttributes="Bold"/> -->
+                    <!--             <Label Text="17.94%"/> -->
+                    <!--         </StackLayout> -->
+                    <!-- -->
+                    <!--         <StackLayout > -->
+                    <!--             <Label Text="Club Lloyds Advantage Saver:" TextColor="Black" FontAttributes="Bold"/> -->
+                    <!--             <Label Text="4.0%"/> -->
+                    <!--         </StackLayout> -->
+                    <!--     -->
+                    <!--     </StackLayout> -->
+                    <!-- -->
+                    <!-- </Frame> -->
+                    <Frame WidthRequest="140" HeightRequest="135" HorizontalOptions="FillAndExpand" CornerRadius="10">
                         <StackLayout>
-                            <Label Text="Interest" TextColor="Black" FontSize="24"/>
-
-                            <StackLayout >
-                                <Label Text="Lloyds credit card:" TextColor="Black" FontAttributes="Bold"/>
-                                <Label Text="17.94%"/>
-                            </StackLayout>
-
-                            <StackLayout >
-                                <Label Text="Club Lloyds Advantage Saver:" TextColor="Black" FontAttributes="Bold"/>
-                                <Label Text="4.0%"/>
-                            </StackLayout>
-                       
+                            <Label Text="Total interest accrued:" TextColor="Black"  FontSize="20" FontAttributes="Bold"/>
+                            <Label x:Name="TotalInterestLabel" TextColor="#1A7D3F" FontAttributes="Bold" FontSize="30" Margin="0,20"/>
                         </StackLayout>
-
                     </Frame>
                     
                     <Frame WidthRequest="140" HeightRequest="135" HorizontalOptions="FillAndExpand" CornerRadius="10">
                         <StackLayout>
-                            <Label Text="Total interest earned:" TextColor="Black"  FontSize="20" FontAttributes="Bold"/>
-                            <Label x:Name="TotalInterestLabel" TextColor="#1A7D3F" FontAttributes="Bold" FontSize="30" Margin="0,20"/>
+                            <Label Text="Total interest paid:" TextColor="Black"  FontSize="20" FontAttributes="Bold"/>
+                            <Label x:Name="InterestPaidLabel" TextColor="DarkRed" FontAttributes="Bold" FontSize="30" Margin="0,20"/>
                         </StackLayout>
                     </Frame>
+                    
                 </StackLayout>
 
                 <!-- Chart Section -->

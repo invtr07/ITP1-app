@@ -24,6 +24,10 @@ namespace MoneyMate.ParentPages
 		public Savings ()
 		{
 			InitializeComponent ();
+			// LoadCurrentBalance();
+
+			// EasySaverLabel.Text = $"$ {App.savingsStartingBalance1}";
+			// AdvSaverLabel.Text = $"$ {App.savingsStartingBalance2}";
 			
 			LineChartModel = new ViewModels.NetCashFlow();
 			TransactionsList = new ViewModels.AllTransactions();
@@ -38,7 +42,7 @@ namespace MoneyMate.ParentPages
 
             try
             {
-                var newTransactions = await dbService.LoadTransactions( productID1, productID2);
+                var newTransactions = await dbService.LoadTransactions( productID1, productID2, 70);
                 if (TransactionsList.Transactions != null)
                 {
                     Device.BeginInvokeOnMainThread(() =>
@@ -91,6 +95,25 @@ namespace MoneyMate.ParentPages
 	        
         }
         
+        private async void LoadCurrentBalance()
+        {
+	        decimal balance1;
+	        decimal balance2;
+	        
+	        DatabaseControl dbService = new DatabaseControl();
+	        try
+	        {
+		        balance1= await dbService.LoadSavingBalance1();
+		        balance2= await dbService.LoadSavingBalance2();
+		        EasySaverLabel.Text = $"£{balance1}";
+		        AdvSaverLabel.Text = $"£{balance2}";
+	        }
+	        catch(Exception ex)
+	        {
+		        await DisplayAlert("Error", $"{ex.Message}", "OK");
+	        }
+        }
+        
         private async void OnSelectionChanged(object sender, Syncfusion.XForms.Buttons.SelectionChangedEventArgs selectionChangedEventArgs)
         {
 	        var selectedSegment = (sender as SfSegmentedControl).SelectedIndex;
@@ -100,13 +123,15 @@ namespace MoneyMate.ParentPages
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+            LoadCurrentBalance();
             await LoadDataAsync();
             await LoadNetCashFlowData(TimeGrouping.Weekly);
         }
 
         void SeeAllTapped(System.Object sender, System.EventArgs e)
 		{
-			// Navigation.PushAsync(new AllTransactions(), true);
+			Navigation.PushAsync(new AllSavingTransactions());
+
 		}
 	}
 }

@@ -16,7 +16,7 @@
                         <StackLayout Orientation="Horizontal" >
                             <Label Text="Easy Saver"/>
                             <StackLayout HorizontalOptions="EndAndExpand">
-                                <Label Text="£ 5,000.00" HorizontalOptions="EndAndExpand"/>
+                                <Label x:Name="EasySaverLabel" Text="£0" HorizontalOptions="EndAndExpand"/>
                                 <Label Text="interest: 1.4%" HorizontalOptions="EndAndExpand"/>
                 
                             </StackLayout>
@@ -24,7 +24,7 @@
                         <StackLayout Orientation="Horizontal" >
                             <Label Text="Advantage Saver"/>
                             <StackLayout HorizontalOptions="EndAndExpand">
-                                <Label Text="£ 3,000.00" HorizontalOptions="EndAndExpand"/>
+                                <Label x:Name="AdvSaverLabel" Text="£0" HorizontalOptions="EndAndExpand"/>
                                 <Label Text="interest: 4.0%" HorizontalOptions="EndAndExpand"/>
                             </StackLayout>
                         </StackLayout>

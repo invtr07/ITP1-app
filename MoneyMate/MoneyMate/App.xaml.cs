@@ -12,17 +12,22 @@ namespace MoneyMate
         public static string savedSurname;
         public static string savedID;
         public static decimal savedTotalInterest;
+        public static decimal paidInterest;
         
-        public static decimal persCurrStartingBalance;
-        public static decimal personalCurrentBalance;
         public static decimal income;
         public static decimal expenses;
-
-        public static decimal[] savingsStartingBalance;
-        // public static decimal savingsCurrentBalance2;
-        public static decimal[] creditStartingBalance;
-        // public static decimal creditCurrentBalance2;
         
+        public static decimal persCurrStartingBalance; //starting balance
+        public static decimal personalCurrentBalance; //calculated personal balance
+        
+        public static decimal savingsStartingBalance1;
+        public static decimal savingsStartingBalance2;
+        
+        
+        public static decimal creditStartingBalance1;
+        public static decimal creditStartingBalance2;
+        
+       
 
         public static MySqlConnection dbConnection = new MySqlConnection("server=dbhost.cs.man.ac.uk;user=y95106bt;password=Maxwell8899;database=y95106bt");
 
@@ -31,6 +36,9 @@ namespace MoneyMate
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NBaF5cXmZCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdnWXtec3RdRGhcVkFxXEE=");
 
             InitializeComponent();
+            
+            // App.savingsStartingBalance = new decimal[2];
+            // App.creditStartingBalance = new decimal[2];
 
             MainPage = new NavigationPage(new OnboardingPage());
         }

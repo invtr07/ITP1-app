@@ -5,7 +5,8 @@
     x:Class="MoneyMate.InsightComponents.NewsPage">
     <ContentPage.Content>
         <StackLayout>
-            <SearchBar Placeholder="Search by title..." TextChanged="SearchBar_TextChanged"/>
+            <SearchBar Placeholder="Search by title..." TextChanged="SearchBar_TextChanged" Margin="5"/>
+            <Label HorizontalOptions="Center" FontSize="12"> News source: Reuters.com </Label>
 
             <CollectionView x:Name="CollectionView1"
                             ItemsSource="{Binding NewsItems}"

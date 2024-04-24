@@ -4,5 +4,8 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <!-- colors.xml -->
+    <color name="navigationBarColor">#1A7D3F</color> <!-- Same as in App.xaml -->
+
 </resources>
 

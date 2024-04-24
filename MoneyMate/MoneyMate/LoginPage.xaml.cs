@@ -39,7 +39,9 @@ namespace MoneyMate
                                     App.savedName = reader["name"].ToString();
                                     App.savedSurname = reader["surname"].ToString();
                                     App.savedID = reader["customer_ID"].ToString();
-                                    App.income = reader["monthly_Income"] != DBNull.Value ? Convert.ToDecimal(reader["monthly_Income"]) : 0;
+                                    App.income = reader["monthly_Income"] != DBNull.Value
+                                        ? Convert.ToDecimal(reader["monthly_Income"])
+                                        : 0;
 
                                     // Navigation to the tabbed page after successful login
                                 }
@@ -59,8 +61,9 @@ namespace MoneyMate
                                 });
                             }
                         }
-                        
-                        using (MySqlCommand command = new MySqlCommand($@"SELECT SUM(transaction_Amount) AS Total 
+                    }
+
+                    using (MySqlCommand command = new MySqlCommand($@"SELECT SUM(transaction_Amount) AS Total 
                                                                   FROM transaction t 
                                                                   WHERE t.account_ID IN 
                                                                       (SELECT account_ID 
@@ -68,12 +71,97 @@ namespace MoneyMate
                                                                        WHERE customer_ID = {App.savedID} 
                                                                        AND product_ID IN (103, 104))
                                                                   AND t.transaction_Reference = 'Lloyds Bank';",App.dbConnection))
-                        {
+                    {
                             using(var reader = command.ExecuteReader())
                             {
                                 if (reader.Read())
                                 {
                                     App.savedTotalInterest = reader["Total"] != DBNull.Value ? Convert.ToDecimal(reader["Total"]) : 0;
+                                }
+                            }
+                    }
+                    using (MySqlCommand command = new MySqlCommand($@"SELECT SUM(transaction_Amount) AS Total 
+                                                                  FROM transaction t 
+                                                                  WHERE t.account_ID IN 
+                                                                      (SELECT account_ID 
+                                                                       FROM account 
+                                                                       WHERE customer_ID = {App.savedID} 
+                                                                       AND product_ID IN (105, 106))
+                                                                  AND t.transaction_Reference = 'Lloyds Bank';",App.dbConnection))
+                    {
+                        using(var reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                App.paidInterest = reader["Total"] != DBNull.Value ? Convert.ToDecimal(reader["Total"]) : 0;
+                            }
+                        }
+                    }
+                        // starting balance of the savings
+             using (var command = new MySqlCommand("SELECT starting_Balance, product_ID FROM account WHERE customer_ID = @customerID and product_ID IN (103,104)", App.dbConnection))
+             {
+                 command.Parameters.AddWithValue("@customerID", App.savedID);
+                         
+                         using (var reader = command.ExecuteReader())
+                         {
+                             while (reader.Read())
+                             {
+                                 decimal startingBalance = reader.GetDecimal(reader.GetOrdinal("starting_Balance"));
+                                 int productId = reader.GetInt32(reader.GetOrdinal("product_ID"));
+                    
+                                 // Assign starting balance to the correct index based on product ID
+                                 if (productId == 103)
+                                 {
+                                     App.savingsStartingBalance1 = startingBalance; // Assign to first element if product ID is 105
+                                 }
+                                 else if (productId == 104)
+                                 {
+                                     App.savingsStartingBalance2 = startingBalance; // Assign to second element if product ID is 106
+                                 }
+                                 
+                             }
+                         }
+                         
+                    }
+             
+                        // starting balance of the credit
+                         using (var command = new MySqlCommand("SELECT starting_Balance, product_ID FROM account WHERE customer_ID = @customerID and product_ID IN (105,106)", App.dbConnection))
+                         {
+                             
+                             command.Parameters.AddWithValue("@customerID", App.savedID);
+                             
+                             using (var reader = command.ExecuteReader())
+                             {
+                                 while (reader.Read())
+                                 {
+                                     decimal startingBalance = reader.GetDecimal(reader.GetOrdinal("starting_Balance"));
+                                     int productId = reader.GetInt32(reader.GetOrdinal("product_ID"));
+                        
+                                     // Assign starting balance to the correct index based on product ID
+                                     if (productId == 105)
+                                     {
+                                         App.creditStartingBalance1 = startingBalance; // Assign to first element if product ID is 105
+                                     }
+                                     else if (productId == 106)
+                                     {
+                                         App.creditStartingBalance2 = startingBalance; // Assign to second element if product ID is 106
+                                     }
+                                 }
+                             }
+                             
+                         }
+                        
+                        //starting balance of the current personal accounts
+                        using (var command = new MySqlCommand("SELECT starting_Balance FROM account WHERE customer_ID = @customerID and product_ID IN (101,102)", App.dbConnection))
+                        {
+                            
+                            command.Parameters.AddWithValue("@customerID", App.savedID);
+                            
+                            using (var reader = command.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                     App.persCurrStartingBalance = decimal.Parse(reader["starting_Balance"].ToString());
                                 }
                             }
                         }
@@ -82,11 +170,9 @@ namespace MoneyMate
                         Device.BeginInvokeOnMainThread(async () =>
                         {
                             await Navigation.PushAsync(new MyTabbedPage());
+                            // await Navigation.PushAsync(new QuestionsPage1());
                         });
                         
-                    }
-                    
-                    
                 }
                 catch (MySqlException ex)
                 {
@@ -118,8 +204,7 @@ namespace MoneyMate
                 DisplayAlert("Login Failed", "Please enter both user ID and password.", "OK");
             }
         }
-
-
+        
     }
 }
 	

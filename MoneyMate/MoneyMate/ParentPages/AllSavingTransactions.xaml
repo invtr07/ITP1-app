@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<ContentPage
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="MoneyMate.ParentPages.AllTransactions"
-    Title="Current acc. transactions">
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MoneyMate.ParentPages.AllSavingTransactions"
+             Title="Savings transactions">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
@@ -35,7 +35,5 @@
                 </CollectionView>
             </StackLayout>
         </ScrollView>
-        
     </ContentPage.Content>
 </ContentPage>
-

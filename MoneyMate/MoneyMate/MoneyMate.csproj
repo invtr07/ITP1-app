@@ -35,7 +35,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="SharedResources\" />
-    <Folder Include="ParentPages\" />
     <Folder Include="ModalPages\" />
     <Folder Include="InsightComponents\" />
   </ItemGroup>

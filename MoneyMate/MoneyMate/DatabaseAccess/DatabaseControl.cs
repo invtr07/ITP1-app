@@ -13,8 +13,10 @@ namespace MoneyMate.DatabaseAccess
 
     public class DatabaseControl
     {
-        public MySqlConnection localConnection = App.dbConnection;
-        public async Task<ObservableCollection<TransactionsModel>> LoadTransactions(int product1, int product2)
+        // public MySqlConnection localConnection = App.dbConnection;
+        public string connString = "server=dbhost.cs.man.ac.uk;user=y95106bt;password=Maxwell8899;database=y95106bt";
+
+        public async Task<ObservableCollection<TransactionsModel>> LoadTransactions(int product1, int product2, int limit)
         {
             ObservableCollection<TransactionsModel> transactions = new ObservableCollection<TransactionsModel>();
 
@@ -25,7 +27,7 @@ namespace MoneyMate.DatabaseAccess
                     SELECT account_ID FROM account WHERE customer_ID = @customerID AND product_ID IN ({product1},{product2} 
                 ))
                 ORDER BY transaction_Date, transaction_Time DESC 
-                LIMIT 70;";
+                LIMIT {limit};";
 
             using (var command = new MySqlCommand(query, App.dbConnection))
             {
@@ -51,7 +53,6 @@ namespace MoneyMate.DatabaseAccess
                             , Treference = reader["transaction_Reference"].ToString()
                         };
                         transactions.Add(transaction);
-
                     }
                 }
 
@@ -72,7 +73,7 @@ namespace MoneyMate.DatabaseAccess
 
             using (var command = new MySqlCommand(query, App.dbConnection))
             {
-                 App.dbConnection.Open();
+                App.dbConnection.Open();
 
                 command.Parameters.AddWithValue("@customerID", App.savedID);
                 command.Parameters.AddWithValue("@productID1", 101);
@@ -123,8 +124,8 @@ namespace MoneyMate.DatabaseAccess
             // Use the weekly query
             string query =
                 $@"SELECT SUM(transaction_Amount) AS Total, YEAR(transaction_Date) AS Year, WEEK(transaction_Date) AS Week FROM transaction t WHERE t.account_ID IN ( SELECT account_ID FROM account WHERE customer_ID = @customerID AND product_ID IN ({product1}, {product2}) ) GROUP BY Year, Week ORDER BY Year ASC, Week ASC;";
-            
-            return await LoadNetCashFlow(query, "Week", product1, product2);
+
+            return await LoadNetCashFlow(query, "Week");
         }
 
 // Loads monthly data from the database
@@ -133,191 +134,248 @@ namespace MoneyMate.DatabaseAccess
             // Use the monthly query
             string query =
                 $@"SELECT SUM(transaction_Amount) AS Total, YEAR(transaction_Date) AS Year, MONTH(transaction_Date) AS Month FROM transaction t WHERE t.account_ID IN ( SELECT account_ID FROM account WHERE customer_ID = @customerID AND product_ID IN ({product1}, {product2}) ) GROUP BY Year, Month ORDER BY Year ASC, Month ASC;";
-            
-            return await LoadNetCashFlow(query, "Month", product1, product2);
+
+            return await LoadNetCashFlow(query, "Month");
         }
 
-        public async Task<ObservableCollection<LineChartModel>> LoadNetCashFlow(string query, string timeFrameColumn, int product1, int product2)
+        public async Task<ObservableCollection<LineChartModel>> LoadNetCashFlow(string query, string timeFrameColumn)
         {
             ObservableCollection<LineChartModel> netCashFlow = new ObservableCollection<LineChartModel>();
 
             using (var command = new MySqlCommand(query, App.dbConnection))
             {
                 App.dbConnection.Open();
+                decimal amount;
 
                 command.Parameters.AddWithValue("@customerID", App.savedID);
-                
+
                 using (var reader = command.ExecuteReader())
                 {
-                    
-                      decimal amount = App.persCurrStartingBalance;
-                        while (reader.Read())
+
+                    while (reader.Read())
+                    {
+                        decimal transactionAmount = decimal.Parse(reader["Total"].ToString());
+
+                        LineChartModel cashFlow = new LineChartModel
                         {
-                            decimal transactionAmount = decimal.Parse(reader["Total"].ToString());
-                        
-                            LineChartModel cashFlow = new LineChartModel
-                            {
-                                Amount = amount += transactionAmount
-                                , TimeFrame = int.Parse(reader[timeFrameColumn].ToString())
-                                , Year = int.Parse(reader["Year"].ToString()),
-                            };
-                        
-                            netCashFlow.Add(cashFlow);
-                        }
-                    //
-                    // else if (product1 == 103 || product2 == 104)
-                    // {
-                    //     amount = App.savingsStartingBalance[0] + App.savingsStartingBalance[1];
-                    //     
-                    //     while (reader.Read())
-                    //     {
-                    //         decimal transactionAmount = decimal.Parse(reader["Total"].ToString());
-                    //     
-                    //         LineChartModel cashFlow = new LineChartModel
-                    //         {
-                    //             Amount = amount += transactionAmount
-                    //             , TimeFrame = int.Parse(reader[timeFrameColumn].ToString())
-                    //             , Year = int.Parse(reader["Year"].ToString()),
-                    //         };
-                    //     
-                    //         netCashFlow.Add(cashFlow);
-                    //     }
-                    // }
-                    // else if (product1 == 105 || product2 == 106)
-                    // {
-                    //     amount = App.creditStartingBalance[0] + App.creditStartingBalance[1];
-                    //     
-                    //     while (reader.Read())
-                    //     {
-                    //         decimal transactionAmount = decimal.Parse(reader["Total"].ToString());
-                    //     
-                    //         LineChartModel cashFlow = new LineChartModel
-                    //         {
-                    //             Amount = amount += transactionAmount
-                    //             , TimeFrame = int.Parse(reader[timeFrameColumn].ToString())
-                    //             , Year = int.Parse(reader["Year"].ToString()),
-                    //         };
-                    //     
-                    //         netCashFlow.Add(cashFlow);
-                    //     }
-                    // }
+                            Amount = transactionAmount
+                            , TimeFrame = int.Parse(reader[timeFrameColumn].ToString())
+                            , Year = int.Parse(reader["Year"].ToString()),
+                        };
+
+                        netCashFlow.Add(cashFlow);
+                    }
+
                 }
+
                 await App.dbConnection.CloseAsync();
             }
 
             return netCashFlow;
-            
+
         }
 
-        public async Task LoadCurrentBalance()
+        public async Task<decimal> LoadCurrentBalance()
         {
-            //starting balance of the savings
-            // using (var command = new MySqlCommand("SELECT starting_Balance, product_ID FROM account WHERE customer_ID = @customerID and product_ID IN (103,104)", App.dbConnection))
-            // {
-            //     App.dbConnection.Open();
-            //
-            //     command.Parameters.AddWithValue("@customerID", App.savedID);
-            //     
-            //     using (var reader = command.ExecuteReader())
-            //     {
-            //         while (reader.Read())
-            //         {
-            //             decimal startingBalance = reader.GetDecimal(reader.GetOrdinal("starting_Balance"));
-            //             int productId = reader.GetInt32(reader.GetOrdinal("product_ID"));
-            //
-            //             // Assign starting balance to the correct index based on product ID
-            //             if (productId == 103)
-            //             {
-            //                 App.creditStartingBalance[0] = startingBalance; // Assign to first element if product ID is 105
-            //             }
-            //             if (productId == 104)
-            //             {
-            //                 App.creditStartingBalance[1] = startingBalance; // Assign to second element if product ID is 106
-            //             }
-            //         }
-            //     }
-            //     await App.dbConnection.CloseAsync();
-            // }
-            
-            //starting balance of the credit
-            // using (var command = new MySqlCommand("SELECT starting_Balance, product_ID FROM account WHERE customer_ID = @customerID and product_ID IN (105,106)", App.dbConnection))
-            // {
-            //     App.dbConnection.Open();
-            //
-            //     command.Parameters.AddWithValue("@customerID", App.savedID);
-            //     
-            //     using (var reader = command.ExecuteReader())
-            //     {
-            //         while (reader.Read())
-            //         {
-            //             decimal startingBalance = reader.GetDecimal(reader.GetOrdinal("starting_Balance"));
-            //             int productId = reader.GetInt32(reader.GetOrdinal("product_ID"));
-            //
-            //             // Assign starting balance to the correct index based on product ID
-            //             if (productId == 105)
-            //             {
-            //                 App.savingsStartingBalance[0] = startingBalance; // Assign to first element if product ID is 105
-            //             }
-            //             if (productId == 106)
-            //             {
-            //                 App.savingsStartingBalance[1] = startingBalance; // Assign to second element if product ID is 106
-            //             }
-            //         }
-            //     }
-            //     await App.dbConnection.CloseAsync();
-            // }
-            
-            //starting balance of the current personal accounts
-            using (var command = new MySqlCommand("SELECT starting_Balance FROM account WHERE customer_ID = @customerID and product_ID IN (101,102)", App.dbConnection))
+            decimal Balance = 0;
+
+            using (var command =
+                   new MySqlCommand(
+                       $@"SELECT transaction_Amount FROM transaction WHERE account_ID IN (SELECT account_ID FROM account WHERE customer_ID = @customerID AND product_ID IN (101, 102)) ;"
+                       , App.dbConnection))
             {
                 App.dbConnection.Open();
 
                 command.Parameters.AddWithValue("@customerID", App.savedID);
-                
+
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                         App.persCurrStartingBalance = decimal.Parse(reader["starting_Balance"].ToString());
+                        Balance += decimal.Parse(reader["transaction_Amount"].ToString());
                     }
-                }
-                await App.dbConnection.CloseAsync();
-            }
-            
-            decimal Balance = 0; 
 
-            using (var command = new MySqlCommand($@"SELECT transaction_Amount FROM transaction WHERE account_ID IN (SELECT account_ID FROM account WHERE customer_ID = @customerID AND product_ID IN (101, 102)) ;", App.dbConnection))
-            {
-                App.dbConnection.Open();
-
-                command.Parameters.AddWithValue("@customerID", App.savedID);
-                
-                using (var reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        Balance += decimal.Parse(reader["transaction_Amount"].ToString());   
-                    }
-                    
                     App.personalCurrentBalance = App.persCurrStartingBalance + Balance;
-                    // App.expenses = Balance;
                 }
-                
+
                 await App.dbConnection.CloseAsync();
+
             }
 
-            using (var command = new MySqlCommand($@"SELECT transaction_Amount FROM ", App.dbConnection))
-            {
-                
-            }
-
+            return Balance;
         }
-        
-        
-        
-        
+
+        public async Task<decimal> LoadSavingBalance1()
+        {
+
+            decimal TotalBalance = 0;
+
+            using (MySqlConnection conn = new MySqlConnection(connString))
+            {
+                conn.Open();
+                using (var command =
+                       new MySqlCommand(
+                           $@"SELECT SUM(transaction_Amount) AS Total FROM transaction WHERE account_ID IN (SELECT account_ID FROM account WHERE customer_ID = @customerID AND product_ID IN (103)) ;"
+                           , conn))
+                {
+                    // App.dbConnection.Open();
+
+                    command.Parameters.AddWithValue("@customerID", App.savedID);
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        if (await reader.ReadAsync())
+                        {
+                            // Safely attempt to parse the decimal
+                            if (reader["Total"] != DBNull.Value &&
+                                decimal.TryParse(reader["Total"].ToString(), out decimal Balance))
+                            {
+                                TotalBalance = App.savingsStartingBalance1 + Balance;
+                            }
+                            else
+                            {
+                                TotalBalance = App.savingsStartingBalance1;
+                            }
+                        }
+                    }
+                }
+
+                await conn.CloseAsync();
+
+                // await App.dbConnection.CloseAsync();
+            }
+
+            return TotalBalance;
+        }
+
+        public async Task<decimal> LoadSavingBalance2()
+        {
+            decimal TotalBalance=0;
+
+            using (MySqlConnection conn = new MySqlConnection(connString))
+            {
+                conn.Open();
+                using (var command =
+                       new MySqlCommand(
+                           $@"SELECT SUM(transaction_Amount) AS Total FROM transaction WHERE account_ID IN (SELECT account_ID FROM account WHERE customer_ID = @customerID AND product_ID IN (104)) ;"
+                           , conn))
+                {
+                    // App.dbConnection.Open();
+
+                    command.Parameters.AddWithValue("@customerID", App.savedID);
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        if(await reader.ReadAsync())
+                        {
+                            if (reader["Total"] != DBNull.Value &&
+                                                        decimal.TryParse(reader["Total"].ToString(), out decimal Balance))
+                                                    {
+                                                        TotalBalance = App.savingsStartingBalance2 + Balance;
+                                                    }
+                                                    else
+                                                    {
+                                                        TotalBalance = App.savingsStartingBalance2;
+                                                    }
+                        }
+                        
+                    }
+
+                }
+
+                // await App.dbConnection.CloseAsync();
+                await conn.CloseAsync();
+
+            }
+
+            return TotalBalance;
+        }
+    
 
 
+
+        public async Task<decimal> LoadCreditBalance1()
+    {
+
+        decimal TotalBalance = 0;
+
+        using (MySqlConnection conn = new MySqlConnection(connString))
+        {
+            conn.Open();
+            using (var command =
+                   new MySqlCommand(
+                       $@"SELECT SUM(transaction_Amount) AS Total FROM transaction WHERE account_ID IN (SELECT account_ID FROM account WHERE customer_ID = @customerID AND product_ID IN (105)) ;"
+                       , conn))
+            {
+                // App.dbConnection.Open();
+
+                command.Parameters.AddWithValue("@customerID", App.savedID);
+
+                using (var reader = command.ExecuteReader())
+                {
+                    // Safely attempt to parse the decimal
+                    if(await reader.ReadAsync())
+                    {
+                        if (reader["Total"] != DBNull.Value &&
+                                                decimal.TryParse(reader["Total"].ToString(), out decimal Balance))
+                                            {
+                                                TotalBalance = App.creditStartingBalance1 + Balance;
+                                            }
+                                            else
+                                            {
+                                                TotalBalance = App.creditStartingBalance1;
+                                            }
+                    }
+                }
+                await conn.CloseAsync();
+
+            }
+
+            return TotalBalance;
+            
+        }
+    }
+
+
+
+        public async Task<decimal> LoadCreditBalance2()
+        {
+          
+            decimal TotalBalance = 0;
+
+            using(MySqlConnection conn = new MySqlConnection(connString))
+            {
+                conn.Open();
+                using (var command =
+                       new MySqlCommand(
+                           $@"SELECT SUM(transaction_Amount) AS Total FROM transaction WHERE account_ID IN (SELECT account_ID FROM account WHERE customer_ID = @customerID AND product_ID IN (106)) ;"
+                           , conn))
+                {
+                    // App.dbConnection.Open();
+
+                    command.Parameters.AddWithValue("@customerID", App.savedID);
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        if(await reader.ReadAsync())
+                                            {
+                                                if (reader["Total"] != DBNull.Value &&
+                                                                        decimal.TryParse(reader["Total"].ToString(), out decimal Balance))
+                                                                    {
+                                                                        TotalBalance = App.creditStartingBalance2 + Balance;
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        TotalBalance = App.creditStartingBalance2;
+                                                                    }
+                                            }
+                    }
+                }
+                await conn.CloseAsync();
+            }
+            return TotalBalance;
+        }
     }
 }
+
 
