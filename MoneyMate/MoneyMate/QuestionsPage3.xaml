@@ -9,7 +9,7 @@
             <StackLayout Padding="20" Spacing="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                 
         <StackLayout Margin="10">
-            <Label Text="How often do you track your expenses?" FontSize="16" TextColor="#006E2A" FontAttributes="Bold"/>
+            <Label Text="What are your long-term financial goals? (Life Event, Budgeter, Investment)" FontSize="16" TextColor="#006E2A" FontAttributes="Bold"/>
             <Frame CornerRadius="5" BorderColor="Black" BackgroundColor="Transparent">
                 <Editor HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" HeightRequest="100" Placeholder="Enter your response here ..." />
 
@@ -17,7 +17,7 @@
         </StackLayout>
         
         <StackLayout Margin="10">
-            <Label Text="What portion of your income do you typically save?" FontSize="16" TextColor="#006E2A" FontAttributes="Bold"/>
+            <Label Text="How would you describe your risk tolerance when it comes to financial investments?" FontSize="16" TextColor="#006E2A" FontAttributes="Bold"/>
             <Frame CornerRadius="5" BorderColor="Black" BackgroundColor="Transparent">
                 <Editor HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" HeightRequest="80" Placeholder="Enter your response here ..."/>
 
@@ -25,7 +25,7 @@
         </StackLayout>
         
         <StackLayout Margin="10">
-            <Label Text="Do you have any investments? If so, what types? (e.g., stocks, mutual funds, real estate)" FontSize="16" TextColor="#006E2A" FontAttributes="Bold"/>
+            <Label Text="Have you experienced any significant financial changes recently? (e.g., job loss, promotion, windfall)" FontSize="16" TextColor="#006E2A" FontAttributes="Bold"/>
             <Frame CornerRadius="5" BorderColor="Black" BackgroundColor="Transparent">
                 <Editor HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" HeightRequest="80" Placeholder="Enter your response here ..."/>
 
@@ -33,7 +33,7 @@
         </StackLayout>
         
         <StackLayout Margin="10">
-            <Label Text="How often do you review your investment portfolio?" FontSize="16" TextColor="#006E2A" FontAttributes="Bold"/>
+            <Label Text="Do you have a designated emergency fund? If so, how many months of expenses does it cover?" FontSize="16" TextColor="#006E2A" FontAttributes="Bold"/>
             
             <Frame CornerRadius="5" BorderColor="Black" BackgroundColor="Transparent">
                 <Editor HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" HeightRequest="80" Placeholder="Enter your response here ..."/>
@@ -42,7 +42,7 @@
         </StackLayout>
         
         <StackLayout Margin="10">
-            <Label Text="What are your primary reasons for saving money? (e.g., retirement, emergency fund, major purchases)" FontSize="16" TextColor="#006E2A" FontAttributes="Bold"/>
+            <Label Text="How comfortable are you with discussing your financial situation and seeking advice or assistance?" FontSize="16" TextColor="#006E2A" FontAttributes="Bold"/>
             <Frame CornerRadius="5" BorderColor="Black" BackgroundColor="Transparent">
                 <Editor HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" HeightRequest="80" Placeholder="Enter your response here ..." />
 

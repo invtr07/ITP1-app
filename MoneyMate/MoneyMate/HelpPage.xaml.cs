@@ -71,24 +71,18 @@ namespace MoneyMate
 
 		}
 		
-		async void SendGreetingMessage()
+		void SendGreetingMessage()
 		{
 			var greetingMessage = "Hello! I'm your personal finance AI assistant. However, please keep in mind, I can sometimes make mistakes, so please double-check any important information.";
 
 			
 			messages.Add(new TextMessage { Author = bot, Text = greetingMessage, DateTime = DateTime.Now });
-			//
-			// // Optionally, you can trigger the bot to follow up with additional instructions or questions
-			//
-			// var followUpMessage = "How can I assist you with your finances today?";
-			// var botResponse = await GetResponseFromOpenAI(followUpMessage); 
-			// messages.Add(new TextMessage { Author = bot, Text = botResponse, DateTime = DateTime.Now });
 		}
 		async void Chat_OnSendMessage(object sender, SendMessageEventArgs e)
 		{
-			// var userMessage = e.Message.Text;
-			// var botResponse = await GetResponseFromOpenAI(userMessage);
-			// chat.Messages.Add(new TextMessage { Author = bot, Text = botResponse });
+			var userMessage = e.Message.Text;
+			var botResponse = await GetResponseFromOpenAI(userMessage);
+			chat.Messages.Add(new TextMessage { Author = bot, Text = botResponse });
 		}
  
 	}

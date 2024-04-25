@@ -5,7 +5,7 @@
              >
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="NavigationBarColor">#66a87f</Color>
+            <Color x:Key="NavigationBarColor">#1a7d3f</Color>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

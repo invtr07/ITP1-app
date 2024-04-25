@@ -16,14 +16,14 @@
                             <Label Text="Credit card"/>
                             <StackLayout HorizontalOptions="EndAndExpand">
                                 <Label x:Name="CreditAcc1Label" Text="0" HorizontalOptions="EndAndExpand"/>
-                                <Label Text="interest: 17.4%" HorizontalOptions="EndAndExpand"/>
+                                <Label Text="interest: 17.94% p.a. variable" HorizontalOptions="EndAndExpand"/>
                             </StackLayout>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal" >
                             <Label Text="Advantage Saver"/>
                             <StackLayout HorizontalOptions="EndAndExpand">
                                 <Label x:Name="CreditAcc2Label" Text="0"  HorizontalOptions="EndAndExpand"/>
-                                <Label Text="interest: 22.4%"  HorizontalOptions="EndAndExpand"/>
+                                <Label Text="interest: 22.94% p.a. variable"  HorizontalOptions="EndAndExpand"/>
                             </StackLayout>
                         </StackLayout>
                     </StackLayout>

@@ -1,5 +1,6 @@
 using MySqlConnector;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -11,6 +12,7 @@ using Syncfusion.DataSource.Extensions;
 namespace MoneyMate.DatabaseAccess
 {
 
+    
     public class DatabaseControl
     {
         // public MySqlConnection localConnection = App.dbConnection;
@@ -374,6 +376,71 @@ namespace MoneyMate.DatabaseAccess
                 await conn.CloseAsync();
             }
             return TotalBalance;
+        }
+
+        public async Task LoadArrOver()
+        {
+            App.arrangedOver = new List<App.OverdraftDetails>();
+            using (MySqlConnection conn = new MySqlConnection(connString))
+            {
+                conn.Open();
+                using (var command =
+                       new MySqlCommand(
+                           $@"SELECT product_ID, product_Name,daily_InterestRate, interest_FreeOverdraftLimit FROM product WHERE product_ID IN (SELECT a.product_ID FROM account a WHERE a.customer_ID = @customerID AND a.product_ID IN (107)) ;"
+                           , conn))
+                {
+                    command.Parameters.AddWithValue("@customerID", App.savedID);
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            App.OverdraftDetails overdraftDetails= new App.OverdraftDetails
+                                {
+                                    productName  = reader["product_Name"].ToString(),
+                                    dailyInterestRate = decimal.Parse(reader["daily_InterestRate"].ToString()),
+                                    interestFreeOverdraftLimit = decimal.Parse(reader["interest_FreeOverdraftLimit"].ToString())
+                                };
+                            
+                            App.arrangedOver.Add(overdraftDetails);
+                        }
+                    }
+                }
+
+                await conn.CloseAsync();
+            }
+        }
+        public async Task LoadUnArrOver()
+        {
+            App.unarrangedOver = new List<App.OverdraftDetails>();
+            using (MySqlConnection conn = new MySqlConnection(connString))
+            {
+                conn.Open();
+                using (var command =
+                       new MySqlCommand(
+                           $@"SELECT product_ID, product_Name,daily_InterestRate, interest_FreeOverdraftLimit FROM product WHERE product_ID IN (SELECT a.product_ID FROM account a WHERE a.customer_ID = @customerID AND a.product_ID IN (108)) ;"
+                           , conn))
+                {
+                    command.Parameters.AddWithValue("@customerID", App.savedID);
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            App.OverdraftDetails overdraftDetails= new App.OverdraftDetails
+                            {
+                                productName  = reader["product_Name"].ToString(),
+                                dailyInterestRate = decimal.Parse(reader["daily_InterestRate"].ToString()),
+                                interestFreeOverdraftLimit = decimal.Parse(reader["interest_FreeOverdraftLimit"].ToString())
+                            };
+                            
+                            App.unarrangedOver.Add(overdraftDetails);
+                        }
+                    }
+                }
+
+                await conn.CloseAsync();
+            }
         }
     }
 }

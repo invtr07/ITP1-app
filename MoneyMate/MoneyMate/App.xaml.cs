@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using MoneyMate.DatabaseAccess;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Syncfusion;
@@ -26,7 +28,10 @@ namespace MoneyMate
         
         public static decimal creditStartingBalance1;
         public static decimal creditStartingBalance2;
-        
+
+        public static List<OverdraftDetails> arrangedOver;
+        public static List<OverdraftDetails> unarrangedOver;
+
        
 
         public static MySqlConnection dbConnection = new MySqlConnection("server=dbhost.cs.man.ac.uk;user=y95106bt;password=Maxwell8899;database=y95106bt");
@@ -43,6 +48,12 @@ namespace MoneyMate
             MainPage = new NavigationPage(new OnboardingPage());
         }
         
+        public class OverdraftDetails
+        {
+            public string productName { get; set; }
+            public decimal dailyInterestRate { get; set; }
+            public decimal interestFreeOverdraftLimit { get; set; }
+        }
         protected override void OnStart ()
         {
             

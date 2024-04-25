@@ -7,7 +7,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <SearchBar Placeholder="Search by title..." TextChanged="InputView_OnTextChanged" Margin="5"/>
+                <SearchBar Placeholder="Search by any details..." TextChanged="InputView_OnTextChanged" Margin="5"/>
                 
                 <CollectionView x:Name="CollectionViewT" ItemsSource="{Binding TransactionsList.Transactions}" VerticalOptions="FillAndExpand" >
                     <CollectionView.ItemsLayout>

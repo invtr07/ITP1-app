@@ -35,6 +35,8 @@ namespace MoneyMate
 			IncomeLabel.Text = $"£ {App.income}";
 			TotalInterestLabel.Text = $"+ £{App.savedTotalInterest}";
 			InterestPaidLabel.Text = $"£{App.paidInterest}";
+
+			
 			
 
             LineChartModel = new ViewModels.NetCashFlow();
@@ -104,6 +106,47 @@ namespace MoneyMate
 	        }
         }
 
+        private async void LoadOverDraftDetails()
+        {
+	        DatabaseControl dbService = new DatabaseControl();
+
+	        try
+	        {
+		        await dbService.LoadArrOver();
+		        await dbService.LoadUnArrOver();
+		        
+		        if (App.arrangedOver.Count != 0)
+		        {
+			        arrangedOver.Text = $"{App.arrangedOver[0].productName}";
+			        arrangInterest.Text = $"{App.arrangedOver[0].dailyInterestRate.ToString("F2")}%";
+			        arrangLimit.Text = $"Limit: £{App.arrangedOver[0].interestFreeOverdraftLimit}";
+		        }
+		        else
+		        {
+			        arrangedOver.IsVisible = false;
+			        arrangInterest.IsVisible = false;
+			        arrangLimit.IsVisible = false;
+		        }
+			
+		        if (App.unarrangedOver.Count != 0)
+		        {
+			        unarrangedOver.Text = $"{App.unarrangedOver[0].productName}";
+			        unarrangInterest.Text = $"{App.unarrangedOver[0].dailyInterestRate.ToString("F2")}%";
+			        unarrangLimit.Text = $"Limit: £{App.unarrangedOver[0].interestFreeOverdraftLimit}";
+		        }
+		        else
+		        {
+			        unarrangedOver.IsVisible = false;
+			        unarrangInterest.IsVisible = false;
+			        unarrangLimit.IsVisible = false;
+		        }
+	        }
+	        catch(Exception ex)
+	        {
+		        DisplayAlert("Error", $"{ex.Message}", "OK");
+	        }
+        }
+
         private async void LoadCurrentBalance()
         {
 	        decimal balance;
@@ -131,6 +174,7 @@ namespace MoneyMate
         {
 	        base.OnAppearing();
 	        LoadCurrentBalance();
+	        LoadOverDraftDetails();
 	        await LoadTopSpendingCategories();
 	        await LoadNetCashFlowData(TimeGrouping.Weekly);
         }

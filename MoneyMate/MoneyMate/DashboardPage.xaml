@@ -36,16 +36,43 @@
                         <Label Text="Personal current account" FontAttributes="Bold" FontSize="20" TextColor="Black"/>
                         <Label x:Name="PersBalanceLabel" FontSize="30" FontAttributes="Bold" TextColor="#1A7D3F"/>
                         <!-- Income and Expenses should be dynamic, consider using Bindings -->
+
                         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                             <Label Text="Income" FontAttributes="Bold" TextColor="Black"/>
-                            <Label x:Name="IncomeLabel" HorizontalOptions="EndAndExpand" TextColor="#1A7D3F"/>
+                            <Label x:Name="IncomeLabel" HorizontalOptions="EndAndExpand" TextColor="#1A7D3F" FontAttributes="Bold"/>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                             <Label Text="Expenses" FontAttributes="Bold" TextColor="Black"/>
-                            <Label x:Name="ExpenseLabel" HorizontalOptions="EndAndExpand" TextColor="#1A7D3F"/>
+                            <Label x:Name="ExpenseLabel" HorizontalOptions="EndAndExpand" TextColor="#1A7D3F" FontAttributes="Bold"/>
                         </StackLayout>
                         
                     </StackLayout>
+                </Frame>
+                
+                <!-- Overdraft Section -->
+                <Frame CornerRadius="10" Padding="15" HorizontalOptions="FillAndExpand" Margin="10,0,10,0">
+                    <StackLayout>
+                        
+                        <Label Text="Overdrafts" FontAttributes="Bold" FontSize="20" TextColor="Black"/>
+                        
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <Label x:Name="arrangedOver" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Start"/>
+                            <StackLayout HorizontalOptions="EndAndExpand">
+                                <Label x:Name="arrangInterest" HorizontalOptions="EndAndExpand" TextColor="DarkRed"/>
+                                <Label x:Name="arrangLimit" HorizontalOptions="EndAndExpand" TextColor="Black"/>    
+                            </StackLayout>
+                        </StackLayout>
+                        
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <Label  x:Name="unarrangedOver" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Start"/>
+                            <StackLayout HorizontalOptions="EndAndExpand">
+                                <Label x:Name="unarrangInterest" HorizontalOptions="EndAndExpand" TextColor="DarkRed"/>
+                                <Label x:Name="unarrangLimit" HorizontalOptions="EndAndExpand" TextColor="Black"/>
+                            </StackLayout>
+                        </StackLayout>
+                        
+                    </StackLayout>
+                    
                 </Frame>
 
                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"  Margin="10,0,10,0">

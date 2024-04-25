@@ -56,8 +56,10 @@ namespace MoneyMate.ParentPages
             }
             else
             {
-            	CollectionViewT.ItemsSource = TransactionsList.Transactions.Where(item =>
-            		item.Treference.ToLower().Contains(e.NewTextValue.ToLower()));
+	            CollectionViewT.ItemsSource = TransactionsList.Transactions.Where(item =>
+		            item.Treference.ToLower().Contains(e.NewTextValue.ToLower()) ||
+		            item.Category.ToLower().Contains(e.NewTextValue.ToLower()) ||
+		            item.DT.ToString().ToLower().Contains(e.NewTextValue.ToLower()) || item.Amount.ToString().ToLower().Contains(e.NewTextValue.ToLower()));
             }
 		}
 	}

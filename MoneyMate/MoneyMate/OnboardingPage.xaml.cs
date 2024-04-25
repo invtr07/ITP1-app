@@ -17,8 +17,8 @@ namespace MoneyMate
 
         void Button_Clicked(System.Object sender, System.EventArgs e)
         {
-            // Navigation.PushAsync(new QuestionsPage1());
-            Navigation.PushAsync(new HubPage());
+            Navigation.PushAsync(new QuestionsPage1());
+            // Navigation.PushAsync(new HubPage());
         }
         
     }
