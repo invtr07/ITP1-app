@@ -31,6 +31,9 @@ namespace MoneyMate
 
         public static List<OverdraftDetails> arrangedOver;
         public static List<OverdraftDetails> unarrangedOver;
+        
+        public static List<BudgetDetails> budgetLimits;
+        public static List<MoneyPotDetails> moneyPots;
 
        
 
@@ -42,8 +45,7 @@ namespace MoneyMate
 
             InitializeComponent();
             
-            // App.savingsStartingBalance = new decimal[2];
-            // App.creditStartingBalance = new decimal[2];
+            
 
             MainPage = new NavigationPage(new OnboardingPage());
         }
@@ -53,6 +55,22 @@ namespace MoneyMate
             public string productName { get; set; }
             public decimal dailyInterestRate { get; set; }
             public decimal interestFreeOverdraftLimit { get; set; }
+        }
+
+        public class BudgetDetails
+        {
+            public double LimitAmount { get; set; }
+            public string Period { get; set; }
+            public string Category { get; set; }
+            public bool ThirdParty { get; set; }
+        }
+        
+        public class MoneyPotDetails
+        {
+            public string PotName { get; set; }
+            public DateTime DueDate { get; set; }
+            public double TargetAmount { get; set; }
+            public double CurrentAmount { get; set; } = 0;
         }
         protected override void OnStart ()
         {

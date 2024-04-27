@@ -134,6 +134,9 @@
     <PackageReference Include="Syncfusion.Xamarin.Buttons">
       <Version>25.1.40</Version>
     </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfCalendar">
+      <Version>25.1.40</Version>
+    </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfPopupLayout">
       <Version>25.1.40</Version>
     </PackageReference>
