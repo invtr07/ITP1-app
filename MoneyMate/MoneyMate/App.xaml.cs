@@ -67,6 +67,7 @@ namespace MoneyMate
         
         public class MoneyPotDetails
         {
+            public int PotId { get; set; }
             public string PotName { get; set; }
             public DateTime DueDate { get; set; }
             public double TargetAmount { get; set; }

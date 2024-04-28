@@ -9,6 +9,7 @@ namespace MoneyMate.ParentPages
 {	
 	public partial class MoneyPots : ContentPage
 	{	
+		private static Random random = new Random();
 		public MoneyPots ()
 		{
 			InitializeComponent ();
@@ -62,6 +63,7 @@ namespace MoneyMate.ParentPages
 				
 			}
 		}
+
 		void ShowAddOrWithdrawPopup(App.MoneyPotDetails pot, bool isAdding)
 		{
 		    var popupLayout = new SfPopupLayout();
@@ -116,7 +118,8 @@ namespace MoneyMate.ParentPages
 		        };
 		        return contentStack;
 		    });
-		
+			popupLayout.PopupView.ShowFooter = false;
+			popupLayout.PopupView.ShowHeader = false;
 		    popupLayout.Show();
 		}
 		
@@ -140,7 +143,7 @@ namespace MoneyMate.ParentPages
 			popupLayout.PopupView.ShowFooter = false;
 			popupLayout.PopupView.ShowHeader = false;
 			popupLayout.PopupView.WidthRequest = 300;
-			popupLayout.PopupView.HeightRequest = 300;
+			popupLayout.PopupView.HeightRequest = 240;
 			popupLayout.Show();
 		}
 
@@ -151,7 +154,6 @@ namespace MoneyMate.ParentPages
 				PotName = moneyPotName,
 				TargetAmount = targetAmount,
 				DueDate = dueDate.Value,
-				
 			});
 			RefreshMoneyPotPage();
 		}
@@ -247,8 +249,16 @@ namespace MoneyMate.ParentPages
 							}
 						}) },
 						new Button { Text = "Delete", BackgroundColor = Color.White, TextColor = Color.Red, Command = new Command(() => {
-							App.moneyPots.Remove(pot);
-							RefreshMoneyPotPage();
+							if(pot.CurrentAmount > 0)
+							{
+								DisplayAlert("Error", "Cannot delete a pot with money in it.", "OK");
+								return;
+							}
+							else
+							{
+								App.moneyPots.Remove(pot);
+								RefreshMoneyPotPage();
+							}
 							popupLayout.Dismiss();
 						}) }
 					}

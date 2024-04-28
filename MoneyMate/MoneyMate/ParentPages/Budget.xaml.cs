@@ -60,9 +60,129 @@ namespace MoneyMate.ParentPages
 					Margin = 10,
 					BackgroundColor = Color.White,
 				};
+				var tapGestureRecognizer = new TapGestureRecognizer();
+				tapGestureRecognizer.Tapped += (s, e) => OnBudgetItemTapped(limit);
+				budgetFrame.GestureRecognizers.Add(tapGestureRecognizer);
 				BudgetLayout.Children.Add(budgetFrame);
 			}
 		}
+		void OnBudgetItemTapped(App.BudgetDetails budgetItem)
+		{
+			if (budgetItem.ThirdParty)
+			{
+				DisplayAlert("Authorization Required", "This budget limit cannot be edited or deleted until authorized by your entrusted person.", "OK");
+			}
+			else
+			{
+				ShowEditDeletePopup(budgetItem);
+			}
+		}
+		void ShowEditDeletePopup(App.BudgetDetails budgetItem)
+		{
+			var popupLayout = new SfPopupLayout();
+
+			var editButton = new Button
+			{
+				Text = "Edit",
+				Command = new Command(() =>
+				{
+					EditBudget(budgetItem);
+					popupLayout.Dismiss();
+				})
+			};
+
+			var deleteButton = new Button
+			{
+				Text = "Delete",
+				Command = new Command(() =>
+				{
+					DeleteBudget(budgetItem);
+					RefreshBudgetDisplay();
+					popupLayout.Dismiss();
+				})
+			};
+
+			var stackLayout = new StackLayout
+			{
+				Children = { editButton, deleteButton }
+			};
+
+			popupLayout.PopupView.ShowFooter = false;
+			popupLayout.PopupView.ShowHeader = false;
+			popupLayout.PopupView.ContentTemplate = new DataTemplate(() => stackLayout);
+			popupLayout.Show();
+		}
+
+		void EditBudget(App.BudgetDetails budgetItem)
+		{
+		    var popupLayout = new SfPopupLayout();
+		
+		    // Creating UI Components for the Popup
+		    var amountEntry = new Entry { Text = budgetItem.LimitAmount.ToString(), Keyboard = Keyboard.Numeric };
+		    var categoryPicker = new Picker { Title = "Select Category" };
+		    var periodPicker = new Picker { Title = "Select Period" };
+		    var thirdPartySwitch = new Switch { IsToggled = budgetItem.ThirdParty };
+		
+		    // Fill Category Picker
+		    var categories = new List<string> { "All", "Food", "Gambling", "Leisure", "Shopping", "Transfer" };
+		    foreach (var category in categories)
+		    {
+		        categoryPicker.Items.Add(category);
+		    }
+		    categoryPicker.SelectedItem = budgetItem.Category;
+		
+		    // Fill Period Picker
+		    var periods = new List<string> { "Daily", "Weekly", "Monthly" };
+		    foreach (var period in periods)
+		    {
+		        periodPicker.Items.Add(period);
+		    }
+		    periodPicker.SelectedItem = budgetItem.Period;
+		
+		    // Layout for Popup
+		    var stackLayout = new StackLayout
+		    {
+		        Children = {
+		            new Label { Text = "Edit Budget Limit", FontAttributes = FontAttributes.Bold, HorizontalOptions = LayoutOptions.Center },
+		            new Label { Text = "Limit Amount" },
+		            amountEntry,
+		            new Label { Text = "Category" },
+		            categoryPicker,
+		            new Label { Text = "Period" },
+		            periodPicker,
+		            new Label { Text = "Enable Third-party Authorization" },
+		            thirdPartySwitch,
+		            new Button {
+		                Text = "Save Changes",
+		                Command = new Command(() => {
+		                    // Save logic here
+		                    double.TryParse(amountEntry.Text, out double newAmount);
+		                    budgetItem.LimitAmount = newAmount;
+		                    budgetItem.Category = categoryPicker.SelectedItem.ToString();
+		                    budgetItem.Period = periodPicker.SelectedItem.ToString();
+		                    budgetItem.ThirdParty = thirdPartySwitch.IsToggled;
+		
+		                    RefreshBudgetDisplay();  // Refresh the display to show updated data
+		                    popupLayout.Dismiss();   // Close the popup
+		                })
+		            }
+		        }
+		    };
+		
+		    popupLayout.PopupView.ShowFooter = false;
+		    popupLayout.PopupView.ShowHeader = false;
+		    popupLayout.PopupView.ContentTemplate = new DataTemplate(() => new ScrollView { Content = stackLayout });
+		    popupLayout.PopupView.HeightRequest = 450;
+		    popupLayout.PopupView.WidthRequest = 300;
+		    popupLayout.Show();
+		}
+
+		void DeleteBudget(App.BudgetDetails budgetItem)
+		{
+			App.budgetLimits.Remove(budgetItem);
+		}
+
+		
 		void AddBudget(double limitAmount, string period, bool thirdPartyEnabled, string category)
 		{
 			
@@ -133,7 +253,8 @@ namespace MoneyMate.ParentPages
 						
 						, (targetAmountEntry = new Entry { Placeholder = "Enter your limit",Keyboard = Keyboard.Numeric })
 						, categoryPicker, 
- intervalPicker, new StackLayout{ Orientation = StackOrientation.Horizontal, Children = { new Label { Text = "Third-party budget authorizer:" }, thirdPartySwitch }}, thirdPartyName, emailThirdParty, new Button
+						intervalPicker, 
+						new StackLayout{ Orientation = StackOrientation.Horizontal, Children = { new Label { Text = "Third-party budget authorizer:" }, thirdPartySwitch }}, thirdPartyName, emailThirdParty, new Button
 						{
 							Text = "Save", BackgroundColor = Color.DarkGreen, TextColor = Color.White, Command =
 								new Command(() =>
