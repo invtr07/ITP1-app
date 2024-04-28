@@ -133,7 +133,7 @@ namespace MoneyMate.ParentPages
 					Padding = new Thickness(20),
 					Children =
 					{
-						new Button {  Text = "Add Money", Command = new Command(() => { ShowAddOrWithdrawPopup(pot, true); }) },
+						new Button { Text = "Add Money", Command = new Command(() => { ShowAddOrWithdrawPopup(pot, true); }) },
 						new Button { Text = "Withdraw Money", Command = new Command(() => { ShowAddOrWithdrawPopup(pot, false); }) },
 						new Button { Text = "Edit", Command = new Command(() => { ShowEditPopup(pot); }) }
 					}
@@ -143,7 +143,7 @@ namespace MoneyMate.ParentPages
 			popupLayout.PopupView.ShowFooter = false;
 			popupLayout.PopupView.ShowHeader = false;
 			popupLayout.PopupView.WidthRequest = 300;
-			popupLayout.PopupView.HeightRequest = 240;
+			popupLayout.PopupView.HeightRequest = 200;
 			popupLayout.Show();
 		}
 

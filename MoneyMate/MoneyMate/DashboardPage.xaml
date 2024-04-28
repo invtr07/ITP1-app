@@ -20,13 +20,7 @@
                             <GradientStop Color="#white" Offset="1.0"/>
                         </LinearGradientBrush>
                     </Frame.Background>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="Hello" FontAttributes="Bold" Margin="10" FontSize="36" TextColor="#1A7D3F"/>
                             <Label x:Name="userName" FontAttributes="Bold" Margin="0,10" FontSize="36" TextColor="#1A7D3F"/>
-                            <Label Text="!" FontAttributes="Bold" Margin="0,10" FontSize="36" TextColor="#1A7D3F"/>
-
-                        </StackLayout>
-                   
                 </Frame>
                 
                 <StackLayout Margin="7,0,7,15">

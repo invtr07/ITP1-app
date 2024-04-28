@@ -28,8 +28,8 @@ namespace MoneyMate
         public DashboardPage ()
 		{
 			InitializeComponent ();
-			
-			userName.Text = App.savedName;
+
+			userName.Text = $"Hello, {App.savedName} !";
 			PersBalanceLabel.Text = $"£ {App.personalCurrentBalance}";
 			// ExpenseLabel.Text = $"£ {App.expenses}";
 			IncomeLabel.Text = $"£ {App.income}";

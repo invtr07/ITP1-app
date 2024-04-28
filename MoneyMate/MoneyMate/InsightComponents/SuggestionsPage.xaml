@@ -10,42 +10,60 @@
             <Label Text="Concerning behavior" VerticalOptions="End" Margin="25,10,0,0" />
 
             <Frame BackgroundColor="white" CornerRadius="12" Padding="10" HasShadow="True" HeightRequest="70"  Margin="10,0,10,10" VerticalOptions="Start">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnFrameTapped"/>
+                </Frame.GestureRecognizers>
                 <StackLayout Margin="5">
                     <Label Text="Set up a limit for gambling institutions" TextColor="#006E2A" />
-                    <Label Text="During the last 30 days, a large portion of your spending has been at gambling institutions." />
+                    <Label Text="If during the last 30 days, ..." />
                 </StackLayout>
             </Frame>
             <Frame BackgroundColor="white" CornerRadius="12" Padding="10" HasShadow="True" HeightRequest="70"  Margin="10,0,10,10" VerticalOptions="Start">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnFrameTapped1"/>
+                </Frame.GestureRecognizers>
                 <StackLayout Margin="5">
                     <Label Text="Limit spending in non-essential areas" TextColor="#006E2A"/>
-                    <Label Text="Oh No! You are close to reaching your budget limit, dont overspend by making smart financial decisions." />
+                    <Label Text="If you find yourself constantly spending on non-essential things and you..." />
                 </StackLayout>
             </Frame>
 
             <StackLayout>
                 <Label Text="Life events" VerticalOptions="End" Margin="25,10,0,0" />
                 <Frame BackgroundColor="white" CornerRadius="12" Padding="10" HasShadow="True" HeightRequest="70"  Margin="10,0,10,10" VerticalOptions="Start">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnFrameTapped2"/>
+                    </Frame.GestureRecognizers>
                     <StackLayout Margin="5">
                         <Label Text="Set a savings goal for wedding" TextColor="#006E2A"/>
-                        <Label Text="The average cost of a wedding in the UK is £20,775 start saving now for your special day." />
-                    </StackLayout>
-                </Frame>
-                <Frame BackgroundColor="white" CornerRadius="12" Padding="10" HasShadow="True" HeightRequest="100"  Margin="10,0,10,10" VerticalOptions="Start">
-                    <StackLayout Margin="5">
-                        <Label Text="Open a new savings account for family plan" TextColor="#006E2A"/>
-                        <Label Text="Raising a child is a wonderful, joyous and emotional journey take away some of the financial stress and start saving today to focus on those precious moments with your little one." />
+                        <Label Text="Achieving important life goals like arranging a wedding require proactive ..." />
                     </StackLayout>
                 </Frame>
                 <Frame BackgroundColor="white" CornerRadius="12" Padding="10" HasShadow="True" HeightRequest="70"  Margin="10,0,10,10" VerticalOptions="Start">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnFrameTapped3"/>
+                    </Frame.GestureRecognizers>
                     <StackLayout Margin="5">
-                        <Label Text="Set up a savings plan for education" TextColor="#006E2A"/>
-                        <Label Text="Considering higher education? Understanding budgeting is key to making the most of your university experience." />
+                        <Label Text="Open a new savings account for family plan" TextColor="#006E2A"/>
+                        <Label Text="Raising a child is a wonderful, joyous and emotional journey ..." />
                     </StackLayout>
                 </Frame>
-                <Frame BackgroundColor="white" CornerRadius="12" Padding="10" HasShadow="True" HeightRequest="90"  Margin="10,0,10,10" VerticalOptions="Start">
+                <Frame BackgroundColor="white" CornerRadius="12" Padding="10" HasShadow="True" HeightRequest="70"  Margin="10,0,10,10" VerticalOptions="Start">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnFrameTapped4"/>
+                    </Frame.GestureRecognizers>
                     <StackLayout Margin="5">
-                        <Label Text="Try to make some investments" TextColor="#006E2A"/>
-                        <Label Text="Have you ever thought about investments, learn how you can make your money work harder for you and your family. " />
+                        <Label Text="Need assistance with credit repayment?" TextColor="#006E2A"/>
+                        <Label Text="Sometimes debts can be overwhelming and if you find yourself in this situation ..." />
+                    </StackLayout>
+                </Frame>
+                <Frame BackgroundColor="white" CornerRadius="12" Padding="10" HasShadow="True" HeightRequest="70"  Margin="10,0,10,10" VerticalOptions="Start">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnFrameTapped5"/>
+                    </Frame.GestureRecognizers>
+                    <StackLayout Margin="5">
+                        <Label Text="Considering investing?" TextColor="#006E2A"/>
+                        <Label Text="Have you ever thought about making your money work harder for you and your family?" />
                     </StackLayout>
                 </Frame>
             </StackLayout>

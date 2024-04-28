@@ -59,17 +59,17 @@ namespace MoneyMate.InsightComponents
 
 		void CollectionView1_ItemTapped(System.Object sender, Xamarin.Forms.SelectionChangedEventArgs e)
 		{
-			// if (e.CurrentSelection != null && e.CurrentSelection.Count > 0)
-			// {
-			// 	var selectedItem = (NewsItems)e.CurrentSelection[0]; // Cast the selected item as your data model type
-			// 	if (selectedItem != null)
-			// 	{
-			// 		OpenLink($"https://www.reuters.com{selectedItem.Link}");
-			//
-			// 		// Optionally reset selection
-			// 		((CollectionView)sender).SelectedItem = null;
-			// 	}
-			// }
+			if (e.CurrentSelection != null && e.CurrentSelection.Count > 0)
+			{
+				var selectedItem = (NewsItems)e.CurrentSelection[0]; // Cast the selected item as your data model type
+				if (selectedItem != null)
+				{
+					OpenLink($"https://www.reuters.com{selectedItem.Link}");
+			
+					// Optionally reset selection
+					((CollectionView)sender).SelectedItem = null;
+				}
+			}
 
 		}
 		public void OpenLink(string url)

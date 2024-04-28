@@ -20,16 +20,13 @@
                            <Span Text="AI can make mistakes. " />
                            <Span Text="Consult with a finance advisor" TextColor="Blue" TextDecorations="Underline" >
                                <Span.GestureRecognizers>
-                                   <TapGestureRecognizer  />
+                                   <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
                                </Span.GestureRecognizers>
                            </Span>
                            <Span Text=" for important queries!" />
                        </FormattedString>
                    </Label.FormattedText>
-               </Label>
-               
-                
-        
+               </Label> 
             </StackLayout> 
         
         

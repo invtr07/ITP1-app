@@ -9,10 +9,12 @@ using Syncfusion.XForms.Chat;
 using Xamarin.Forms;
 using Newtonsoft.Json;
 using System.Collections.ObjectModel;
+using Xamarin.Essentials;
 
 
 namespace MoneyMate
 {	
+	
 	public partial class HelpPage : ContentPage
 	{	
 		private string ApiKey = "sk-proj-ZOZ20i8tHWA3C0aDSHB2T3BlbkFJ42io28sFyxoUsuZy4h4I";
@@ -23,12 +25,13 @@ namespace MoneyMate
 		{
 			InitializeComponent ();
 			
-			user = new Author() { Name = "User", Avatar ="drawable/avatar" };
-			bot = new Author() { Name = "Bot", Avatar = "drawable/aichat.png" };
+			user = new Author() { Name = $"{App.savedName}", Avatar ="drawable/avatar" };
+			bot = new Author() { Name = "LloydsAI", Avatar = "drawable/aichat.png" };
 
 			messages = new ObservableCollection<object>();
 			chat.Messages = messages;
 			chat.CurrentUser = user;
+			
 
 			SendGreetingMessage();
 			
@@ -73,7 +76,7 @@ namespace MoneyMate
 		
 		void SendGreetingMessage()
 		{
-			var greetingMessage = "Hello! I'm your personal finance AI assistant. However, please keep in mind, I can sometimes make mistakes, so please double-check any important information.";
+			var greetingMessage = "Hello! I'm your personal finance assistant - LloydsAI. However, please keep in mind, I can sometimes make mistakes, so please double-check any important information.";
 
 			
 			messages.Add(new TextMessage { Author = bot, Text = greetingMessage, DateTime = DateTime.Now });
@@ -84,7 +87,11 @@ namespace MoneyMate
 			var botResponse = await GetResponseFromOpenAI(userMessage);
 			chat.Messages.Add(new TextMessage { Author = bot, Text = botResponse });
 		}
- 
+
+		private void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
+		{
+			Launcher.OpenAsync("https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/web-chat-service/");
+		}
 	}
 }
 
