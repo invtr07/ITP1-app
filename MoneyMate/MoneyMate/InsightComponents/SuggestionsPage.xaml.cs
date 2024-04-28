@@ -41,7 +41,7 @@ namespace MoneyMate.InsightComponents
 				        {
 					        new Label
 					        {
-						        Text = "Set up a limit to prevent gambling spending", FontSize = 18, TextColor = Color.DarkGreen, FontAttributes = FontAttributes.Bold,
+						        Text = "Set up a limit to prevent gambling spending", FontSize = 18, TextColor = Color.DarkGreen, FontAttributes = FontAttributes.Bold,HorizontalTextAlignment = TextAlignment.Center,
 						        HorizontalOptions = LayoutOptions.CenterAndExpand
 						        , VerticalOptions = LayoutOptions.CenterAndExpand
 					        },
@@ -104,7 +104,7 @@ namespace MoneyMate.InsightComponents
 				        {
 					        new Label
 					        {
-						        Text = "Limit spending in non-essential areas", FontSize = 18, TextColor = Color.DarkGreen, FontAttributes = FontAttributes.Bold,
+						        Text = "Limit spending in non-essential areas", FontSize = 18, TextColor = Color.DarkGreen, FontAttributes = FontAttributes.Bold, HorizontalTextAlignment = TextAlignment.Center,
 						        HorizontalOptions = LayoutOptions.CenterAndExpand
 						        , VerticalOptions = LayoutOptions.CenterAndExpand
 					        },
@@ -163,7 +163,7 @@ namespace MoneyMate.InsightComponents
             					        new Label
             					        {
             						        Text = "Set a savings goal for big life events", FontSize = 18, TextColor = Color.DarkGreen, FontAttributes = FontAttributes.Bold,
-            						        HorizontalOptions = LayoutOptions.CenterAndExpand
+            						        HorizontalOptions = LayoutOptions.CenterAndExpand, HorizontalTextAlignment = TextAlignment.Center
             						        , VerticalOptions = LayoutOptions.CenterAndExpand
             					        },
             					        new Label
@@ -221,7 +221,7 @@ namespace MoneyMate.InsightComponents
             					        new Label
             					        {
             						        Text = "Open a new savings account for family plan", FontSize = 18, TextColor = Color.DarkGreen, FontAttributes = FontAttributes.Bold,
-            						        HorizontalOptions = LayoutOptions.CenterAndExpand
+            						        HorizontalOptions = LayoutOptions.CenterAndExpand, HorizontalTextAlignment = TextAlignment.Center
             						        , VerticalOptions = LayoutOptions.CenterAndExpand
             					        },
             					        new Label
@@ -278,7 +278,7 @@ namespace MoneyMate.InsightComponents
             		        {
             			        new Label
             			        {
-            				        Text = "Need assistance with credit repayment?", FontSize = 18, TextColor = Color.DarkGreen, FontAttributes = FontAttributes.Bold,
+            				        Text = "Need assistance with credit repayment?", FontSize = 18, TextColor = Color.DarkGreen, FontAttributes = FontAttributes.Bold, HorizontalTextAlignment = TextAlignment.Center,
             				        HorizontalOptions = LayoutOptions.CenterAndExpand
             				        , VerticalOptions = LayoutOptions.CenterAndExpand
             			        },
@@ -345,7 +345,7 @@ namespace MoneyMate.InsightComponents
             			        new Label
             			        {
             				        Text = "Considering investing?", FontSize = 18, TextColor = Color.DarkGreen, FontAttributes = FontAttributes.Bold,
-            				        HorizontalOptions = LayoutOptions.CenterAndExpand
+            				        HorizontalOptions = LayoutOptions.CenterAndExpand,HorizontalTextAlignment = TextAlignment.Center
             				        , VerticalOptions = LayoutOptions.CenterAndExpand
             			        },
             			        new Label
