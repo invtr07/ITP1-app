@@ -107,7 +107,8 @@ namespace MoneyMate.ParentPages
 			{
 				Children = { editButton, deleteButton }
 			};
-
+			popupLayout.PopupView.HeightRequest = 150;
+			popupLayout.PopupView.WidthRequest = 300;
 			popupLayout.PopupView.ShowFooter = false;
 			popupLayout.PopupView.ShowHeader = false;
 			popupLayout.PopupView.ContentTemplate = new DataTemplate(() => stackLayout);
@@ -119,9 +120,9 @@ namespace MoneyMate.ParentPages
 		    var popupLayout = new SfPopupLayout();
 		
 		    // Creating UI Components for the Popup
-		    var amountEntry = new Entry { Text = budgetItem.LimitAmount.ToString(), Keyboard = Keyboard.Numeric };
-		    var categoryPicker = new Picker { Title = "Select Category" };
-		    var periodPicker = new Picker { Title = "Select Period" };
+		    var amountEntry = new Entry { Text = budgetItem.LimitAmount.ToString(), Keyboard = Keyboard.Numeric, Placeholder = "Enter your limit" };
+		    var categoryPicker = new Picker { Title = "Select Category", HorizontalOptions = LayoutOptions.FillAndExpand };
+		    var periodPicker = new Picker { Title = "Select Period", HorizontalOptions = LayoutOptions.FillAndExpand };
 		    var thirdPartySwitch = new Switch { IsToggled = budgetItem.ThirdParty };
 		
 		    // Fill Category Picker
@@ -143,18 +144,19 @@ namespace MoneyMate.ParentPages
 		    // Layout for Popup
 		    var stackLayout = new StackLayout
 		    {
+		        Padding = new Thickness(20),
 		        Children = {
-		            new Label { Text = "Edit Budget Limit", FontAttributes = FontAttributes.Bold, HorizontalOptions = LayoutOptions.Center },
+		            new Label { Text = "Edit Budget Limit", TextColor = Color.DarkGreen, FontSize = 18, FontAttributes = FontAttributes.Bold, HorizontalOptions = LayoutOptions.Center, HorizontalTextAlignment = TextAlignment.Center, Margin = 10 },
 		            new Label { Text = "Limit Amount" },
 		            amountEntry,
 		            new Label { Text = "Category" },
 		            categoryPicker,
 		            new Label { Text = "Period" },
 		            periodPicker,
-		            new Label { Text = "Enable Third-party Authorization" },
-		            thirdPartySwitch,
+		            new StackLayout { Orientation = StackOrientation.Horizontal, Children = { new Label { Text = "Enable Third-party Authorization:" }, thirdPartySwitch }},
 		            new Button {
 		                Text = "Save Changes",
+		                BackgroundColor = Color.DarkGreen, TextColor = Color.White,
 		                Command = new Command(() => {
 		                    // Save logic here
 		                    double.TryParse(amountEntry.Text, out double newAmount);
@@ -170,13 +172,14 @@ namespace MoneyMate.ParentPages
 		        }
 		    };
 		
-		    popupLayout.PopupView.ShowFooter = false;
-		    popupLayout.PopupView.ShowHeader = false;
 		    popupLayout.PopupView.ContentTemplate = new DataTemplate(() => new ScrollView { Content = stackLayout });
-		    popupLayout.PopupView.HeightRequest = 450;
 		    popupLayout.PopupView.WidthRequest = 300;
+		    popupLayout.PopupView.HeightRequest = 450;
+		    popupLayout.PopupView.ShowHeader = false;
+		    popupLayout.PopupView.ShowFooter = false;
 		    popupLayout.Show();
 		}
+
 
 		void DeleteBudget(App.BudgetDetails budgetItem)
 		{

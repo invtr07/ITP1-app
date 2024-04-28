@@ -222,62 +222,62 @@ namespace MoneyMate.ParentPages
 			popupLayout.Show();
 		}
 		void ShowEditPopup(App.MoneyPotDetails pot)
-		{
-			var potNameEntry = new Entry { Text = pot.PotName };
-			var targetAmountEntry = new Entry { Text = pot.TargetAmount.ToString(), Keyboard = Keyboard.Numeric };
-			var calendar = new SfCalendar { SelectedDate = pot.DueDate };
-
-			var popupLayout = new SfPopupLayout();
-
-			popupLayout.PopupView.ContentTemplate = new DataTemplate(() =>
 			{
-				var contentStack = new StackLayout
-				{
-					Padding = new Thickness(20),
-					Children =
-					{
-						new Label { Text = "Edit Money Pot", FontAttributes = FontAttributes.Bold, HorizontalOptions = LayoutOptions.Center },
-						new Label { Text = "Pot Name:" },
-						potNameEntry,
-						new Label { Text = "Target Amount (£):" },
-						targetAmountEntry,
-						new Label { Text = "Due Date:" },
-						calendar,
-						new Button { Text = "Save Changes", BackgroundColor = Color.DarkGreen,TextColor = Color.White,Command = new Command(() => {
-							double targetAmount;
-							if (double.TryParse(targetAmountEntry.Text, out targetAmount))
-							{
-								pot.PotName = potNameEntry.Text;
-								pot.TargetAmount = targetAmount;
-								pot.DueDate = calendar.SelectedDate.GetValueOrDefault();
-								RefreshMoneyPotPage();
-								popupLayout.Dismiss();
-							}
-						}) },
-						new Button { Text = "Delete", BackgroundColor = Color.White, TextColor = Color.Red, Command = new Command(() => {
-							if(pot.CurrentAmount > 0)
-							{
-								DisplayAlert("Error", "Cannot delete a pot with money in it.", "OK");
-								return;
-							}
-							else
-							{
-								App.moneyPots.Remove(pot);
-								RefreshMoneyPotPage();
-							}
-							popupLayout.Dismiss();
-						}) }
-					}
-				};
-				return new ScrollView { Content = contentStack };
-			});
+			    var potNameEntry = new Entry { Text = pot.PotName, Placeholder = "Enter pot name" };
+			    var targetAmountEntry = new Entry { Text = pot.TargetAmount.ToString(), Keyboard = Keyboard.Numeric, Placeholder = "Enter target amount (£)" };
+			    var calendar = new SfCalendar { SelectedDate = pot.DueDate };
 			
-			popupLayout.PopupView.ShowFooter = false;
-			popupLayout.PopupView.ShowHeader = false;
-			popupLayout.PopupView.WidthRequest = 300;
-			popupLayout.PopupView.HeightRequest = 500;
-			popupLayout.Show();
-		}
+			    var popupLayout = new SfPopupLayout();
+			
+			    popupLayout.PopupView.ContentTemplate = new DataTemplate(() =>
+			    {
+			        var contentStack = new StackLayout
+			        {
+			            Padding = new Thickness(20),
+			            Children =
+			            {
+			                new Label { Text = "Edit Money Pot", FontSize = 18, TextColor = Color.DarkGreen, FontAttributes = FontAttributes.Bold, HorizontalOptions = LayoutOptions.Center, HorizontalTextAlignment = TextAlignment.Center, Margin = new Thickness(0, 0, 0, 10) },
+			                new Label { Text = "Pot Name:" },
+			                potNameEntry,
+			                new Label { Text = "Target Amount (£):" },
+			                targetAmountEntry,
+			                new Label { Text = "Due Date:" },
+			                calendar,
+			                new Button { Text = "Save Changes", BackgroundColor = Color.DarkGreen, TextColor = Color.White, Command = new Command(() => {
+			                    double targetAmount;
+			                    if (double.TryParse(targetAmountEntry.Text, out targetAmount))
+			                    {
+			                        pot.PotName = potNameEntry.Text;
+			                        pot.TargetAmount = targetAmount;
+			                        pot.DueDate = calendar.SelectedDate.GetValueOrDefault();
+			                        RefreshMoneyPotPage(); // Assuming this method updates the UI and saves the changes
+			                        popupLayout.Dismiss();
+			                    }
+			                }) },
+			                new Button { Text = "Delete", BackgroundColor = Color.White, TextColor = Color.Red, Command = new Command(() => {
+			                    if(pot.CurrentAmount > 0)
+			                    {
+			                        DisplayAlert("Error", "Cannot delete a pot with money in it.", "OK");
+			                    }
+			                    else
+			                    {
+			                        App.moneyPots.Remove(pot);
+			                        RefreshMoneyPotPage(); // Assuming this method updates the UI after deletion
+			                        popupLayout.Dismiss();
+			                    }
+			                }) }
+			            }
+			        };
+			        return new ScrollView { Content = contentStack };
+			    });
+			
+			    popupLayout.PopupView.ShowFooter = false;
+			    popupLayout.PopupView.ShowHeader = false;
+			    popupLayout.PopupView.WidthRequest = 300;
+			    popupLayout.PopupView.HeightRequest = 500;
+			    popupLayout.Show();
+			}
+
         void Button_Clicked(System.Object sender, System.EventArgs e)
         {
 	        ShowPopup();

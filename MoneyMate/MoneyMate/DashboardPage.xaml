@@ -80,14 +80,14 @@
                     <Frame WidthRequest="140" HeightRequest="135" HorizontalOptions="FillAndExpand" CornerRadius="10">
                         <StackLayout>
                             <Label Text="Total interest accrued:" TextColor="Black"  FontSize="20" FontAttributes="Bold"/>
-                            <Label x:Name="TotalInterestLabel" TextColor="#1A7D3F" FontAttributes="Bold" FontSize="30" Margin="0,20"/>
+                            <Label x:Name="TotalInterestLabel" TextColor="#1A7D3F" FontAttributes="Bold" FontSize="27" Margin="0,20"/>
                         </StackLayout>
                     </Frame>
                     
                     <Frame WidthRequest="140" HeightRequest="135" HorizontalOptions="FillAndExpand" CornerRadius="10">
                         <StackLayout>
                             <Label Text="Total interest paid:" TextColor="Black"  FontSize="20" FontAttributes="Bold"/>
-                            <Label x:Name="InterestPaidLabel" TextColor="#b34000" FontAttributes="Bold" FontSize="30" Margin="0,20"/>
+                            <Label x:Name="InterestPaidLabel" TextColor="#b34000" FontAttributes="Bold" FontSize="27" Margin="0,20"/>
                         </StackLayout>
                     </Frame>
                     
