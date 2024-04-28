@@ -26,7 +26,7 @@ namespace MoneyMate
 			InitializeComponent ();
 			
 			user = new Author() { Name = $"{App.savedName}", Avatar ="drawable/avatar" };
-			bot = new Author() { Name = "LloydsAI", Avatar = "drawable/aichat.png" };
+			bot = new Author() { Name = "Lloyd", Avatar = "drawable/aichat.png" };
 
 			messages = new ObservableCollection<object>();
 			chat.Messages = messages;
