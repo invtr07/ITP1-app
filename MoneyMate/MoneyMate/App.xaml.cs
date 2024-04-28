@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Net.Http;
 using MoneyMate.DatabaseAccess;
+using MoneyMate.InsightComponents;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Syncfusion;
 using MySqlConnector;
+using Newtonsoft.Json;
 
 namespace MoneyMate
 {
@@ -39,6 +43,7 @@ namespace MoneyMate
 
         public static MySqlConnection dbConnection = new MySqlConnection("server=dbhost.cs.man.ac.uk;user=y95106bt;password=Maxwell8899;database=y95106bt");
 
+        public static ObservableCollection<NewsItems> NewsItems { get; } = new ObservableCollection<NewsItems>();
         public App ()
         {
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NBaF5cXmZCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdnWXtec3RdRGhcVkFxXEE=");
@@ -73,6 +78,7 @@ namespace MoneyMate
             public double TargetAmount { get; set; }
             public double CurrentAmount { get; set; } = 0;
         }
+        
         protected override void OnStart ()
         {
             

@@ -18,7 +18,7 @@ namespace MoneyMate.InsightComponents
 		{
 			InitializeComponent();
 			NewsItems = new ObservableCollection<NewsItems>();
-			// GetNews();
+			GetNews();
 			BindingContext = this;
 		}
 
@@ -135,13 +135,13 @@ namespace MoneyMate.InsightComponents
         
     }
 
-//}
 
+//contingency api
 
-// var selectedItem = e.CurrentSelection.FirstOrDefault() as NewsItems; 
-// if (selectedItem != null)
+// Method = HttpMethod.Get,
+// RequestUri = new Uri("https://reuters-business-and-financial-news.p.rapidapi.com/articles-by-trends/2024-01-31/0/80"),
+// Headers =
 // {
-//  OpenLink($"https://www.reuters.com{articleLinks[e.ItemIndex].Link}"); 
-// }
-//
-// ((CollectionView)sender).SelectedItem = null;
+// 	{ "X-RapidAPI-Key", "572e416709mshc612b0219f7f1c0p1baeaejsn608006f96dfd" },
+// 	{ "X-RapidAPI-Host", "reuters-business-and-financial-news.p.rapidapi.com" },
+// },

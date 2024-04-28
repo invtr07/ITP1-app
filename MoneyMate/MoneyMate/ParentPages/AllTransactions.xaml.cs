@@ -25,7 +25,7 @@ namespace MoneyMate.ParentPages
 
 			try
 			{
-				var newTransactions = await dbService.LoadTransactions(productID1, productID2, 200);
+				var newTransactions = await dbService.LoadTransactions(productID1, productID2, 350);
 				if (TransactionsList.Transactions != null)
 				{
 					Device.BeginInvokeOnMainThread(() =>
@@ -64,4 +64,3 @@ namespace MoneyMate.ParentPages
 		}
 	}
 }
-
