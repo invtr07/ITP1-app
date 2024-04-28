@@ -5,25 +5,26 @@
     xmlns:syncfusion="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
     xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
     x:Class="MoneyMate.DebtsControlPage"
-    Title="Debts control">
-    <ContentPage.Content>
+    Title="Debts control"
+    BackgroundColor="#F2F2F7">
+    <ContentPage.Content >
         <ScrollView >
-            <StackLayout Padding="10">
-                <Frame CornerRadius="10" Padding="15" BackgroundColor="White">
+            <StackLayout Padding="3" Margin="0,5">
+                <Frame CornerRadius="10" Padding="15" BackgroundColor="White" Margin="10,0,10,0">
                     <StackLayout>
-                        <Label Text="Debts breakdown" FontAttributes="Bold"  TextColor="Black" FontSize="20" HorizontalOptions="Center"/>
+                        <Label Text="Debts breakdown" FontAttributes="Bold"  TextColor="Black" FontSize="22" HorizontalOptions="Center"/>
                         <StackLayout Orientation="Horizontal" >
                             <Label Text="Lloyds Credit Card" FontAttributes="Bold"  TextColor="Black"/>
                             <StackLayout HorizontalOptions="EndAndExpand">
-                                <Label x:Name="CreditAcc1Label" Text="0" HorizontalOptions="EndAndExpand" TextColor="DarkOrange" FontAttributes="Bold"/>
-                                <Label Text="17.94% p.a." HorizontalOptions="EndAndExpand" TextColor="DarkOrange"/>
+                                <Label x:Name="CreditAcc1Label" Text="0" HorizontalOptions="EndAndExpand" TextColor="#b34000" FontAttributes="Bold"/>
+                                <Label Text="17.94%" HorizontalOptions="EndAndExpand" TextColor="#b34000"/>
                             </StackLayout>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal" >
                             <Label Text="Everyday Credit Card" FontAttributes="Bold"  TextColor="Black"/>
                             <StackLayout HorizontalOptions="EndAndExpand">
-                                <Label x:Name="CreditAcc2Label" Text="0"  HorizontalOptions="EndAndExpand" TextColor="DarkOrange" FontAttributes="Bold"/>
-                                <Label Text="22.94% p.a."  HorizontalOptions="EndAndExpand" TextColor="DarkOrange"/>
+                                <Label x:Name="CreditAcc2Label" Text="0"  HorizontalOptions="EndAndExpand" TextColor="#b34000" FontAttributes="Bold"/>
+                                <Label Text="22.94%"  HorizontalOptions="EndAndExpand" TextColor="#b34000"/>
                             </StackLayout>
                         </StackLayout>
                     </StackLayout>
@@ -39,8 +40,8 @@
                                 <Label x:Name="label1" Text="Interest free limit:" TextColor="Black" HorizontalOptions="Start" FontAttributes="Bold"/>
                             </StackLayout>
                             <StackLayout HorizontalOptions="EndAndExpand">
-                                <Label x:Name="arrangInterest" HorizontalOptions="EndAndExpand" TextColor="DarkRed" FontAttributes="Bold"/>
-                                <Label x:Name="arrangLimit" HorizontalOptions="EndAndExpand" TextColor="DarkRed" FontAttributes="Bold"/>    
+                                <Label x:Name="arrangInterest" HorizontalOptions="EndAndExpand" TextColor="#b34000" FontAttributes="Bold"/>
+                                <Label x:Name="arrangLimit" HorizontalOptions="EndAndExpand" TextColor="#b34000" FontAttributes="Bold"/>    
                             </StackLayout>
                         </StackLayout>
                         
@@ -50,8 +51,8 @@
                                 <Label x:Name="label2" Text="Interest free limit:" TextColor="Black" HorizontalOptions="Start" FontAttributes="Bold"/>
                             </StackLayout>
                             <StackLayout HorizontalOptions="EndAndExpand">
-                                <Label x:Name="unarrangInterest" HorizontalOptions="EndAndExpand" TextColor="DarkRed" FontAttributes="Bold"/>
-                                <Label x:Name="unarrangLimit" HorizontalOptions="EndAndExpand" TextColor="DarkRed" FontAttributes="Bold"/>
+                                <Label x:Name="unarrangInterest" HorizontalOptions="EndAndExpand" TextColor="DarkOrange" FontAttributes="Bold"/>
+                                <Label x:Name="unarrangLimit" HorizontalOptions="EndAndExpand" TextColor="DarkOrange" FontAttributes="Bold"/>
                             </StackLayout>
                         </StackLayout>
                         

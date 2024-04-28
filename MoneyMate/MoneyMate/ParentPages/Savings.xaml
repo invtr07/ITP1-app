@@ -5,14 +5,14 @@
     xmlns:syncfusion="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
     xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
     x:Class="MoneyMate.ParentPages.Savings"
-    >
+    BackgroundColor="#F2F2F7">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Padding="10">
+            <StackLayout Padding="3" Margin="0,5">
                 <!-- Savings Account Section -->
-                <Frame CornerRadius="10" Padding="15" BackgroundColor="White">
+                <Frame CornerRadius="10" Padding="15" BackgroundColor="White" Margin="10,0,10,0">
                     <StackLayout>
-                        <Label Text="Total savings" FontAttributes="Bold"  TextColor="Black" FontSize="20" HorizontalOptions="Center"/>
+                        <Label Text="Total savings" FontAttributes="Bold"  TextColor="Black" FontSize="22" HorizontalOptions="Center"/>
                         <StackLayout Orientation="Horizontal" >
                             <Label Text="Easy Saver" FontAttributes="Bold"  TextColor="Black"/>
                             <StackLayout HorizontalOptions="EndAndExpand">

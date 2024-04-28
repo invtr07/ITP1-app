@@ -31,18 +31,21 @@ namespace MoneyMate.ParentPages
 					{
 						new StackLayout{ HorizontalOptions = LayoutOptions.Start,
 							Children = {
-							new Label { Text = $"{pot.PotName}", VerticalOptions = LayoutOptions.Center }, 
+							new Label { Text = $"{pot.PotName}", VerticalOptions = LayoutOptions.Center, TextColor = Color.DarkGreen, FontAttributes = FontAttributes.Bold}, 
+							new Label { Text = $"Progress: {pot.PotProgress.ToString("F2")}%", VerticalOptions = LayoutOptions.Center, HorizontalOptions = LayoutOptions.Start, TextColor = Color.DarkGreen,FontAttributes = FontAttributes.Bold},
 							new Label
 							{
-								Text = $"Due: {pot.DueDate.ToString("MM/dd/yyyy")}"
+								Text = $"Due: {pot.DueDate.ToString("MM/dd/yyyy")}", TextColor = Color.FromHex("b34000"), FontAttributes = FontAttributes.Bold, VerticalOptions = LayoutOptions.Center
 							}
 						}},
 						new StackLayout{
 							HorizontalOptions = LayoutOptions.FillAndExpand,
 							Children =
 						{
-							new ProgressBar { Progress = progress, HorizontalOptions = LayoutOptions.FillAndExpand, ProgressColor = Color.Green},
-							new Label { Text = $"Target: £ {pot.TargetAmount}", VerticalOptions = LayoutOptions.Center, HorizontalOptions = LayoutOptions.End}
+							new ProgressBar { Progress = progress, HorizontalOptions = LayoutOptions.FillAndExpand, ProgressColor = Color.Green, HeightRequest = 20},
+							new Label { Text = $"Target amount: £ {pot.TargetAmount}", VerticalOptions = LayoutOptions.Center, HorizontalOptions = LayoutOptions.End, TextColor = Color.DarkGreen, FontAttributes = FontAttributes.Bold},
+							new Label { Text = $"Current amount: £ {pot.CurrentAmount}", VerticalOptions = LayoutOptions.Center, HorizontalOptions = LayoutOptions.End, TextColor = Color.DarkGreen, FontAttributes = FontAttributes.Bold},
+							
 						}}
 						
 					}
@@ -94,6 +97,7 @@ namespace MoneyMate.ParentPages
 		                                    return;
 		                                }
 		                                pot.CurrentAmount += amount;
+		                                pot.PotProgress = (pot.CurrentAmount / pot.TargetAmount) * 100;
 		                            }
 		                            else // Withdrawal
 		                            {
@@ -103,6 +107,7 @@ namespace MoneyMate.ParentPages
 		                                    return;
 		                                }
 		                                pot.CurrentAmount -= amount;
+		                                pot.PotProgress = (pot.CurrentAmount / pot.TargetAmount) * 100;
 		                            }
 		
 		                            RefreshMoneyPotPage();
@@ -154,6 +159,7 @@ namespace MoneyMate.ParentPages
 				PotName = moneyPotName,
 				TargetAmount = targetAmount,
 				DueDate = dueDate.Value,
+				PotProgress = 0,
 			});
 			RefreshMoneyPotPage();
 		}

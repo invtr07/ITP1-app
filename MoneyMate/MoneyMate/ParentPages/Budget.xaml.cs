@@ -29,21 +29,22 @@ namespace MoneyMate.ParentPages
                     HorizontalOptions = LayoutOptions.Start,
 					Children =
 					{
-						new Label { Text = $"{limit.Period} limit: £{limit.LimitAmount}", FontSize = 16, TextColor = Color.Orange, FontAttributes = FontAttributes.Bold},
-						new Label { Text = limit.Category, FontSize = 14, FontAttributes = FontAttributes.Bold, TextColor = Color.Orange},
+						new Label { Text = $"{limit.Period} limit: £{limit.LimitAmount}", FontSize = 15, TextColor = Color.FromHex("b34000"), FontAttributes = FontAttributes.Bold},
+						new Label { Text = $"Category: {limit.Category}", FontSize = 15, FontAttributes = FontAttributes.Bold, TextColor = Color.FromHex("b34000")},
 					}
 				};
 
 				var secondNestedStack = new StackLayout
 				{
 					HorizontalOptions = LayoutOptions.FillAndExpand,
+					VerticalOptions = LayoutOptions.Center,
 					Children =
 					{
-						new ProgressBar{ Progress = 0.3,ProgressColor = Color.DarkOrange, HeightRequest = 15, WidthRequest = 100 },
+						new ProgressBar{ Progress = 0.2,ProgressColor = Color.FromHex("b34000"), VerticalOptions = LayoutOptions.Center, HeightRequest = 20},
 						new StackLayout{Children =
 						{
-							new Label { Text = "70% left to spend", FontSize = 13, HorizontalOptions = LayoutOptions.End}, 
-							new Label { Text = limit.ThirdParty ? "Authorized by entrusted person" : "", FontSize = 12 }
+							new Label { Text = $"{limit.LimitProgress}% left to spend", FontSize = 15, HorizontalOptions = LayoutOptions.EndAndExpand, VerticalOptions = LayoutOptions.Center, TextColor = Color.FromHex("b34000")}, 
+							new Label { Text = limit.ThirdParty ? "Authorized by entrusted person" : "", FontSize = 13, HorizontalOptions = LayoutOptions.EndAndExpand, VerticalOptions = LayoutOptions.Center}
 						}},
 						
 					}
@@ -188,7 +189,7 @@ namespace MoneyMate.ParentPages
 			
 			App.budgetLimits.Add(new App.BudgetDetails()
 			{
-				LimitAmount = limitAmount, Period = period, ThirdParty = thirdPartyEnabled, Category = category
+				LimitAmount = limitAmount, Period = period, ThirdParty = thirdPartyEnabled, Category = category, LimitProgress = 30
 			});
 
 			RefreshBudgetDisplay();

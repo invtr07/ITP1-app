@@ -68,6 +68,7 @@ namespace MoneyMate
             public string Period { get; set; }
             public string Category { get; set; }
             public bool ThirdParty { get; set; }
+            public double LimitProgress { get; set; }
         }
         
         public class MoneyPotDetails
@@ -77,6 +78,7 @@ namespace MoneyMate
             public DateTime DueDate { get; set; }
             public double TargetAmount { get; set; }
             public double CurrentAmount { get; set; } = 0;
+            public double PotProgress { get; set; }
         }
         
         protected override void OnStart ()

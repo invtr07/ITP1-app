@@ -47,12 +47,12 @@ namespace MoneyMate.InsightComponents
 					        },
 					        new Label
 					        {
-						        Text = "If you found that during the last 30 days, a large portion of your spending has been at gambling institutions, then we recommend you to setup a budget limit with third-party authorizor.", HorizontalOptions = LayoutOptions.CenterAndExpand
+						        Text = "If you found that during the last 30 days, a large portion of your spending has been at gambling institutions, then we recommend you to setup a budget limit with third-party authorizer.", HorizontalOptions = LayoutOptions.CenterAndExpand
 						        , VerticalOptions = LayoutOptions.CenterAndExpand
 					        },
 					        new Label
 					        {
-						        Text = "Third-party authorizor - your entrusted person who cares about your financial well-being. The limit with the third-party authorization cannot be deleted or edited unless verification was received!", HorizontalOptions = LayoutOptions.CenterAndExpand
+						        Text = "'Third-party authorizer' is your entrusted person who cares about your financial well-being. The limit with the third-party authorization cannot be deleted or edited unless verification was received!", HorizontalOptions = LayoutOptions.CenterAndExpand
 						        , VerticalOptions = LayoutOptions.CenterAndExpand
 					        },
 					        new Button()

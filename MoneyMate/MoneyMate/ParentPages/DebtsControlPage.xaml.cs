@@ -87,7 +87,7 @@ namespace MoneyMate
 		        {
 			        arrangedOver.Text = $"{App.arrangedOver[0].productName}";
 			        arrangInterest.Text = $"{App.arrangedOver[0].dailyInterestRate.ToString("F2")}%";
-			        arrangLimit.Text = $"Limit: £{App.arrangedOver[0].interestFreeOverdraftLimit}";
+			        arrangLimit.Text = $"£{App.arrangedOver[0].interestFreeOverdraftLimit}";
 		        }
 		        else
 		        {
@@ -101,7 +101,7 @@ namespace MoneyMate
 		        {
 			        unarrangedOver.Text = $"{App.unarrangedOver[0].productName}";
 			        unarrangInterest.Text = $"{App.unarrangedOver[0].dailyInterestRate.ToString("F2")}%";
-			        unarrangLimit.Text = $"Limit: £{App.unarrangedOver[0].interestFreeOverdraftLimit}";
+			        unarrangLimit.Text = $"£{App.unarrangedOver[0].interestFreeOverdraftLimit}";
 		        }
 		        else
 		        {

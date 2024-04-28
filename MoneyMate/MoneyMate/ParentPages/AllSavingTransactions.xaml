@@ -3,13 +3,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MoneyMate.ParentPages.AllSavingTransactions"
-             Title="Savings transactions">
+             Title="Savings transactions"
+             BackgroundColor="#F2F2F7">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
                 <SearchBar Placeholder="Search by any details..." TextChanged="InputView_OnTextChanged" Margin="5"/>
                 
-                <CollectionView x:Name="CollectionViewT" ItemsSource="{Binding TransactionsList.Transactions}" VerticalOptions="FillAndExpand" >
+                <CollectionView x:Name="CollectionViewT" ItemsSource="{Binding TransactionsList.Transactions}" VerticalOptions="FillAndExpand" Margin="10,0,10,0">
                     <CollectionView.ItemsLayout>
                         <LinearItemsLayout Orientation="Vertical" ItemSpacing="2"/>
                     </CollectionView.ItemsLayout>

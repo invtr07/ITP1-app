@@ -6,12 +6,12 @@
              xmlns:syncfusion="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
              BackgroundColor="#F2F2F7">
     <ContentPage.Content>
-        <ScrollView Margin="0,10">
-            <StackLayout>
+        <ScrollView >
+            <StackLayout Padding="3" Margin="0,5">
                 <Frame CornerRadius="10" Padding="15" HorizontalOptions="FillAndExpand" Margin="10,0,10,0">
                     <StackLayout>
-                        <Label Text="Personal current account" FontAttributes="Bold" FontSize="20" TextColor="Black"/>
-                        <Label x:Name="PersBalanceLabel" FontSize="30" FontAttributes="Bold" TextColor="#1A7D3F"/>
+                        <Label Text="Personal current account" FontAttributes="Bold" FontSize="20" TextColor="Black" HorizontalOptions="Center" Margin="0,0,0,10"/>
+                        <Label x:Name="PersBalanceLabel" FontSize="30" FontAttributes="Bold" TextColor="#1A7D3F" HorizontalOptions="Center"/>
                         <!-- Income and Expenses should be dynamic, consider using Bindings -->
                         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                             <Label Text="Income" FontAttributes="Bold" TextColor="Black"/>
@@ -27,10 +27,10 @@
 
                 
 
-                <Frame HeightRequest="270" CornerRadius="15" Padding="15" HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="5">
+                <Frame HeightRequest="270" CornerRadius="15" Padding="15" HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="10,0,10,0">
                     <syncfusion:SfChart BindingContext="{Binding DoughNutChartModel}">
                     <syncfusion:SfChart.Title>
-                         <syncfusion:ChartTitle Text="Top 5 spending categories over last year" FontAttributes="Bold" FontSize="20"/>
+                         <syncfusion:ChartTitle Text="Top 5 spending categories (2023)" FontAttributes="Bold" FontSize="20"/>
                     </syncfusion:SfChart.Title>
                     
                     <syncfusion:SfChart.Series>
@@ -103,7 +103,7 @@
                         </buttons:SfSegmentedControl>
                     <syncfusion:SfChart x:Name="lineChart" BindingContext="{Binding LineChartModel}"  HeightRequest="250">
                         <syncfusion:SfChart.Title>
-                            <syncfusion:ChartTitle Text="Net cash flow dynamics"/>
+                            <syncfusion:ChartTitle Text="Net cash flow dynamics" FontSize="16"/>
                         </syncfusion:SfChart.Title>
                         
                         <syncfusion:SfChart.PrimaryAxis>
@@ -147,7 +147,7 @@
                     </Label>
                 </StackLayout>
 
-                <CollectionView x:Name="CollectionViewT" ItemsSource="{Binding TransactionsList.Transactions}" VerticalOptions="FillAndExpand" >
+                <CollectionView x:Name="CollectionViewT" ItemsSource="{Binding TransactionsList.Transactions}" VerticalOptions="FillAndExpand" Margin="10,0,10,0">
                     <CollectionView.ItemsLayout>
                         <LinearItemsLayout Orientation="Vertical" ItemSpacing="2"/>
                     </CollectionView.ItemsLayout>

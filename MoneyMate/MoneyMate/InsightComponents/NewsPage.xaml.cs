@@ -18,7 +18,7 @@ namespace MoneyMate.InsightComponents
 		{
 			InitializeComponent();
 			NewsItems = new ObservableCollection<NewsItems>();
-			GetNews();
+			// GetNews();
 			BindingContext = this;
 		}
 
@@ -28,7 +28,7 @@ namespace MoneyMate.InsightComponents
 			var request = new HttpRequestMessage
 			{
                 Method = HttpMethod.Get,
-                RequestUri = new Uri("https://reuters-business-and-financial-news.p.rapidapi.com/articles-by-trends/2024-04-18/0/20"),
+                RequestUri = new Uri("https://reuters-business-and-financial-news.p.rapidapi.com/articles-by-trends/2024-04-18/0/70"),
                 Headers =
 				{
 					{ "X-RapidAPI-Key", "dd18931327mshfffafdd99574b14p1f2bbcjsn7ee577141fc2" },
