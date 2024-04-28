@@ -123,6 +123,7 @@ namespace MoneyMate
 		        }
 		        else
 		        {
+			        label1.IsVisible = false;
 			        arrangedOver.IsVisible = false;
 			        arrangInterest.IsVisible = false;
 			        arrangLimit.IsVisible = false;
@@ -136,6 +137,7 @@ namespace MoneyMate
 		        }
 		        else
 		        {
+			        label2.IsVisible = false;
 			        unarrangedOver.IsVisible = false;
 			        unarrangInterest.IsVisible = false;
 			        unarrangLimit.IsVisible = false;

@@ -14,18 +14,18 @@
                     <StackLayout>
                         <Label Text="Total savings" FontAttributes="Bold"  TextColor="Black" FontSize="20" HorizontalOptions="Center"/>
                         <StackLayout Orientation="Horizontal" >
-                            <Label Text="Easy Saver"/>
+                            <Label Text="Easy Saver" FontAttributes="Bold"  TextColor="Black"/>
                             <StackLayout HorizontalOptions="EndAndExpand">
-                                <Label x:Name="EasySaverLabel" Text="£0" HorizontalOptions="EndAndExpand"/>
-                                <Label Text="interest: 1.4%" HorizontalOptions="EndAndExpand"/>
+                                <Label x:Name="EasySaverLabel" Text="£0" HorizontalOptions="EndAndExpand" TextColor="DarkGreen" FontAttributes="Bold"/>
+                                <Label Text="1.4%" HorizontalOptions="EndAndExpand" TextColor="DarkGreen" />
                 
                             </StackLayout>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal" >
-                            <Label Text="Advantage Saver"/>
+                            <Label Text="Advantage Saver" FontAttributes="Bold"  TextColor="Black"/>
                             <StackLayout HorizontalOptions="EndAndExpand">
-                                <Label x:Name="AdvSaverLabel" Text="£0" HorizontalOptions="EndAndExpand"/>
-                                <Label Text="interest: 4.0%" HorizontalOptions="EndAndExpand"/>
+                                <Label x:Name="AdvSaverLabel" Text="£0" HorizontalOptions="EndAndExpand" TextColor="DarkGreen" FontAttributes="Bold"/>
+                                <Label Text="4.0%" HorizontalOptions="EndAndExpand" TextColor="DarkGreen" />
                             </StackLayout>
                         </StackLayout>
                     </StackLayout>

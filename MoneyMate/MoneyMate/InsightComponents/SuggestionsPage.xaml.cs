@@ -79,7 +79,7 @@ namespace MoneyMate.InsightComponents
 
 	        // Set the PopupView of the SfPopupLayout
 	        popupLayout.PopupView = popupView;
-	        popupLayout.PopupView.HeightRequest = 270;
+	        popupLayout.PopupView.HeightRequest = 350;
 	        
 
 	        // Show the SfPopupLayout
@@ -138,7 +138,7 @@ namespace MoneyMate.InsightComponents
 
 	        // Set the PopupView of the SfPopupLayout
 	        popupLayout.PopupView = popupView;
-	        popupLayout.PopupView.HeightRequest = 270;
+	        popupLayout.PopupView.HeightRequest = 370;
 
 
 	        // Show the SfPopupLayout
@@ -254,7 +254,7 @@ namespace MoneyMate.InsightComponents
             
             	        // Set the PopupView of the SfPopupLayout
             	        popupLayout.PopupView = popupView;
-            	        popupLayout.PopupView.HeightRequest = 250;
+            	        popupLayout.PopupView.HeightRequest = 300;
             
             
             	        // Show the SfPopupLayout
@@ -320,7 +320,7 @@ namespace MoneyMate.InsightComponents
     
                 // Set the PopupView of the SfPopupLayout
                 popupLayout.PopupView = popupView;
-                popupLayout.PopupView.HeightRequest = 270;
+                popupLayout.PopupView.HeightRequest = 350;
     
     
                 // Show the SfPopupLayout
@@ -386,7 +386,7 @@ namespace MoneyMate.InsightComponents
     
                 // Set the PopupView of the SfPopupLayout
                 popupLayout.PopupView = popupView;
-                popupLayout.PopupView.HeightRequest = 270;
+                popupLayout.PopupView.HeightRequest = 350;
     
                 
                 popupLayout.Show();

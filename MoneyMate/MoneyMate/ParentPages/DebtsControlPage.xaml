@@ -13,20 +13,50 @@
                     <StackLayout>
                         <Label Text="Debts breakdown" FontAttributes="Bold"  TextColor="Black" FontSize="20" HorizontalOptions="Center"/>
                         <StackLayout Orientation="Horizontal" >
-                            <Label Text="Credit card"/>
+                            <Label Text="Lloyds Credit Card" FontAttributes="Bold"  TextColor="Black"/>
                             <StackLayout HorizontalOptions="EndAndExpand">
-                                <Label x:Name="CreditAcc1Label" Text="0" HorizontalOptions="EndAndExpand"/>
-                                <Label Text="interest: 17.94% p.a. variable" HorizontalOptions="EndAndExpand"/>
+                                <Label x:Name="CreditAcc1Label" Text="0" HorizontalOptions="EndAndExpand" TextColor="DarkOrange" FontAttributes="Bold"/>
+                                <Label Text="17.94% p.a." HorizontalOptions="EndAndExpand" TextColor="DarkOrange"/>
                             </StackLayout>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal" >
-                            <Label Text="Advantage Saver"/>
+                            <Label Text="Everyday Credit Card" FontAttributes="Bold"  TextColor="Black"/>
                             <StackLayout HorizontalOptions="EndAndExpand">
-                                <Label x:Name="CreditAcc2Label" Text="0"  HorizontalOptions="EndAndExpand"/>
-                                <Label Text="interest: 22.94% p.a. variable"  HorizontalOptions="EndAndExpand"/>
+                                <Label x:Name="CreditAcc2Label" Text="0"  HorizontalOptions="EndAndExpand" TextColor="DarkOrange" FontAttributes="Bold"/>
+                                <Label Text="22.94% p.a."  HorizontalOptions="EndAndExpand" TextColor="DarkOrange"/>
                             </StackLayout>
                         </StackLayout>
                     </StackLayout>
+                </Frame>
+                <Frame CornerRadius="10" Padding="15" HorizontalOptions="FillAndExpand" Margin="10,0,10,0">
+                    <StackLayout>
+                        
+                        <Label Text="Overdrafts" FontAttributes="Bold" FontSize="20" TextColor="Black"/>
+                        
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <StackLayout>
+                                <Label x:Name="arrangedOver" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Start"/>
+                                <Label x:Name="label1" Text="Interest free limit:" TextColor="Black" HorizontalOptions="Start" FontAttributes="Bold"/>
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="EndAndExpand">
+                                <Label x:Name="arrangInterest" HorizontalOptions="EndAndExpand" TextColor="DarkRed" FontAttributes="Bold"/>
+                                <Label x:Name="arrangLimit" HorizontalOptions="EndAndExpand" TextColor="DarkRed" FontAttributes="Bold"/>    
+                            </StackLayout>
+                        </StackLayout>
+                        
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <StackLayout>
+                                <Label  x:Name="unarrangedOver" TextColor="Black" HorizontalOptions="Start" FontAttributes="Bold"/>
+                                <Label x:Name="label2" Text="Interest free limit:" TextColor="Black" HorizontalOptions="Start" FontAttributes="Bold"/>
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="EndAndExpand">
+                                <Label x:Name="unarrangInterest" HorizontalOptions="EndAndExpand" TextColor="DarkRed" FontAttributes="Bold"/>
+                                <Label x:Name="unarrangLimit" HorizontalOptions="EndAndExpand" TextColor="DarkRed" FontAttributes="Bold"/>
+                            </StackLayout>
+                        </StackLayout>
+                        
+                    </StackLayout>
+                    
                 </Frame>
                 <!-- Chart Section -->
                  <Frame CornerRadius="15" Padding="15" HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="10,0,10,0">
