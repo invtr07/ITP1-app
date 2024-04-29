@@ -19,7 +19,18 @@ namespace MoneyMate
 
             if (!string.IsNullOrWhiteSpace(userID) && !string.IsNullOrWhiteSpace(pass))
             {
-                try
+                Login(userID, pass);
+                
+            }
+            else
+            {
+                DisplayAlert("Login Failed", "Please enter both user ID and password.", "OK");
+            }
+        }
+
+        private void Login(string userID, string pass)
+        {
+            try
                 {
                     App.dbConnection.Open();
 
@@ -169,7 +180,7 @@ namespace MoneyMate
                         
                         Device.BeginInvokeOnMainThread(async () =>
                         {
-                            await Navigation.PushAsync(new MyTabbedPage());
+                            await Navigation.PushAsync(new EmailVerification());
                             // await Navigation.PushAsync(new QuestionsPage1());
                         });
                         
@@ -198,13 +209,8 @@ namespace MoneyMate
                         App.dbConnection.Close();
                     }
                 }
-            }
-            else
-            {
-                DisplayAlert("Login Failed", "Please enter both user ID and password.", "OK");
-            }
         }
-        
+
     }
 }
 	

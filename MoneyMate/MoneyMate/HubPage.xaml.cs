@@ -45,7 +45,7 @@ namespace MoneyMate
             App.creditStartingBalance1 = 0;
             App.creditStartingBalance2 = 0;
             App.dbConnection.Close();
-            Navigation.PopAsync();
+            Navigation.PushAsync(new LoginPage());
            
         }
 

@@ -18,7 +18,7 @@ namespace MoneyMate.InsightComponents
 		{
 			InitializeComponent();
 			NewsItems = new ObservableCollection<NewsItems>();
-			  GetNews();
+			  // GetNews();
 			BindingContext = this;
 		}
 

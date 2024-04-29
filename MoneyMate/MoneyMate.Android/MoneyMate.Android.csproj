@@ -60,6 +60,9 @@
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.3</Version>
     </PackageReference>
+    <PackageReference Include="SendGrid">
+      <Version>9.29.3</Version>
+    </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.Buttons">
       <Version>25.1.40</Version>
     </PackageReference>
