@@ -180,8 +180,9 @@ namespace MoneyMate
                         
                         Device.BeginInvokeOnMainThread(async () =>
                         {
-                            await Navigation.PushAsync(new EmailVerification());
+                            // await Navigation.PushAsync(new EmailVerification());
                             // await Navigation.PushAsync(new QuestionsPage1());
+                            await Navigation.PushAsync(new MyTabbedPage());
                         });
                         
                 }

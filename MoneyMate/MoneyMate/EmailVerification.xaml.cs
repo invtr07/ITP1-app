@@ -35,6 +35,7 @@ namespace MoneyMate
                     CodeEntry.IsVisible = true;
                     VerifyCodeButton.IsVisible = true;
                     SendCodeButton.IsEnabled = false;
+                    SendCodeButton.BackgroundColor = Color.Gray;
                 }
                 else
                 {
@@ -53,7 +54,7 @@ namespace MoneyMate
             string enteredCode = CodeEntry.Text;
             if (enteredCode == _verificationCode)
             {
-                await DisplayAlert("Success", "Email verified successfully!", "OK");
+                Navigation.PushAsync(new MyTabbedPage());
                 // Navigate to another page or update the app state
             }
             else
@@ -84,9 +85,9 @@ namespace MoneyMate
         
         private async Task<bool> SendEmailAsync(string email, string code)
         {
-            var apiKey = "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"; // Replace with your actual API Key
+            var apiKey = "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"; // Replace with your actual API Key
             var client = new SendGridClient(apiKey);
-            var from = new EmailAddress("muratnurali777@gmail.com", "Money Mate");
+            var from = new EmailAddress("moneymateshowcase@gmail.com", "Money Mate");
             var subject = "Your Verification Code";
             var to = new EmailAddress(email);
             var plainTextContent = $"Your verification code is: {code}";
@@ -97,3 +98,7 @@ namespace MoneyMate
         }
     }
 }
+
+//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
+
+//moneymateshowcase@gmail.com

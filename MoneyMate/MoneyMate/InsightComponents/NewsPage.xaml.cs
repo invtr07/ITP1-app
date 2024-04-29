@@ -136,5 +136,40 @@ namespace MoneyMate.InsightComponents
     }
 
 
-//contingency api
+//nurik071003@gmail.com - currently used
+// Method = HttpMethod.Get,
+// RequestUri = new Uri("https://reuters-business-and-financial-news.p.rapidapi.com/articles-by-trends/2024-01-31/0/80"),
+// Headers =
+// {
+// 	{ "X-RapidAPI-Key", "572e416709mshc612b0219f7f1c0p1baeaejsn608006f96dfd" },
+// 	{ "X-RapidAPI-Host", "reuters-business-and-financial-news.p.rapidapi.com" },
+// },
+
+
+//moneymateshowcase@gmail.com -1
+//Method = HttpMethod.Get,
+// RequestUri = new Uri("https://reuters-business-and-financial-news.p.rapidapi.com/articles-by-trends/2024-01-31/0/80"),
+// Headers =
+// {
+// 	{ "X-RapidAPI-Key", "f71ac47fa0mshbe6512b7f4ea6d3p1c0d3djsnb0b1e938c72e" },
+// 	{ "X-RapidAPI-Host", "reuters-business-and-financial-news.p.rapidapi.com" },
+// },
+
+//usermoneymate123@gmail.com - 2
+//Method = HttpMethod.Get,
+// RequestUri = new Uri("https://reuters-business-and-financial-news.p.rapidapi.com/articles-by-trends/2024-01-31/0/80"),
+// Headers =
+// {
+// 	{ "X-RapidAPI-Key", "311242eee9msh8570b855b3054bcp19b5c0jsne3cae12ae0b5" },
+// 	{ "X-RapidAPI-Host", "reuters-business-and-financial-news.p.rapidapi.com" },
+// },
+
+//nuralitop0707@gmail.com - 3
+//Method = HttpMethod.Get,
+// RequestUri = new Uri("https://reuters-business-and-financial-news.p.rapidapi.com/articles-by-trends/2024-01-31/0/80"),
+// Headers =
+// {
+// 	{ "X-RapidAPI-Key", "f0014c0ec3mshb838b24a0fd6e17p152d3bjsn4996871c7190" },
+// 	{ "X-RapidAPI-Host", "reuters-business-and-financial-news.p.rapidapi.com" },
+// },
 
