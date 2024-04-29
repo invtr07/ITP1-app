@@ -10,16 +10,16 @@
                 
                 <Label HorizontalOptions="Center" FontSize="25" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Center">Two-factor authentication via email</Label>
                 <!-- Email Entry -->
-                <Entry x:Name="EmailEntry" Placeholder="Enter your email" />
+                <Entry x:Name="EmailEntry" Text="usermoneymate123@gmail.com" Placeholder="Enter your email" />
 
                 <!-- Send Code Button -->
-                <Button Text="Send Code" Clicked="OnSendCodeClicked" BackgroundColor="#006E2A" TextColor="White" CornerRadius="15"/>
+                <Button x:Name="SendCodeButton" Text="Send Code" Clicked="OnSendCodeClicked" BackgroundColor="#006E2A" TextColor="White" CornerRadius="15"/>
 
                 <!-- Code Entry -->
                 <Entry x:Name="CodeEntry" Placeholder="Enter your code" IsVisible="False" />
 
                 <!-- Verify Code Button -->
-                <Button Text="Verify Code" Clicked="OnVerifyCodeClicked" IsVisible="False" BackgroundColor="#006E2A" TextColor="White" CornerRadius="15"/>
+                <Button x:Name="VerifyCodeButton" Text="Verify Code" Clicked="OnVerifyCodeClicked" IsVisible="False" BackgroundColor="#006E2A" TextColor="White" CornerRadius="15"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

@@ -38,7 +38,7 @@ namespace MoneyMate
         
         public static List<BudgetDetails> budgetLimits;
         public static List<MoneyPotDetails> moneyPots;
-
+        
        
 
         public static MySqlConnection dbConnection = new MySqlConnection("server=dbhost.cs.man.ac.uk;user=y95106bt;password=Maxwell8899;database=y95106bt");
