@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -10,7 +10,7 @@
                 
                 <Label HorizontalOptions="Center" FontSize="25" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Center">Two-factor authentication via email</Label>
                 <!-- Email Entry -->
-                <Entry x:Name="EmailEntry" Text="usermoneymate123@gmail.com" Placeholder="Enter your email" />
+                <Entry x:Name="EmailEntry" Text="usermoneymate12345@gmail.com" Placeholder="Enter your email" />
 
                 <!-- Send Code Button -->
                 <Button x:Name="SendCodeButton" Text="Send Code" Clicked="OnSendCodeClicked" BackgroundColor="#006E2A" TextColor="White" CornerRadius="15"/>
