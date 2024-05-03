@@ -4,12 +4,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="MoneyMate.DashboardPage"
      xmlns:syncfusion="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+     xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
      BackgroundColor="#F2F2F7">
 
 
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Spacing="10">
+            <StackLayout Spacing="5">
 
                 <!-- Header Section -->
                 <Frame HorizontalOptions="FillAndExpand" VerticalOptions="Start">
@@ -19,74 +20,90 @@
                             <GradientStop Color="#white" Offset="1.0"/>
                         </LinearGradientBrush>
                     </Frame.Background>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="Hello" FontAttributes="Bold" Margin="10" FontSize="36" TextColor="#1A7D3F"/>
                             <Label x:Name="userName" FontAttributes="Bold" Margin="0,10" FontSize="36" TextColor="#1A7D3F"/>
-                            <Label Text="!" FontAttributes="Bold" Margin="0,10" FontSize="36" TextColor="#1A7D3F"/>
-
-                        </StackLayout>
-                   
                 </Frame>
                 
                 <StackLayout Margin="7,0,7,15">
                 <!-- Total Balance Section -->
                 <Frame CornerRadius="10" Padding="15" HorizontalOptions="FillAndExpand" Margin="10,0,10,0">
                     <StackLayout>
-                        <Label Text="Personal current account" FontAttributes="Bold" FontSize="20" TextColor="Black"/>
-                        <Label Text="£ 2826.00" FontSize="30" FontAttributes="Bold" TextColor="#1A7D3F"/>
+                        <Label Text="Personal current account" FontAttributes="Bold" FontSize="20" TextColor="Black" HorizontalOptions="Center"/>
+                        <Label x:Name="PersBalanceLabel" FontSize="30" FontAttributes="Bold" TextColor="#1A7D3F" HorizontalOptions="Center"/>
                         <!-- Income and Expenses should be dynamic, consider using Bindings -->
+
                         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                             <Label Text="Income" FontAttributes="Bold" TextColor="Black"/>
-                            <Label Text="£ 2,573.00" HorizontalOptions="EndAndExpand" TextColor="#1A7D3F"/>
+                            <Label x:Name="IncomeLabel" HorizontalOptions="EndAndExpand" TextColor="#1A7D3F" FontAttributes="Bold"/>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                             <Label Text="Expenses" FontAttributes="Bold" TextColor="Black"/>
-                            <Label Text="£ 3,973.00" HorizontalOptions="EndAndExpand" TextColor="#1A7D3F"/>
+                            <Label x:Name="ExpenseLabel" HorizontalOptions="EndAndExpand" TextColor="#1A7D3F" FontAttributes="Bold"/>
                         </StackLayout>
                         
                     </StackLayout>
                 </Frame>
+                
+                <!-- Overdraft Section -->
+                <Frame CornerRadius="10" Padding="15" HorizontalOptions="FillAndExpand" Margin="10,0,10,0">
+                    <StackLayout>
+                        
+                        <Label Text="Overdrafts" FontAttributes="Bold" FontSize="20" TextColor="Black" HorizontalOptions="Center"/>
+                        
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <StackLayout>
+                                <Label x:Name="arrangedOver" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Start"/>
+                                <Label x:Name="label1" Text="Interest free limit:" TextColor="Black" HorizontalOptions="Start" FontAttributes="Bold"/>
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="EndAndExpand">
+                                <Label x:Name="arrangInterest" HorizontalOptions="EndAndExpand" TextColor="#b34000" FontAttributes="Bold"/>
+                                <Label x:Name="arrangLimit" HorizontalOptions="EndAndExpand" TextColor="#b34000" FontAttributes="Bold"/>    
+                            </StackLayout>
+                        </StackLayout>
+                        
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <StackLayout>
+                                <Label  x:Name="unarrangedOver" TextColor="Black" HorizontalOptions="Start" FontAttributes="Bold"/>
+                                <Label x:Name="label2" Text="Interest free limit:" TextColor="Black" HorizontalOptions="Start" FontAttributes="Bold"/>
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="EndAndExpand">
+                                <Label x:Name="unarrangInterest" HorizontalOptions="EndAndExpand" TextColor="#b34000" FontAttributes="Bold"/>
+                                <Label x:Name="unarrangLimit" HorizontalOptions="EndAndExpand" TextColor="#b34000" FontAttributes="Bold"/>
+                            </StackLayout>
+                        </StackLayout>
+                        
+                    </StackLayout>
+                    
+                </Frame>
 
                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"  Margin="10,0,10,0">
-                    <Frame WidthRequest="140" HeightRequest="135" CornerRadius="10" HorizontalOptions="FillAndExpand" Padding="10">
-                        <StackLayout>
-                            <Label Text="Interest" TextColor="Black" FontSize="24"/>
-
-                            <StackLayout >
-                                <Label Text="Lloyds credit card:" TextColor="Black" FontAttributes="Bold"/>
-                                <Label Text="17.94%"/>
-                            </StackLayout>
-
-                            <StackLayout >
-                                <Label Text="Club Lloyds Advantage Saver:" TextColor="Black" FontAttributes="Bold"/>
-                                <Label Text="4.0%"/>
-                            </StackLayout>
-                       
-                        </StackLayout>
-
-                    </Frame>
+                    
                     <Frame WidthRequest="140" HeightRequest="135" HorizontalOptions="FillAndExpand" CornerRadius="10">
-
                         <StackLayout>
-                            <Label Text="Total interest earned:" TextColor="Black"  FontSize="20"/>
-                            <Label Text="oops, seems you don't have saving account"/>
-
-
+                            <Label Text="Total interest accrued:" TextColor="Black"  FontSize="20" FontAttributes="Bold"/>
+                            <Label x:Name="TotalInterestLabel" TextColor="#1A7D3F" FontAttributes="Bold" FontSize="27" Margin="0,20"/>
                         </StackLayout>
                     </Frame>
-
+                    
+                    <Frame WidthRequest="140" HeightRequest="135" HorizontalOptions="FillAndExpand" CornerRadius="10">
+                        <StackLayout>
+                            <Label Text="Total interest paid:" TextColor="Black"  FontSize="20" FontAttributes="Bold"/>
+                            <Label x:Name="InterestPaidLabel" TextColor="#b34000" FontAttributes="Bold" FontSize="27" Margin="0,20"/>
+                        </StackLayout>
+                    </Frame>
+                    
                 </StackLayout>
 
                 <!-- Chart Section -->
 
-                <Frame CornerRadius="15" Padding="15" HeightRequest="250"  BackgroundColor="White" Margin="10,0,10,0">
+                <Frame CornerRadius="15" Padding="15" HeightRequest="300"  BackgroundColor="White" Margin="10,0,10,0">
                     <syncfusion:SfChart BindingContext="{Binding DoughNutChartModel}">
                         <syncfusion:SfChart.Title>
-                             <syncfusion:ChartTitle Text="Top 5 spending categories of last month"/>
+                             <syncfusion:ChartTitle Text="Top 5 spending categories (2023)" FontAttributes="Bold" FontSize="18" />
                         </syncfusion:SfChart.Title>
               
                         <syncfusion:SfChart.Series>
                             <syncfusion:DoughnutSeries ItemsSource="{Binding ExpenseDataCollection}"
+                                                       EnableAnimation="True"
                                        XBindingPath="Category"
                                        YBindingPath="Amount"
                                        StartAngle="0" 
@@ -95,19 +112,32 @@
                                        DataMarkerPosition="OutsideExtended"
                                        EnableSmartLabels="True"
                                        >
-                                <syncfusion:DoughnutSeries.CenterView>
-                                    <ContentView>
-                                        <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="18" TextColor="Black"
-                                             HorizontalOptions="Center" VerticalOptions="CenterAndExpand" >
-                                            <Label.FormattedText>
-                                                <FormattedString>
-                                                    <Span Text="{Binding DoughNutChartModel.TotalAmount}" FontSize="12" />
-                                                </FormattedString>
-                                            </Label.FormattedText>
-                                        </Label>
-                                    </ContentView>
-                                </syncfusion:DoughnutSeries.CenterView>
+                                <syncfusion:DoughnutSeries.ColorModel>
+                                    <syncfusion:ChartColorModel Palette="Custom">
+                                        <syncfusion:ChartColorModel.CustomBrushes>
+                                            <Color>#0d3f20</Color> <!-- Utilities -->
+                                            <Color>#12582c</Color> <!-- Utilities -->
+                                            <Color>#1a7d3f</Color> <!-- Transport -->
+                                            <Color>#5fa479</Color> <!-- Other Category 1 -->
+                                            <Color>#76b18c</Color> <!-- Other Category 2 -->
+                                            <Color>#e8f2ec</Color> <!-- Other Category 3 -->
+                                        </syncfusion:ChartColorModel.CustomBrushes>
+                                    </syncfusion:ChartColorModel>
+                                </syncfusion:DoughnutSeries.ColorModel>
                                 
+                                <syncfusion:DoughnutSeries.DataMarker>
+                                    <syncfusion:ChartDataMarker ShowLabel="True" LabelContent="Percentage">
+                                        <!--  -->
+                                        <syncfusion:ChartDataMarker.LabelTemplate>
+                                            <DataTemplate>
+                                                <StackLayout  Spacing="5">
+                                                    <Label Text="{Binding Category}" TextColor="Black"/>
+                                                    <Label Text="{Binding Percentage, StringFormat='{0:0.0}%'}" FontSize="12" TextColor="Black" />
+                                                </StackLayout>
+                                            </DataTemplate>
+                                        </syncfusion:ChartDataMarker.LabelTemplate>
+                                    </syncfusion:ChartDataMarker>
+                                </syncfusion:DoughnutSeries.DataMarker>
                           
                             </syncfusion:DoughnutSeries>
                         </syncfusion:SfChart.Series>
@@ -117,43 +147,65 @@
                 
                 
                 <Frame CornerRadius="15" Padding="15" HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="10,0,10,0">
-                    <syncfusion:SfChart x:Name="LineChart" BindingContext="{Binding LineChartModel}" HeightRequest="228">
-                     <syncfusion:SfChart.Title>
-                         <syncfusion:ChartTitle Text="Net cash flow dynamics"/>
-                    </syncfusion:SfChart.Title>
-                   
-                    <syncfusion:SfChart.PrimaryAxis>
-                        <syncfusion:CategoryAxis>
-                            <syncfusion:CategoryAxis.MajorGridLineStyle>
-                                <syncfusion:ChartLineStyle StrokeWidth="0" />
-                            </syncfusion:CategoryAxis.MajorGridLineStyle>
-
-                        </syncfusion:CategoryAxis>
+                    
+                    <StackLayout>
+                        <buttons:SfSegmentedControl x:Name="trendSegmentedControl"
+                                                DisplayMode="Text"
+                                                VisibleSegmentsCount="2"
+                                                BorderColor="Transparent"
+                                                BackgroundColor="Transparent"
+                                                FontColor="Black"
+                                                SelectionChanged="OnSelectionChanged">
+                            <buttons:SfSegmentedControl.SelectionIndicatorSettings>
+                                <buttons:SelectionIndicatorSettings 
+                                    CornerRadius="15"
+                                    Color="#1a7d3f">
+                                </buttons:SelectionIndicatorSettings>
+                            </buttons:SfSegmentedControl.SelectionIndicatorSettings>
+                            
+                            <buttons:SfSegmentedControl.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Weekly</x:String>
+                                    <x:String>Monthly</x:String>
+                                </x:Array>
+                            </buttons:SfSegmentedControl.ItemsSource>
+                        </buttons:SfSegmentedControl>
+                    <syncfusion:SfChart x:Name="lineChart" BindingContext="{Binding LineChartModel}"  HeightRequest="300">
+                        <syncfusion:SfChart.Title>
+                            <syncfusion:ChartTitle Text="Net cash flow dynamics" FontSize="16"/>
+                        </syncfusion:SfChart.Title>
                         
-                    </syncfusion:SfChart.PrimaryAxis>
-
-                    <syncfusion:SfChart.SecondaryAxis>
-                        <syncfusion:NumericalAxis>
-
-
-                        </syncfusion:NumericalAxis>
-                    </syncfusion:SfChart.SecondaryAxis>
-
-                    <syncfusion:SfChart.Series>
-                        <syncfusion:LineSeries ItemsSource="{Binding LineChartData}"
-                                               XBindingPath="Date"
-                                               YBindingPath="Amount"
-                                               Color="Green"
-                                               StrokeWidth="3"
-                                               >
-                        </syncfusion:LineSeries>
-                    </syncfusion:SfChart.Series>
-                </syncfusion:SfChart>
-
+                        <syncfusion:SfChart.PrimaryAxis>
+                            <syncfusion:CategoryAxis>
+                                <syncfusion:CategoryAxis.MajorGridLineStyle>
+                                    <syncfusion:ChartLineStyle StrokeWidth="0" />
+                        
+                                </syncfusion:CategoryAxis.MajorGridLineStyle>
+                        
+                            </syncfusion:CategoryAxis>
+                        
+                        </syncfusion:SfChart.PrimaryAxis>
+                        
+                        <syncfusion:SfChart.SecondaryAxis>
+                            <syncfusion:NumericalAxis>
+                        
+                        
+                            </syncfusion:NumericalAxis>
+                        </syncfusion:SfChart.SecondaryAxis>
+                        
+                        <syncfusion:SfChart.Series>
+                            <syncfusion:LineSeries ItemsSource="{Binding LineChartData}"
+                                                   XBindingPath="TimeFrame"
+                                                   YBindingPath="Amount"
+                                                   Color="Green"
+                                                   StrokeWidth="3"
+                            >
+                            </syncfusion:LineSeries>
+                        </syncfusion:SfChart.Series>
+                    </syncfusion:SfChart>
+                        
+                    </StackLayout>
                 </Frame>
-                 
-
-                
                     </StackLayout>
             </StackLayout>
         </ScrollView>

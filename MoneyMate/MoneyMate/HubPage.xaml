@@ -11,7 +11,15 @@
             <Ellipse 
                 AbsoluteLayout.LayoutBounds="-105, -250, 600, 600"
                 AbsoluteLayout.LayoutFlags="None" 
-                Fill="#B6D2C4"/>
+                >
+                <Ellipse.Fill>
+                    <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
+                        <GradientStop Color="#006E2A" Offset="0.0"/>
+                        <GradientStop Color="#white" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Ellipse.Fill>
+
+            </Ellipse>
             
             <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,AutoSize"
                          AbsoluteLayout.LayoutFlags="WidthProportional">
@@ -24,14 +32,11 @@
 
 
                 <StackLayout VerticalOptions="Center" Margin="5" Padding="0,70,0,0">
-                    <Button  Clicked="Button_Clicked" Text="Cash Flow" FontSize="24" BackgroundColor="White" FontAttributes="Bold" ImageSource="drawable/cash_flow.png" CornerRadius="15" Margin="10,10,10,20" TextTransform="None"  />
-
-                    <Button Clicked="Button_Clicked_1" Text="Savings Control" ImageSource="drawable/savings.png" FontSize="24" FontAttributes="Bold" BackgroundColor="White" CornerRadius="15" Margin="10,10,10,20" TextTransform="None"/>
-
-                    <Button Clicked="Button_Clicked_2" Text="Debts Control" ImageSource="drawable/debts.png" FontSize="24" FontAttributes="Bold" BackgroundColor="White" CornerRadius="15" Margin="10,10,10,20" TextTransform="None"/>
-
-                    <Label Text="Danger zone" TextColor="darkred"/>
-                    <Button Text="Log out" Clicked="Button_Clicked_3"/>
+                    <Button  Clicked="Button_Clicked" Text="Cash Flow" FontSize="24" BackgroundColor="White" FontAttributes="Bold" ImageSource="drawable/cash_flow.png" CornerRadius="15" Margin="10,10,10,20" TextTransform="None"  /> 
+                    <Button Clicked="Button_Clicked_1" Text="Savings Control" ImageSource="drawable/savings.png" FontSize="24" FontAttributes="Bold" BackgroundColor="White" CornerRadius="15" Margin="10,10,10,20" TextTransform="None"/> 
+                     <Button Clicked="Button_Clicked_2" Text="Debts Control" ImageSource="drawable/debts.png" FontSize="24" FontAttributes="Bold" BackgroundColor="White" CornerRadius="15" Margin="10,10,10,20" TextTransform="None"/> 
+                     
+                 <Button Text="Log out" Clicked="Button_Clicked_3" BackgroundColor="White" TextColor="Red"/>
                 </StackLayout>
 
                 

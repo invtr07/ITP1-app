@@ -7,6 +7,7 @@ using System.Net.Http;
 using Xamarin.Forms;
 using Xamarin.Essentials;
 using System.Linq;
+using static SendGrid.BaseClient;
 
 namespace MoneyMate.InsightComponents
 {
@@ -18,7 +19,7 @@ namespace MoneyMate.InsightComponents
 		{
 			InitializeComponent();
 			NewsItems = new ObservableCollection<NewsItems>();
-			// GetNews();
+			GetNews();
 			BindingContext = this;
 		}
 
@@ -27,24 +28,25 @@ namespace MoneyMate.InsightComponents
 			var client = new HttpClient();
 			var request = new HttpRequestMessage
 			{
-    //             Method = HttpMethod.Get,
-    //             RequestUri = new Uri("https://reuters-business-and-financial-news.p.rapidapi.com/articles-by-trends/2024-04-18/0/20"),
-    //             Headers =
-				// {
-				// 	{ "X-RapidAPI-Key", "dd18931327mshfffafdd99574b14p1f2bbcjsn7ee577141fc2" },
-				// 	{ "X-RapidAPI-Host", "reuters-business-and-financial-news.p.rapidapi.com" },
-				// },
-            };
+				Method = HttpMethod.Get,
+				RequestUri = new Uri("https://reuters-business-and-financial-news.p.rapidapi.com/articles-by-trends/2024-01-31/0/80"),
+				Headers =
+
+								 {
+					{ "X-RapidAPI-Key", "f71ac47fa0mshbe6512b7f4ea6d3p1c0d3djsnb0b1e938c72e" },
+									 { "X-RapidAPI-Host", "reuters-business-and-financial-news.p.rapidapi.com" },
+								 },
+			};
 			using (var response = await client.SendAsync(request))
 			{
 				response.EnsureSuccessStatusCode();
 				var body = await response.Content.ReadAsStringAsync();
-
+  
 				RootObject data = JsonConvert.DeserializeObject<RootObject>(body);
-
+  
 				foreach (var item in data.articles)
 				{
-
+  
 					NewsItems.Add(new NewsItems
 					{
 						Title = item.articlesName,
@@ -59,17 +61,17 @@ namespace MoneyMate.InsightComponents
 
 		void CollectionView1_ItemTapped(System.Object sender, Xamarin.Forms.SelectionChangedEventArgs e)
 		{
-			// if (e.CurrentSelection != null && e.CurrentSelection.Count > 0)
-			// {
-			// 	var selectedItem = (NewsItems)e.CurrentSelection[0]; // Cast the selected item as your data model type
-			// 	if (selectedItem != null)
-			// 	{
-			// 		OpenLink($"https://www.reuters.com{selectedItem.Link}");
-			//
-			// 		// Optionally reset selection
-			// 		((CollectionView)sender).SelectedItem = null;
-			// 	}
-			// }
+			if (e.CurrentSelection != null && e.CurrentSelection.Count > 0)
+			{
+				var selectedItem = (NewsItems)e.CurrentSelection[0]; // Cast the selected item as your data model type
+				if (selectedItem != null)
+				{
+					OpenLink($"https://www.reuters.com{selectedItem.Link}");
+			
+					// Optionally reset selection
+					((CollectionView)sender).SelectedItem = null;
+				}
+			}
 
 		}
 		public void OpenLink(string url)
@@ -135,13 +137,51 @@ namespace MoneyMate.InsightComponents
         
     }
 
-//}
 
-
-// var selectedItem = e.CurrentSelection.FirstOrDefault() as NewsItems; 
-// if (selectedItem != null)
+//nurik071003@gmail.com - currently used
+// Method = HttpMethod.Get,
+// RequestUri = new Uri("https://reuters-business-and-financial-news.p.rapidapi.com/articles-by-trends/2024-01-31/0/80"),
+// Headers =
 // {
-//  OpenLink($"https://www.reuters.com{articleLinks[e.ItemIndex].Link}"); 
-// }
-//
-// ((CollectionView)sender).SelectedItem = null;
+// 	{ "X-RapidAPI-Key", "572e416709mshc612b0219f7f1c0p1baeaejsn608006f96dfd" },
+// 	{ "X-RapidAPI-Host", "reuters-business-and-financial-news.p.rapidapi.com" },
+// },
+
+
+//moneymateshowcase@gmail.com -1
+//Method = HttpMethod.Get,
+//				RequestUri = new Uri("https://reuters-business-and-financial-news.p.rapidapi.com/articles-by-trends/2024-01-31/0/80"),
+//				Headers =
+
+//                 {
+//    { "X-RapidAPI-Key", "f71ac47fa0mshbe6512b7f4ea6d3p1c0d3djsnb0b1e938c72e" },
+//					 { "X-RapidAPI-Host", "reuters-business-and-financial-news.p.rapidapi.com" },
+//				 },
+
+//usermoneymate123@gmail.com - 2
+//Method = HttpMethod.Get,
+//                RequestUri = new Uri("https://reuters-business-and-financial-news.p.rapidapi.com/articles-by-trends/2024-01-31/0/80"),
+//                Headers =
+
+//                 {
+//    { "X-RapidAPI-Key", "311242eee9msh8570b855b3054bcp19b5c0jsne3cae12ae0b5" },
+//					 { "X-RapidAPI-Host", "reuters-business-and-financial-news.p.rapidapi.com" },
+//				 },
+
+//nuralitop0707@gmail.com - 3
+//Method = HttpMethod.Get,
+// RequestUri = new Uri("https://reuters-business-and-financial-news.p.rapidapi.com/articles-by-trends/2024-01-31/0/80"),
+// Headers =
+// {
+// 	{ "X-RapidAPI-Key", "f0014c0ec3mshb838b24a0fd6e17p152d3bjsn4996871c7190" },
+// 	{ "X-RapidAPI-Host", "reuters-business-and-financial-news.p.rapidapi.com" },
+// },
+
+//Method = HttpMethod.Get,
+//                RequestUri = new Uri("https://reuters-business-and-financial-news.p.rapidapi.com/articles-by-trends/2024-01-31/0/80"),
+//                Headers =
+
+//                 {
+//    { "X-RapidAPI-Key", "572e416709mshc612b0219f7f1c0p1baeaejsn608006f96dfd" },
+//					 { "X-RapidAPI-Host", "reuters-business-and-financial-news.p.rapidapi.com" },
+//				 },

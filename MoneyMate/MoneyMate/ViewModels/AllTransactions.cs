@@ -1,12 +1,19 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
+using System.Threading.Tasks;
+using MoneyMate.DatabaseAccess;
+using Newtonsoft.Json.Serialization;
+using MySqlConnector;
+using System.Collections.Generic;
+
 
 namespace MoneyMate.ViewModels
 {
     public class TransactionsModel
     {
-        public string TransactionID { get; set; }
+        // public string TransactionID { get; set; }
+        public string AccountID { get; set; }
         public string Treference { get; set; }
         public DateTime DT { get; set; }
         public string Category { get; set; }
@@ -15,17 +22,24 @@ namespace MoneyMate.ViewModels
 
     public class AllTransactions : BindableObject
     {
-        public ObservableCollection<TransactionsModel> Transactions { get; set; }
-
+        private ObservableCollection<TransactionsModel> _transactions;
+        public ObservableCollection<TransactionsModel> Transactions
+        {
+            get { return _transactions; }
+            set
+            {
+                _transactions = value;
+                OnPropertyChanged();
+            }
+        }
+        
         public AllTransactions()
         {
-            Transactions = new ObservableCollection<TransactionsModel>{
-                new TransactionsModel{ TransactionID="123", Treference="Lloydsbank", DT= new DateTime(2024, 4, 6, 10, 30, 0),Category="Food" , Amount= 500.00m},
-                new TransactionsModel{ TransactionID="123", Treference="Lloydsbank", DT= new DateTime(2024, 4, 6, 10, 30, 0),Category="Monthly Fees", Amount= 500.00m},
-                new TransactionsModel{ TransactionID="123", Treference="Lloydsbank", DT= new DateTime(2024, 4, 6, 10, 30, 0), Category="Interest", Amount= 500.00m},
-                new TransactionsModel{ TransactionID="123", Treference="Lloydsbank", DT= new DateTime(2024, 4, 6, 10, 30, 0), Category="Income", Amount= 500.00m},
-            };
-
+            Transactions = new ObservableCollection<TransactionsModel>();
         }
+        
+        
+        
     }
 }
+

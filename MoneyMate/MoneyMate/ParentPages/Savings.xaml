@@ -3,58 +3,85 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:syncfusion="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
-    x:Class="MoneyMate.ParentPages.Savings">
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    x:Class="MoneyMate.ParentPages.Savings"
+    BackgroundColor="#F2F2F7">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Padding="10">
+            <StackLayout Padding="3" Margin="0,5">
                 <!-- Savings Account Section -->
-                <Frame CornerRadius="10" Padding="15" BackgroundColor="White">
+                <Frame CornerRadius="10" Padding="15" BackgroundColor="White" Margin="10,0,10,0">
                     <StackLayout>
-                        <Label Text="Total savings" FontAttributes="Bold"  TextColor="Black" FontSize="20" HorizontalOptions="Center"/>
+                        <Label Text="Total savings" FontAttributes="Bold"  TextColor="Black" FontSize="22" HorizontalOptions="Center"/>
                         <StackLayout Orientation="Horizontal" >
-                            <Label Text="Easy Saver"/>
+                            <Label Text="Easy Saver" FontAttributes="Bold"  TextColor="Black"/>
                             <StackLayout HorizontalOptions="EndAndExpand">
-                                <Label Text="£ 5,000.00" HorizontalOptions="EndAndExpand"/>
-                                <Label Text="interest: 1.4%" HorizontalOptions="EndAndExpand"/>
+                                <Label x:Name="EasySaverLabel" Text="£0" HorizontalOptions="EndAndExpand" TextColor="DarkGreen" FontAttributes="Bold"/>
+                                <Label Text="1.4%" HorizontalOptions="EndAndExpand" TextColor="DarkGreen" />
                 
                             </StackLayout>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal" >
-                            <Label Text="Advantage Saver"/>
+                            <Label Text="Advantage Saver" FontAttributes="Bold"  TextColor="Black"/>
                             <StackLayout HorizontalOptions="EndAndExpand">
-                                <Label Text="£ 3,000.00" HorizontalOptions="EndAndExpand"/>
-                                <Label Text="interest: 4.0%" HorizontalOptions="EndAndExpand"/>
+                                <Label x:Name="AdvSaverLabel" Text="£0" HorizontalOptions="EndAndExpand" TextColor="DarkGreen" FontAttributes="Bold"/>
+                                <Label Text="4.0%" HorizontalOptions="EndAndExpand" TextColor="DarkGreen" />
                             </StackLayout>
                         </StackLayout>
                     </StackLayout>
                 </Frame>
 
                 <!-- Chart Section -->
-                <Frame CornerRadius="10" Padding="15" BackgroundColor="White" Margin="0,10,0,0">
-                    <syncfusion:SfChart x:Name="LineChart" BindingContext="{Binding LineChartModel}" HeightRequest="228">
+                <Frame CornerRadius="15" Padding="15" HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="10,0,10,0">
+                    
+                    <StackLayout>
+                        <buttons:SfSegmentedControl x:Name="trendSegmentedControl"
+                                                DisplayMode="Text"
+                                                VisibleSegmentsCount="2"
+                                                BorderColor="Transparent"
+                                                BackgroundColor="Transparent"
+                                                FontColor="Black"
+                                                SelectionChanged="OnSelectionChanged">
+                            <buttons:SfSegmentedControl.SelectionIndicatorSettings>
+                                <buttons:SelectionIndicatorSettings 
+                                    CornerRadius="15"
+                                    Color="#1a7d3f">
+                                </buttons:SelectionIndicatorSettings>
+                            </buttons:SfSegmentedControl.SelectionIndicatorSettings>
+                            
+                            <buttons:SfSegmentedControl.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Weekly</x:String>
+                                    <x:String>Monthly</x:String>
+                                </x:Array>
+                            </buttons:SfSegmentedControl.ItemsSource>
+                        </buttons:SfSegmentedControl>
+                    <syncfusion:SfChart x:Name="lineChart" BindingContext="{Binding LineChartModel}"  HeightRequest="250">
                         <syncfusion:SfChart.Title>
-                            <syncfusion:ChartTitle Text="Saving dynamics during last 30 days"/>
+                            <syncfusion:ChartTitle Text="Saving accounts transaction dynamics"/>
                         </syncfusion:SfChart.Title>
-                   
+                        
                         <syncfusion:SfChart.PrimaryAxis>
                             <syncfusion:CategoryAxis>
                                 <syncfusion:CategoryAxis.MajorGridLineStyle>
                                     <syncfusion:ChartLineStyle StrokeWidth="0" />
+                        
                                 </syncfusion:CategoryAxis.MajorGridLineStyle>
-
+                        
                             </syncfusion:CategoryAxis>
                         
                         </syncfusion:SfChart.PrimaryAxis>
-
+                        
                         <syncfusion:SfChart.SecondaryAxis>
                             <syncfusion:NumericalAxis>
-
+                        
+                        
                             </syncfusion:NumericalAxis>
                         </syncfusion:SfChart.SecondaryAxis>
-
+                        
                         <syncfusion:SfChart.Series>
                             <syncfusion:LineSeries ItemsSource="{Binding LineChartData}"
-                                                   XBindingPath="Date"
+                                                   XBindingPath="TimeFrame"
                                                    YBindingPath="Amount"
                                                    Color="Green"
                                                    StrokeWidth="3"
@@ -62,7 +89,42 @@
                             </syncfusion:LineSeries>
                         </syncfusion:SfChart.Series>
                     </syncfusion:SfChart>
+                        
+                    </StackLayout>
                 </Frame>
+                <!-- <Frame CornerRadius="10" Padding="15" BackgroundColor="White" Margin="0,10,0,0"> -->
+                <!--     <syncfusion:SfChart x:Name="LineChart" BindingContext="{Binding LineChartModel}" HeightRequest="228"> -->
+                <!--         <syncfusion:SfChart.Title> -->
+                <!--             <syncfusion:ChartTitle Text="Saving dynamics during last 30 days"/> -->
+                <!--         </syncfusion:SfChart.Title> -->
+                <!--     -->
+                <!--         <syncfusion:SfChart.PrimaryAxis> -->
+                <!--             <syncfusion:CategoryAxis> -->
+                <!--                 <syncfusion:CategoryAxis.MajorGridLineStyle> -->
+                <!--                     <syncfusion:ChartLineStyle StrokeWidth="0" /> -->
+                <!--                 </syncfusion:CategoryAxis.MajorGridLineStyle> -->
+                <!-- -->
+                <!--             </syncfusion:CategoryAxis> -->
+                <!--          -->
+                <!--         </syncfusion:SfChart.PrimaryAxis> -->
+                <!-- -->
+                <!--         <syncfusion:SfChart.SecondaryAxis> -->
+                <!--             <syncfusion:NumericalAxis> -->
+                <!-- -->
+                <!--             </syncfusion:NumericalAxis> -->
+                <!--         </syncfusion:SfChart.SecondaryAxis> -->
+                <!-- -->
+                <!--         <syncfusion:SfChart.Series> -->
+                <!--             <syncfusion:LineSeries ItemsSource="{Binding LineChartData}" -->
+                <!--                                    XBindingPath="Date" -->
+                <!--                                    YBindingPath="Amount" -->
+                <!--                                    Color="Green" -->
+                <!--                                    StrokeWidth="3" -->
+                <!--             > -->
+                <!--             </syncfusion:LineSeries> -->
+                <!--         </syncfusion:SfChart.Series> -->
+                <!--     </syncfusion:SfChart> -->
+                <!-- </Frame> -->
                
 
                 <!-- Transactions Section -->

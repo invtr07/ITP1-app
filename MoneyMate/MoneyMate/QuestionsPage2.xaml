@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MoneyMate.QuestionsPage2"
+             >
+    <ContentPage.Content>
+        <ScrollView>
+            
+            
+            <StackLayout Padding="20" Spacing="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            
+                
+        
+        <StackLayout Margin="10">
+            <Label Text="How frequently do you use credit cards for purchases?" FontSize="16" TextColor="#006E2A" FontAttributes="Bold"/>
+            <Frame CornerRadius="5" BorderColor="Black" BackgroundColor="Transparent">
+                <Editor HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" HeightRequest="80" Placeholder="Enter your response here ..." />
+
+            </Frame>
+        </StackLayout>
+        
+        <StackLayout Margin="10">
+            <Label Text="Do you have any recurring subscriptions or memberships? If so, what types? (e.g., streaming services, gym memberships)" FontSize="16" TextColor="#006E2A" FontAttributes="Bold"/>
+            <Frame CornerRadius="5" BorderColor="Black" BackgroundColor="Transparent">
+                <Editor HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" HeightRequest="80" Placeholder="Enter your response here ..."/>
+
+            </Frame>
+        </StackLayout>
+        
+        <StackLayout Margin="10">
+            <Label Text="How often do you make large purchases (e.g., electronics, furniture, vacations)?" FontSize="16" TextColor="#006E2A" FontAttributes="Bold"/>
+            <Frame CornerRadius="5" BorderColor="Black" BackgroundColor="Transparent">
+                <Editor HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" HeightRequest="80" Placeholder="Enter your response here ..."/>
+
+            </Frame>
+        </StackLayout>
+        
+        <StackLayout Margin="10">
+            <Label Text="Do you have any outstanding debts? If so, what types? (e.g., student loans, mortgage, car loans)" FontSize="16" TextColor="#006E2A" FontAttributes="Bold"/>
+            
+            <Frame CornerRadius="5" BorderColor="Black" BackgroundColor="Transparent">
+                <Editor HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" HeightRequest="80" Placeholder="Enter your response here ..."/>
+
+            </Frame>
+        </StackLayout>
+        
+        <StackLayout Margin="10">
+            <Label Text="How do you prioritise spending on necessities versus discretionary items?" FontSize="16" TextColor="#006E2A" FontAttributes="Bold"/>
+            <Frame CornerRadius="5" BorderColor="Black" BackgroundColor="Transparent">
+                <Editor HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" HeightRequest="80" Placeholder="Enter your response here ..." />
+
+            </Frame>
+        </StackLayout>
+            
+            <Button Clicked="Button_OnClicked" Text="Next" Margin="12" BackgroundColor="#006E2A" TextColor="White" WidthRequest="300" CornerRadius="15"/>
+            </StackLayout>
+        </ScrollView>
+        
+        
+    </ContentPage.Content>
+</ContentPage>
