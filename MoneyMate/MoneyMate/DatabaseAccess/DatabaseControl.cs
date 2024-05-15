@@ -16,7 +16,7 @@ namespace MoneyMate.DatabaseAccess
     public class DatabaseControl
     {
         // public MySqlConnection localConnection = App.dbConnection;
-        public string connString = "server=dbhost.cs.man.ac.uk;user=y95106bt;password=Maxwell8899;database=y95106bt";
+        public string connString = "server=****;user=***;password=***;database=***";
 
         public async Task<ObservableCollection<TransactionsModel>> LoadTransactions(int product1, int product2, int limit)
         {
