@@ -10,5 +10,7 @@ Our app’s key features address problems of user groups like budgeters, overspe
 - Money pots - feature for creating goal-based pots that will motivate user to save more and potentially spend for non-essentials less
 - Debts control - page that provides comprehensive view of all credit and overdraft accounts.
 
+Demo of the app: https://www.linkedin.com/posts/nurali-murat_itmb-activity-7196564843900923907-RXRm?utm_source=share&utm_medium=member_desktop
+
 P.s. 
 App cannot be launched without being connected to University of Manchester's private wi-fi network, eduroam, is required and database credentials.
